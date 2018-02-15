@@ -1,0 +1,98 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+
+                template="/templates/template.xhtml">
+    <ui:define name="content">
+
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <h1>iWelt University</h1>
+                    <h:form id="form">
+                        <p:growl id="table" showDetail="true"/>
+
+                        <p:dataTable id="presentationEdit" var="entry" value="#{customerBean.customers}"
+                                     editable="true"
+                                     style="margin-bottom:20px"
+                                     filteredValue="#{customerBean.dataObjectModel.filteredDataObjectList}"
+
+                                     emptyMessage="Keine Daten vorhanden." sortBy="#{entry.firstName}"
+                                     rowKey="#{entry.id}">
+
+                            <f:facet name="header">
+                                <h:outputLink value="/university/secured/university/edit/new">
+                                    <h:outputText value="Neuen Vortrag anlegen"/>
+                                </h:outputLink>
+                                <div style="clear:both"/>
+                            </f:facet>
+
+
+                            <p:column headerText="Firmenbezeichnung" sortBy="#{entry.firstName}"
+                                      filterBy="#{entry.topic}"
+                                      filterMatchMode="contains">
+                            </p:column>
+
+                            <p:ajax event="cellEdit" listener="#{editRolesView.onCellEdit}"
+                                    update=":form:table :form:presentationEdit"/>
+
+
+                            <p:column headerText="Gruppe" sortBy="#{presentationBean.getGroupName(entry)}"
+                                      filterBy="#{presentationBean.getGroupName(entry)}"
+                                      filterMatchMode="contains">
+
+                                <h:outputText value="#{presentationBean.getGroupName(entry)}"/>
+
+
+                            </p:column>
+
+                            <p:column headerText="Beschreibung" sortBy="#{entry.description}"
+                                      filterBy="#{entry.description}"
+                                      filterMatchMode="contains">
+
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{entry.description}"/></f:facet>
+                                    <f:facet name="input"><p:inputText id="inputDescription"
+                                                                       value="#{entry.description}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column headerText="Dauer (min)" sortBy="#{entry.duration}" filterBy="#{entry.duration}"
+                                      filterMatchMode="contains">
+
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{entry.duration}"/></f:facet>
+                                    <f:facet name="input"><p:inputNumber id="inputDuration" value="#{entry.duration}"
+                                                                         style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column headerText="Referenten" sortBy="#{entry.referent}" filterBy="#{entry.referent}"
+                                      filterMatchMode="contains">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{entry.referent}"/></f:facet>
+                                    <f:facet name="input"><p:inputText id="inputReferent" value="#{entry.referent}"
+                                                                       style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column style="width:32px">
+                                <p:rowEditor rendered="#{dtEditView.isFromUser2(entry)}"/>
+                            </p:column>
+
+                            <f:facet name="footer">
+                                <h:outputLink value="/university/secured/university/interest/new">
+                                    <h:outputText value="Interessieren Sie sich für einen Vortrag?"/>
+                                </h:outputLink>
+                                <div style="clear:both"/>
+                            </f:facet>
+                        </p:dataTable>
+
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

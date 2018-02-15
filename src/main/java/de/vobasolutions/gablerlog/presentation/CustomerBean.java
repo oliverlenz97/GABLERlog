@@ -44,3 +44,5 @@ public class CustomerBean {
         this.customers = customers;
     }
 }
+
+//DB Daten abrufen
