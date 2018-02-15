@@ -1,13 +1,13 @@
-package de.vobasolutions.gablerlog.presentation;
-
+package de.vobasolutions.gablerlog.model;
 import javax.faces.bean.ManagedBean;
 
+
 @ManagedBean
-public class LoginBean {
-    private String userName = "test";
+public class Login {
+    private String userName;
     // von DB alle user durchsuchen nach username
     // password speichern und überprüfen
-    private String password= "test";
+    private String password;
 
     public boolean login() {
         String un = "test";
@@ -30,4 +30,6 @@ public class LoginBean {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }

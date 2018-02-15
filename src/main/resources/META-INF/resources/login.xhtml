@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>PrimeFaces Hello World Example</title>
+</h:head>
+<h:body>
+    <h:form id="hello-world">
+        <p:panel header="Gabler Log - Login">
+            <h:panelGrid columns="2" cellpadding="4">
+                <h:outputText value="Username: "/>
+                <p:inputText id="username" value="#{login.userName}"/>
+                <h:outputText value="Password: " feedback="false"/>
+                <p:password placeholder="Password" value="#{login.password}" feedback="false" />
+
+            </h:panelGrid>
+            <p:commandButton value="Login" id="loginButton" ajax="false" />
+
+            <p:commandButton type="submit" id="loginButton2" action="#{login.login}"
+                             value="Anmelden" ajax="false" icon="fa fa-check" />
+
+            <p:link href="http://www.iwelt.de" rendered="#{login.login}"> </p:link>
+
+        </p:panel>
+    </h:form>
+</h:body>
+</html>
