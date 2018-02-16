@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Fahrerübersich</title>
+    <title>Fahrerübersicht</title>
 </h:head>
 <h:body>
     <h:form>
@@ -40,7 +40,13 @@
         </p:menubar>
     </h:form>
     <h:form id="drivers">
-        <p:dataTable var="entry" value="#{driverBean.drivers}" emptyMessage="Keine Fahrer vorhanden">
+        <p:dataTable var="entry" value="#{driverBean.drivers}" emptyMessage="Keine Kunden vorhanden">
+
+            <f:facet name="header">
+                <h:outputText value="Fahrerübersicht"/>
+                <div style="clear:both"/>
+            </f:facet>
+
             <p:column headerText="Vorname">
                 <h:outputText value="#{entry.foreName}"/>
             </p:column>
@@ -56,7 +62,6 @@
             <p:column headerText="Id">
                 <h:outputText value="#{entry.driverId}"/>
             </p:column>
-
 
             <f:facet name="footer">
                 <h:outputLink url="http://localhost:8080/addNewCustomer.xhtml">
