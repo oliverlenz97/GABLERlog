@@ -1,4 +1,4 @@
-package de.vobasolutions.gablerlog.controller;
+package de.klsssolution.gablerlog.controller;
 
 import com.sun.faces.action.RequestMapping;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

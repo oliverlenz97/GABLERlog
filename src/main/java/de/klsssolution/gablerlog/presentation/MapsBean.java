@@ -1,4 +1,4 @@
-package de.vobasolutions.gablerlog.presentation;
+package de.klsssolution.gablerlog.presentation;
 
 import com.google.maps.DirectionsApi;
 import com.google.maps.DirectionsApiRequest;

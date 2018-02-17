@@ -1,4 +1,4 @@
-package de.vobasolutions.gablerlog.presentation;
+package de.klsssolution.gablerlog.presentation;
 
 import javax.faces.bean.ManagedBean;
 

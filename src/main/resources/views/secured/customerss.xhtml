@@ -14,10 +14,10 @@
                     <h:form id="form">
                         <p:growl id="table" showDetail="true"/>
 
-                        <p:dataTable id="presentationEdit" var="entry" value="#{customerBean.customers}"
+                        <p:dataTable id="presentationEdit" var="entry" value="#{kundenBean.kundes}"
                                      editable="true"
                                      style="margin-bottom:20px"
-                                     filteredValue="#{customerBean.dataObjectModel.filteredDataObjectList}"
+                                     filteredValue="#{kundenBean.dataObjectModel.filteredDataObjectList}"
 
                                      emptyMessage="Keine Daten vorhanden." sortBy="#{entry.firstName}"
                                      rowKey="#{entry.id}">

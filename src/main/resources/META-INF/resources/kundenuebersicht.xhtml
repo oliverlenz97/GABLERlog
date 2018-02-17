@@ -7,20 +7,20 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Fahrerübersicht</title>
+    <title>Kundenübersicht</title>
 </h:head>
 <h:body>
     <h:form>
         <p:growl id="messages"/>
 
         <p:menubar>
-            <p:menuitem value="Fahrerübersicht" url="http://localhost:8080/allDrivers.xhtml"/>
+            <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
 
-            <p:menuitem value="Kunden" url="http://localhost:8080/allCustomers.xhtml"/>
+            <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
 
             <p:menuitem value="Tour" url="http://www.primefaces.org"/>
 
-            <p:menuitem value="Maps" url="http://localhost:8080/maps.xhtml"/>
+            <p:menuitem value="Maps" url="/maps.xhtml"/>
 
 
             <p:submenu label="Help" icon="ui-icon-help">
@@ -39,33 +39,29 @@
             </f:facet>
         </p:menubar>
     </h:form>
-    <h:form id="drivers">
-        <p:dataTable var="entry" value="#{driverBean.drivers}" emptyMessage="Keine Kunden vorhanden">
+    <h:form id="customers">
+        <p:dataTable var="entry" value="#{kundenBean.kunden}" emptyMessage="Keine Kunden vorhanden">
 
             <f:facet name="header">
-                <h:outputText value="Fahrerübersicht"/>
+                <h:outputText value="Kundenübersicht"/>
                 <div style="clear:both"/>
             </f:facet>
 
             <p:column headerText="Vorname">
-                <h:outputText value="#{entry.foreName}"/>
+                <h:outputText value="#{entry.vorname}"/>
             </p:column>
 
             <p:column headerText="Nachname">
-                <h:outputText value="#{entry.lastName}"/>
-            </p:column>
-
-            <p:column headerText="Führerscheinklasse">
-                <h:outputText value="#{entry.licenceString}"/>
+                <h:outputText value="#{entry.nachname}"/>
             </p:column>
 
             <p:column headerText="Id">
-                <h:outputText value="#{entry.driverId}"/>
+                <h:outputText value="#{entry.kundenId}"/>
             </p:column>
 
             <f:facet name="footer">
-                <h:outputLink url="http://localhost:8080/addNewCustomer.xhtml">
-                    <h:outputText value="Fahrer anlegen"/>
+                <h:outputLink url="http://localhost:8080/kundeHinzufuegen.xhtml">
+                    <h:outputText value="Kunde anlegen"/>
                 </h:outputLink>
                 <div style="clear:both"/>
             </f:facet>
