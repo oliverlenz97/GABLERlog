@@ -9,7 +9,7 @@
 <h:head>
     <title>Routenplanung</title>
     <style>
-        #map{
+        #map {
             height: 700px;
             width: 700px;
         }
@@ -45,17 +45,22 @@
         </f:facet>
     </p:menubar>
 </h:form>
+
 <h:form>
     <p:growl id="growl" life="3000"/>
     <h:outputText value="Startadresse: "/>
-    <p:inputText id="startadresse" value="#{mapsBean.startAdresse}" />
+    <p:inputText id="startadresse" value="#{mapsBean.startAdresse}"/>
     <h:outputText value="Zieladresse: "/>
     <p:inputText id="zieladresse" value="#{mapsBean.zielAdresse}"/>
 </h:form>
+
 <button onclick="calcRoute();">Let's Go!</button>
+
 <div id="map"></div>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCISoSZlMcK_DOofSeZF0-CxSyoOEwOypM"
         type="text/javascript"></script>
+
 <script type="text/javascript">
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 50.111494, lng: 8.680165},
