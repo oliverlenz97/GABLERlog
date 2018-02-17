@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Fahrerübersicht</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:growl id="messages"/>
+
+        <p:menubar>
+            <p:menuitem value="Fahrerübersicht" url="http://localhost:8080/allDrivers.xhtml"/>
+
+            <p:menuitem value="Kunden" url="http://localhost:8080/allCustomers.xhtml"/>
+
+            <p:menuitem value="Tour" url="http://www.primefaces.org"/>
+
+            <p:menuitem value="Maps" url="http://localhost:8080/maps.xhtml"/>
+
+
+            <p:submenu label="Help" icon="ui-icon-help">
+                <p:menuitem value="Contents" url="#"/>
+                <p:submenu label="Search" icon="ui-icon-search">
+                    <p:submenu label="Text">
+                        <p:menuitem value="Workspace" url="#"/>
+                    </p:submenu>
+                    <p:menuitem value="File" url="#"/>
+                </p:submenu>
+            </p:submenu>
+
+            <f:facet name="options">
+                <p:inputText style="margin-right:10px" placeholder="Search"/>
+                <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"/>
+            </f:facet>
+        </p:menubar>
+    </h:form>
+    <h:form id="drivers">
+        <p:dataTable var="entry" value="#{driverBean.drivers}" emptyMessage="Keine Kunden vorhanden">
+
+            <f:facet name="header">
+                <h:outputText value="Fahrerübersicht"/>
+                <div style="clear:both"/>
+            </f:facet>
+
+            <p:column headerText="Vorname">
+                <h:outputText value="#{entry.foreName}"/>
+            </p:column>
+
+            <p:column headerText="Nachname">
+                <h:outputText value="#{entry.lastName}"/>
+            </p:column>
+
+            <p:column headerText="Führerscheinklasse">
+                <h:outputText value="#{entry.licenceString}"/>
+            </p:column>
+
+            <p:column headerText="Id">
+                <h:outputText value="#{entry.driverId}"/>
+            </p:column>
+
+            <f:facet name="footer">
+                <h:outputLink url="http://localhost:8080/addNewCustomer.xhtml">
+                    <h:outputText value="Fahrer anlegen"/>
+                </h:outputLink>
+                <div style="clear:both"/>
+            </f:facet>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>
