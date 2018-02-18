@@ -4,10 +4,10 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class Fahrer {
-    public String fuehrerscheinKlasse;
-    public String vorname;
-    public String nachname;
-    public Integer driverId;
+    private String fuehrerscheinKlasse;
+    private String vorname;
+    private String nachname;
+    private Integer driverId;
 
 
     public String getFuehrerscheinKlasse() {
