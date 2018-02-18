@@ -2,9 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
     <title>PrimeFaces Hello World Example</title>
@@ -14,9 +12,9 @@
         <p:panel header="PrimeFaces Hello World Example">
             <h:panelGrid columns="2" cellpadding="4">
                 <h:outputText value="First Name: "/>
-                <p:inputText id="first-name" value="#{customer.firstName}"/>
+                <p:inputText id="first-name" value="#{kunde.firstName}"/>
                 <h:outputText value="Last Name: "/>
-                <p:inputText id="last-name" value="#{customer.lastName}"/>
+                <p:inputText id="last-name" value="#{kunde.lastName}"/>
 
                 <!--<p:commandButton id="submit" value="Submit" update="greeting"  oncomplete="PF('greetingDialog').show()" />-->
             </h:panelGrid>
@@ -24,7 +22,7 @@
 
         <p:dialog header="Greeting" widgetVar="greetingDialog" modal="true" resizable="false">
             <h:panelGrid id="greeting" columns="1" cellpadding="4">
-                <h:outputText value="#{customer.showGreeting()}"/>
+                <h:outputText value="#{kunde.showGreeting()}"/>
             </h:panelGrid>
         </p:dialog>
     </h:form>

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Fahrerübersicht</title>
+    <title>Auftragsübersicht</title>
 </h:head>
 <h:body>
     <h:form>
@@ -45,33 +44,39 @@
         </p:menubar>
     </h:form>
     <h:form id="drivers">
-        <p:dataTable var="entry" value="#{fahrerBean.fahrer}" emptyMessage="Keine Kunden vorhanden">
+        <p:dataTable var="entry" value="#{auftragsBean.auftraege}" emptyMessage="Keine Kunden vorhanden">
 
             <f:facet name="header">
-                <h:outputText value="Fahrerübersicht"/>
+                <h:outputText value="Auftragsübersicht"/>
                 <div style="clear:both"/>
             </f:facet>
 
-            <p:column headerText="Vorname">
-                <h:outputText value="#{entry.vorname}"/>
+            <p:column headerText="Auftragsnummer">
+                <h:outputText value="#{entry.auftragsnummer}"/>
             </p:column>
 
-            <p:column headerText="Nachname">
-                <h:outputText value="#{entry.nachname}"/>
+            <p:column headerText="Kunde">
+                <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
             </p:column>
 
-            <p:column headerText="Führerscheinklasse">
-                <h:outputText value="#{entry.fuehrerscheinKlasse}"/>
+            <p:column headerText="Startadresse">
+                <h:outputText value="#{entry.startadresse}"/>
             </p:column>
 
-            <p:column headerText="Id">
-                <h:outputText value="#{entry.fahrerId}"/>
+            <p:column headerText="Zieladresse">
+                <h:outputText value="#{entry.zieladresse}"/>
             </p:column>
+
+            <p:column headerText="Ladung">
+                <h:outputText value="#{entry.ladung.beschreibung}"/>
+            </p:column>
+
+            <!-- url="/auftragAnlegen.xhtml" -->
 
             <f:facet name="footer">
-                <h:outputLink url="http://localhost:8080/kundeHinzufuegen.xhtml">
-                    <h:outputText value="Fahrer anlegen"/>
-                </h:outputLink>
+                <h:link outcome="/auftragAnlegen.xhtml">
+                    <h:outputText value="Auftrag anlegen"/>
+                </h:link>
                 <div style="clear:both"/>
             </f:facet>
         </p:dataTable>
