@@ -10,7 +10,7 @@ import java.util.List;
 
 @ManagedBean
 @ViewScoped
-public class DriverBean {
+public class FahrerBean {
     private List<Fahrer> fahrer;
 
     public List<Fahrer> getFahrer() {

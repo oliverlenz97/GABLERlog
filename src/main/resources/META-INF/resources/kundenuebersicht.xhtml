@@ -18,7 +18,12 @@
 
             <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
 
-            <p:menuitem value="Tour" url="/touruebersicht.xhtml"/>
+            <p:submenu label="Aufträge">
+                <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
+                <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
+            </p:submenu>
+
+            <p:menuitem value="Tour" url="http://www.primefaces.org"/>
 
             <p:menuitem value="Maps" url="/maps.xhtml"/>
 
@@ -47,12 +52,12 @@
                 <div style="clear:both"/>
             </f:facet>
 
-            <p:column headerText="Vorname">
-                <h:outputText value="#{entry.vorname}"/>
+            <p:column headerText="Firma">
+                <h:outputText value="#{entry.firmenbezeichnung}"/>
             </p:column>
 
-            <p:column headerText="Nachname">
-                <h:outputText value="#{entry.nachname}"/>
+            <p:column headerText="Ansprechpartner">
+                <h:outputText value="#{entry.ansprechpartner}"/>
             </p:column>
 
             <p:column headerText="Id">

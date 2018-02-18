@@ -4,33 +4,31 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class Kunde {
-    private String vorname = "John";
-    private String nachname = "Doe";
+    private String firmenbezeichnung;
+    private String ansprechpartner;
     private Integer kundenId;
 
-    public String getVorname() {
-        return vorname;
+    public String getFirmenbezeichnung() {
+        return firmenbezeichnung;
     }
 
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
+    public void setFirmenbezeichnung(String firmenbezeichnung) {
+        this.firmenbezeichnung = firmenbezeichnung;
     }
 
-    public String getNachname() {
-        return nachname;
+    public String getAnsprechpartner() {
+        return ansprechpartner;
     }
 
-    public void setNachname(String nachname) {
-        this.nachname = nachname;
+    public void setAnsprechpartner(String ansprechpartner) {
+        this.ansprechpartner = ansprechpartner;
     }
 
     public Integer getKundenId() {
         return kundenId;
     }
 
-    public void setKundenId(Integer customerId) {
+    public void setKundenId(Integer kundenId) {
         this.kundenId = kundenId;
     }
-
-
 }
