@@ -3,8 +3,6 @@ package de.klsssolution.gablerlog.model;
 public class Auftrag {
     private Kunde kunde;
     private Ladung ladung;
-    private String startadresse;
-    private String zieladresse;
     private int auftragsnummer;
     private String status = "Erfasst";
     private Route route;
@@ -24,22 +22,6 @@ public class Auftrag {
 
     public void setLadung(Ladung ladung) {
         this.ladung = ladung;
-    }
-
-    public String getStartadresse() {
-        return startadresse;
-    }
-
-    public void setStartadresse(String startadresse) {
-        this.startadresse = startadresse;
-    }
-
-    public String getZieladresse() {
-        return zieladresse;
-    }
-
-    public void setZieladresse(String zieladresse) {
-        this.zieladresse = zieladresse;
     }
 
     public int getAuftragsnummer() {
@@ -65,5 +47,7 @@ public class Auftrag {
     public void setRoute(Route route) {
         this.route = route;
     }
+
+
 }
 

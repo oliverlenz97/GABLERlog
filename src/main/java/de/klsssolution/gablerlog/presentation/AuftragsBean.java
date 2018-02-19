@@ -3,10 +3,8 @@ package de.klsssolution.gablerlog.presentation;
 import de.klsssolution.gablerlog.model.*;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +14,21 @@ public class AuftragsBean {
 
     private Kunde kunde;
     private Ladung ladung;
-    private String startadresse = "";
-    private String zieladresse = "";
+
+    public String startStrasse;
+    public String startOrt;
+    public String startLand;
+    public int startHausnummer;
+    public String startZusatz;
+    public int startPostleitzahl;
+
+    public String zielStrasse;
+    public String zielOrt;
+    public String zielLand;
+    public int zielHausnummer;
+    public String zielZusatz;
+    public int zielPostleitzahl;
+
     private int auftragsnummer = 0;
     private String status = "Erfasst";
 
@@ -35,22 +46,6 @@ public class AuftragsBean {
 
     public void setLadung(Ladung ladung) {
         this.ladung = ladung;
-    }
-
-    public String getStartadresse() {
-        return startadresse;
-    }
-
-    public void setStartadresse(String startadresse) {
-        this.startadresse = startadresse;
-    }
-
-    public String getZieladresse() {
-        return zieladresse;
-    }
-
-    public void setZieladresse(String zieladresse) {
-        this.zieladresse = zieladresse;
     }
 
     public int getAuftragsnummer() {
@@ -79,11 +74,108 @@ public class AuftragsBean {
         return auftraege;
     }
 
+    public String getStartStrasse() {
+        return startStrasse;
+    }
+
+    public void setStartStrasse(String startStrasse) {
+        this.startStrasse = startStrasse;
+    }
+
+    public String getStartOrt() {
+        return startOrt;
+    }
+
+    public void setStartOrt(String startOrt) {
+        this.startOrt = startOrt;
+    }
+
+    public String getStartLand() {
+        return startLand;
+    }
+
+    public void setStartLand(String startLand) {
+        this.startLand = startLand;
+    }
+
+    public int getStartHausnummer() {
+        return startHausnummer;
+    }
+
+    public void setStartHausnummer(int startHausnummer) {
+        this.startHausnummer = startHausnummer;
+    }
+
+    public String getStartZusatz() {
+        return startZusatz;
+    }
+
+    public void setStartZusatz(String startZusatz) {
+        this.startZusatz = startZusatz;
+    }
+
+    public int getStartPostleitzahl() {
+        return startPostleitzahl;
+    }
+
+    public void setStartPostleitzahl(int startPostleitzahl) {
+        this.startPostleitzahl = startPostleitzahl;
+    }
+
+    public String getZielStrasse() {
+        return zielStrasse;
+    }
+
+    public void setZielStrasse(String zielStrasse) {
+        this.zielStrasse = zielStrasse;
+    }
+
+    public String getZielOrt() {
+        return zielOrt;
+    }
+
+    public void setZielOrt(String zielOrt) {
+        this.zielOrt = zielOrt;
+    }
+
+    public String getZielLand() {
+        return zielLand;
+    }
+
+    public void setZielLand(String zielLand) {
+        this.zielLand = zielLand;
+    }
+
+    public int getZielHausnummer() {
+        return zielHausnummer;
+    }
+
+    public void setZielHausnummer(int zielHausnummer) {
+        this.zielHausnummer = zielHausnummer;
+    }
+
+    public String getZielZusatz() {
+        return zielZusatz;
+    }
+
+    public void setZielZusatz(String zielZusatz) {
+        this.zielZusatz = zielZusatz;
+    }
+
+    public int getZielPostleitzahl() {
+        return zielPostleitzahl;
+    }
+
+    public void setZielPostleitzahl(int zielPostleitzahl) {
+        this.zielPostleitzahl = zielPostleitzahl;
+    }
+
     @PostConstruct
     public void setup() {
         List<Auftrag> auftraege = new ArrayList<Auftrag>();
 
         Auftrag auftrag1 = new Auftrag();
+        Route route = new Route();
         auftrag1.setAuftragsnummer(0001);
         Kunde kunde1 = new Kunde();
         kunde1.setKundenId(1);
@@ -100,11 +192,22 @@ public class AuftragsBean {
         ladung1.setKategorie("Haushalt");
         ladung1.setLaenge(0.8);
         auftrag1.setLadung(ladung1);
-        auftrag1.setRoute(new Route());
-        auftrag1.setStartadresse("Retzstadt");
         auftrag1.setStatus("Erfasst");
-        auftrag1.setZieladresse("Karlstadt");
 
+        Adresse startadresse = new Adresse();
+        Adresse zieladresse = new Adresse();
+        startadresse.setOrt("Retzstadt");
+        zieladresse.setOrt("Würzburg");
+        startadresse.setPostleitzahl(33);
+        zieladresse.setPostleitzahl(12);
+        startadresse.setStrasse("Hauptstraße");
+        zieladresse.setStrasse("Marktplatz");
+        startadresse.setLand("Deutschland");
+        zieladresse.setLand("Deutschland");
+
+        route.setStartadresse(startadresse);
+        route.setZieladresse(zieladresse);
+        auftrag1.setRoute(route);
         auftraege.add(auftrag1);
 
         this.auftraege = auftraege;
@@ -112,22 +215,33 @@ public class AuftragsBean {
 
     public void auftragHinzufuegen() {
 
-        //System.out.println("Button ausgeführt");
-        //  System.out.println(startadresse);
+        Auftrag neuerAuftrag = new Auftrag();
+        //neuerAuftrag.setKunde(kunde);
 
-        if (isEmpty(startadresse) || isEmpty(zieladresse)) { //|| kunde == null
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Fehlende Angabe", ""));
-        } else {
+        Route route = new Route();
+        Adresse startadresse = new Adresse();
+        Adresse zieladresse = new Adresse();
 
-            Auftrag neuerAuftrag = new Auftrag();
-            neuerAuftrag.setZieladresse(zieladresse);
-            //neuerAuftrag.setKunde(kunde);
-            neuerAuftrag.setStartadresse(startadresse);
-            this.auftraege.add(neuerAuftrag);
-        }
+
+        startadresse.setHausnummer(startHausnummer);
+        startadresse.setLand(startLand);
+        startadresse.setOrt(startOrt);
+        startadresse.setPostleitzahl(startPostleitzahl);
+        startadresse.setStrasse(startStrasse);
+
+        zieladresse.setHausnummer(zielHausnummer);
+        zieladresse.setLand(zielLand);
+        zieladresse.setOrt(zielOrt);
+        zieladresse.setPostleitzahl(zielPostleitzahl);
+        zieladresse.setStrasse(zielStrasse);
+
+        route.setStartadresse(startadresse);
+        route.setZieladresse(zieladresse);
+
+        neuerAuftrag.setRoute(route);
+
+        this.auftraege.add(neuerAuftrag);
+        auftragsnummer = 0;
     }
 
-    private boolean isEmpty(String input) {
-        return (input == null || input.equals(""));
-    }
 }

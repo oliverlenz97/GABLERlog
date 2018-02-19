@@ -64,20 +64,59 @@
                 </p:selectOneMenu>
             </h:panelGroup>
 
-            <h:outputText value="Startadresse"/>
+            <h:outputText value="Startadresse:"/>
+            <h:outputText value="Straße"/>
             <h:panelGroup>
-                <p:inputText id="Startadresse" value="#{auftragsBean.startadresse}"/>
+                <p:inputText id="StartStrasse" value="#{auftragsBean.startStrasse}"/>
             </h:panelGroup>
 
-            <h:outputText value="Zieladresse"/>
+            <h:outputText value="Hausnummer"/>
             <h:panelGroup>
-                <p:inputText id="Zieladresse" value="#{auftragsBean.zieladresse}"/>
+                <p:inputText id="StartHsnr" value="#{auftragsBean.startHausnummer}"/>
             </h:panelGroup>
 
-            <h:outputText value="Auftragsnummer"/>
+            <h:outputText value="Postleitzahl"/>
             <h:panelGroup>
-                <p:inputText id="auftragsnummer" value="#{auftragsBean.auftragsnummer}"/>
+                <p:inputText id="StartPlz" value="#{auftragsBean.startPostleitzahl}"/>
             </h:panelGroup>
+
+            <h:outputText value="Ort"/>
+            <h:panelGroup>
+                <p:inputText id="StartOrt" value="#{auftragsBean.startOrt}"/>
+            </h:panelGroup>
+
+            <h:outputText value="Land"/>
+            <h:panelGroup>
+                <p:inputText id="StartLand" value="#{auftragsBean.startLand}"/>
+            </h:panelGroup>
+
+
+            <h:outputText value="Zieladresse:"/>
+            <h:outputText value="Straße"/>
+            <h:panelGroup>
+                <p:inputText id="ZielStrasse" value="#{auftragsBean.zielStrasse}"/>
+            </h:panelGroup>
+
+            <h:outputText value="Hausnummer"/>
+            <h:panelGroup>
+                <p:inputText id="ZielHsnr" value="#{auftragsBean.zielHausnummer}"/>
+            </h:panelGroup>
+
+            <h:outputText value="Postleitzahl"/>
+            <h:panelGroup>
+                <p:inputText id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}"/>
+            </h:panelGroup>
+
+            <h:outputText value="Ort"/>
+            <h:panelGroup>
+                <p:inputText id="ZielOrt" value="#{auftragsBean.zielOrt}"/>
+            </h:panelGroup>
+
+            <h:outputText value="Land"/>
+            <h:panelGroup>
+                <p:inputText id="ZielLand" value="#{auftragsBean.zielLand}"/>
+            </h:panelGroup>
+
 
             <p:commandButton value="Speichern" type="submit" id="speichernButton"
                              actionListener="#{auftragsBean.auftragHinzufuegen()}"

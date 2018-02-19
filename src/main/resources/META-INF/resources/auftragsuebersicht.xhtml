@@ -60,11 +60,11 @@
             </p:column>
 
             <p:column headerText="Startadresse">
-                <h:outputText value="#{entry.startadresse}"/>
+                <h:outputText value="#{entry.route.startadresse.showAdresse()}"/>
             </p:column>
 
             <p:column headerText="Zieladresse">
-                <h:outputText value="#{entry.zieladresse}"/>
+                <h:outputText value="#{entry.route.zieladresse.showAdresse()}"/>
             </p:column>
 
             <p:column headerText="Ladung">
