@@ -55,13 +55,39 @@
 
             <h:outputText value="Kunde"/>
             <h:panelGroup>
-                <p:selectOneMenu id="kundeWaehlen"
+                <p:selectOneMenu id="kundeWaehlen" value="#{kundenBean.gewaehlterKunde}"
                                  style="width:600px">
                     <p:ajax listener="#{kundenBean}" update=""/>
-                    <f:selectItem itemLabel="Kunde auswählen"
+                    <f:selectItem itemLabel="Kunde auswählen" value="#{kundenBean.gewaehlterKunde}"
                                   noSelectionOption="true"/>
                     <f:selectItems value="#{kundenBean.kunden}"/>
                 </p:selectOneMenu>
+            </h:panelGroup>
+
+            <h:outputText value="Ladung:"/>
+            <h:outputText value="Beschreibung"/>
+            <h:panelGroup>
+                <p:inputText id="Beschreibung" value="#{auftragsBean.beschreibung}"/>
+            </h:panelGroup>
+
+            <h:outputText value="Gewicht (in KG)"/>
+            <h:panelGroup>
+                <p:inputText id="Gewicht" value="#{auftragsBean.gewicht}"/>
+            </h:panelGroup>
+
+            <h:outputText value="Länge (in Meter)"/>
+            <h:panelGroup>
+                <p:inputText id="laenge" value="#{auftragsBean.laenge}"/>
+            </h:panelGroup>
+
+            <h:outputText value="Breite (in Meter)"/>
+            <h:panelGroup>
+                <p:inputText id="Breite" value="#{auftragsBean.breite}"/>
+            </h:panelGroup>
+
+            <h:outputText value="Höhe (in Meter)"/>
+            <h:panelGroup>
+                <p:inputText id="Hoehe" value="#{auftragsBean.hoehe}"/>
             </h:panelGroup>
 
             <h:outputText value="Startadresse:"/>

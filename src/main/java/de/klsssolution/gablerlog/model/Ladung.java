@@ -2,7 +2,6 @@ package de.klsssolution.gablerlog.model;
 
 public class Ladung {
     private double gewicht;
-    private String bemerkung;
     private String beschreibung;
     private String kategorie;
     private double breite;
@@ -16,14 +15,6 @@ public class Ladung {
 
     public void setGewicht(double gewicht) {
         this.gewicht = gewicht;
-    }
-
-    public String getBemerkung() {
-        return bemerkung;
-    }
-
-    public void setBemerkung(String bemerkung) {
-        this.bemerkung = bemerkung;
     }
 
     public String getBeschreibung() {
