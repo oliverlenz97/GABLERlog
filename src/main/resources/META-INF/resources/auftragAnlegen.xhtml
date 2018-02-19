@@ -72,22 +72,22 @@
 
             <h:outputText value="Gewicht (in KG)"/>
             <h:panelGroup>
-                <p:inputText id="Gewicht" value="#{auftragsBean.gewicht}"/>
+                <p:inputNumber id="Gewicht" value="#{auftragsBean.gewicht}" minValue="0"/>
             </h:panelGroup>
 
             <h:outputText value="Länge (in Meter)"/>
             <h:panelGroup>
-                <p:inputText id="laenge" value="#{auftragsBean.laenge}"/>
+                <p:inputNumber id="laenge" value="#{auftragsBean.laenge}" minValue="0"/>
             </h:panelGroup>
 
             <h:outputText value="Breite (in Meter)"/>
             <h:panelGroup>
-                <p:inputText id="Breite" value="#{auftragsBean.breite}"/>
+                <p:inputNumber id="Breite" value="#{auftragsBean.breite}" minValue="0"/>
             </h:panelGroup>
 
             <h:outputText value="Höhe (in Meter)"/>
             <h:panelGroup>
-                <p:inputText id="Hoehe" value="#{auftragsBean.hoehe}"/>
+                <p:inputNumber id="Hoehe" value="#{auftragsBean.hoehe}" minValue="0"/>
             </h:panelGroup>
 
             <h:outputText value="Startadresse:"/>
@@ -98,12 +98,12 @@
 
             <h:outputText value="Hausnummer"/>
             <h:panelGroup>
-                <p:inputText id="StartHsnr" value="#{auftragsBean.startHausnummer}"/>
+                <p:inputNumber id="StartHsnr" value="#{auftragsBean.startHausnummer}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputText value="Postleitzahl"/>
             <h:panelGroup>
-                <p:inputText id="StartPlz" value="#{auftragsBean.startPostleitzahl}"/>
+                <p:inputNumber id="StartPlz" value="#{auftragsBean.startPostleitzahl}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputText value="Ort"/>
@@ -125,12 +125,12 @@
 
             <h:outputText value="Hausnummer"/>
             <h:panelGroup>
-                <p:inputText id="ZielHsnr" value="#{auftragsBean.zielHausnummer}"/>
+                <p:inputNumber id="ZielHsnr" value="#{auftragsBean.zielHausnummer}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputText value="Postleitzahl"/>
             <h:panelGroup>
-                <p:inputText id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}"/>
+                <p:inputNumber id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputText value="Ort"/>

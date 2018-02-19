@@ -114,6 +114,7 @@ public class AuftragsBean {
         route.setStartadresse(startadresse);
         route.setZieladresse(zieladresse);
 
+
         neuerAuftrag.setRoute(route);
 
         this.auftraege.add(neuerAuftrag);
