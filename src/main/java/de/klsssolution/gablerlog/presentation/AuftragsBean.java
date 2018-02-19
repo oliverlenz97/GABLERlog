@@ -112,14 +112,16 @@ public class AuftragsBean {
 
     public void auftragHinzufuegen() {
 
-        System.out.println("Button ausgeführt");
+        //System.out.println("Button ausgeführt");
+        //  System.out.println(startadresse);
 
-        if (isEmpty(startadresse) || isEmpty(zieladresse) || kunde == null) {
+        if (isEmpty(startadresse) || isEmpty(zieladresse)) { //|| kunde == null
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Fehlende Angabe", ""));
         } else {
+
             Auftrag neuerAuftrag = new Auftrag();
             neuerAuftrag.setZieladresse(zieladresse);
-            neuerAuftrag.setKunde(kunde);
+            //neuerAuftrag.setKunde(kunde);
             neuerAuftrag.setStartadresse(startadresse);
             this.auftraege.add(neuerAuftrag);
         }

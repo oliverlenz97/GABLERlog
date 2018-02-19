@@ -66,17 +66,17 @@
 
             <h:outputText value="Startadresse"/>
             <h:panelGroup>
-                <p:inputText id="Startadresse"/>
+                <p:inputText id="Startadresse" value="#{auftragsBean.startadresse}"/>
             </h:panelGroup>
 
             <h:outputText value="Zieladresse"/>
             <h:panelGroup>
-                <p:inputText id="Zieladresse"/>
+                <p:inputText id="Zieladresse" value="#{auftragsBean.zieladresse}"/>
             </h:panelGroup>
 
             <h:outputText value="Auftragsnummer"/>
             <h:panelGroup>
-                <p:inputText id="auftragsnummer"/>
+                <p:inputText id="auftragsnummer" value="#{auftragsBean.auftragsnummer}"/>
             </h:panelGroup>
 
             <p:commandButton value="Speichern" type="submit" id="speichernButton"
