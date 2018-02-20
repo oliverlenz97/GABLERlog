@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GABLERlog.iml" filepath="$PROJECT_DIR$/GABLERlog.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/main/main.iml" filepath="$PROJECT_DIR$/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GablerLog.iml" filepath="$PROJECT_DIR$/GablerLog.iml" />
     </modules>
   </component>
 </project>
