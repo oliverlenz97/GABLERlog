@@ -2,6 +2,7 @@ package de.klsssolution.gablerlog.model;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.atomic.AtomicInteger;
+import de.klsssolution.gablerlog.model.DBDemo;
 
 public class Tour {
     private int tourId;
