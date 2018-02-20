@@ -15,19 +15,160 @@ public class AuftragsBean {
     private Kunde kunde;
     private Ladung ladung;
 
-    public String startStrasse;
-    public String startOrt;
-    public String startLand;
-    public int startHausnummer;
-    public String startZusatz;
-    public int startPostleitzahl;
+    private String startStrasse;
+    private String startOrt;
+    private String startLand;
+    private int startHausnummer;
+    private String startZusatz;
+    private int startPostleitzahl;
 
-    public String zielStrasse;
-    public String zielOrt;
-    public String zielLand;
-    public int zielHausnummer;
-    public String zielZusatz;
-    public int zielPostleitzahl;
+    private String zielStrasse;
+    private String zielOrt;
+    private String zielLand;
+    private int zielHausnummer;
+    private String zielZusatz;
+    private int zielPostleitzahl;
+
+    private double gewicht;
+    private String beschreibung;
+    private String kategorie;
+    private double breite;
+    private double hoehe;
+    private double laenge;
+
+
+    @PostConstruct
+    public void setup() {
+        List<Auftrag> auftraege = new ArrayList<Auftrag>();
+
+        Auftrag auftrag1 = new Auftrag();
+        Route route = new Route();
+        auftrag1.setAuftragsnummer(0001);
+        Kunde kunde1 = new Kunde();
+        kunde1.setKundenId(1);
+        kunde1.setAnsprechpartner("Max Meier");
+        kunde1.setFirmenbezeichnung("TestFirma GmbH");
+        auftrag1.setKunde(kunde1);
+        Ladung ladung1 = new Ladung();
+        ladung1.setBeschreibung("Gläser");
+        ladung1.setBreite(1.04);
+        ladung1.setGewicht(12);
+        ladung1.setHoehe(1.5);
+        ladung1.setId(1);
+        ladung1.setKategorie("Haushalt");
+        ladung1.setLaenge(0.8);
+        auftrag1.setLadung(ladung1);
+        auftrag1.setStatus("Erfasst");
+
+        Adresse startadresse = new Adresse();
+        Adresse zieladresse = new Adresse();
+        startadresse.setOrt("Retzstadt");
+        zieladresse.setOrt("Würzburg");
+        startadresse.setPostleitzahl(33);
+        zieladresse.setPostleitzahl(12);
+        startadresse.setStrasse("Hauptstraße");
+        zieladresse.setStrasse("Marktplatz");
+        startadresse.setLand("Deutschland");
+        zieladresse.setLand("Deutschland");
+
+        route.setStartadresse(startadresse);
+        route.setZieladresse(zieladresse);
+        auftrag1.setRoute(route);
+        auftraege.add(auftrag1);
+
+        this.auftraege = auftraege;
+    }
+
+    public void auftragHinzufuegen() {
+
+        Auftrag neuerAuftrag = new Auftrag();
+        //neuerAuftrag.setKunde(kunde);
+
+        Route route = new Route();
+        Adresse startadresse = new Adresse();
+        Adresse zieladresse = new Adresse();
+
+        Ladung ladung = new Ladung();
+
+        ladung.setLaenge(laenge);
+        ladung.setKategorie(kategorie);
+        ladung.setHoehe(hoehe);
+        ladung.setGewicht(gewicht);
+        ladung.setBreite(breite);
+        ladung.setBeschreibung(beschreibung);
+
+        neuerAuftrag.setLadung(ladung);
+
+        startadresse.setHausnummer(startHausnummer);
+        startadresse.setLand(startLand);
+        startadresse.setOrt(startOrt);
+        startadresse.setPostleitzahl(startPostleitzahl);
+        startadresse.setStrasse(startStrasse);
+
+        zieladresse.setHausnummer(zielHausnummer);
+        zieladresse.setLand(zielLand);
+        zieladresse.setOrt(zielOrt);
+        zieladresse.setPostleitzahl(zielPostleitzahl);
+        zieladresse.setStrasse(zielStrasse);
+
+        route.setStartadresse(startadresse);
+        route.setZieladresse(zieladresse);
+
+
+        neuerAuftrag.setRoute(route);
+
+        this.auftraege.add(neuerAuftrag);
+        auftragsnummer = 0;
+    }
+
+
+    public double getGewicht() {
+        return gewicht;
+    }
+
+    public void setGewicht(double gewicht) {
+        this.gewicht = gewicht;
+    }
+
+    public String getBeschreibung() {
+        return beschreibung;
+    }
+
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
+    }
+
+    public String getKategorie() {
+        return kategorie;
+    }
+
+    public void setKategorie(String kategorie) {
+        this.kategorie = kategorie;
+    }
+
+    public double getBreite() {
+        return breite;
+    }
+
+    public void setBreite(double breite) {
+        this.breite = breite;
+    }
+
+    public double getHoehe() {
+        return hoehe;
+    }
+
+    public void setHoehe(double hoehe) {
+        this.hoehe = hoehe;
+    }
+
+    public double getLaenge() {
+        return laenge;
+    }
+
+    public void setLaenge(double laenge) {
+        this.laenge = laenge;
+    }
 
     private int auftragsnummer = 0;
     private String status = "Erfasst";
@@ -170,78 +311,5 @@ public class AuftragsBean {
         this.zielPostleitzahl = zielPostleitzahl;
     }
 
-    @PostConstruct
-    public void setup() {
-        List<Auftrag> auftraege = new ArrayList<Auftrag>();
-
-        Auftrag auftrag1 = new Auftrag();
-        Route route = new Route();
-        auftrag1.setAuftragsnummer(0001);
-        Kunde kunde1 = new Kunde();
-        kunde1.setKundenId(1);
-        kunde1.setAnsprechpartner("Max Meier");
-        kunde1.setFirmenbezeichnung("TestFirma GmbH");
-        auftrag1.setKunde(kunde1);
-        Ladung ladung1 = new Ladung();
-        ladung1.setBemerkung("Zerbrechlicher Inhalt");
-        ladung1.setBeschreibung("Gläser");
-        ladung1.setBreite(1.04);
-        ladung1.setGewicht(12);
-        ladung1.setHoehe(1.5);
-        ladung1.setId(1);
-        ladung1.setKategorie("Haushalt");
-        ladung1.setLaenge(0.8);
-        auftrag1.setLadung(ladung1);
-        auftrag1.setStatus("Erfasst");
-
-        Adresse startadresse = new Adresse();
-        Adresse zieladresse = new Adresse();
-        startadresse.setOrt("Retzstadt");
-        zieladresse.setOrt("Würzburg");
-        startadresse.setPostleitzahl(33);
-        zieladresse.setPostleitzahl(12);
-        startadresse.setStrasse("Hauptstraße");
-        zieladresse.setStrasse("Marktplatz");
-        startadresse.setLand("Deutschland");
-        zieladresse.setLand("Deutschland");
-
-        route.setStartadresse(startadresse);
-        route.setZieladresse(zieladresse);
-        auftrag1.setRoute(route);
-        auftraege.add(auftrag1);
-
-        this.auftraege = auftraege;
-    }
-
-    public void auftragHinzufuegen() {
-
-        Auftrag neuerAuftrag = new Auftrag();
-        //neuerAuftrag.setKunde(kunde);
-
-        Route route = new Route();
-        Adresse startadresse = new Adresse();
-        Adresse zieladresse = new Adresse();
-
-
-        startadresse.setHausnummer(startHausnummer);
-        startadresse.setLand(startLand);
-        startadresse.setOrt(startOrt);
-        startadresse.setPostleitzahl(startPostleitzahl);
-        startadresse.setStrasse(startStrasse);
-
-        zieladresse.setHausnummer(zielHausnummer);
-        zieladresse.setLand(zielLand);
-        zieladresse.setOrt(zielOrt);
-        zieladresse.setPostleitzahl(zielPostleitzahl);
-        zieladresse.setStrasse(zielStrasse);
-
-        route.setStartadresse(startadresse);
-        route.setZieladresse(zieladresse);
-
-        neuerAuftrag.setRoute(route);
-
-        this.auftraege.add(neuerAuftrag);
-        auftragsnummer = 0;
-    }
 
 }

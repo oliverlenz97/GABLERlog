@@ -24,15 +24,15 @@ public class KundenBean {
         this.firmenbezeichnungen = firmenbezeichnungen;
     }
 
-    private String gewaehlterKunde;
+    private Kunde gewaehlterKunde;
     private Map<String, String> kundenMap;
 
 
-    public String getGewaehlterKunde() {
+    public Kunde getGewaehlterKunde() {
         return gewaehlterKunde;
     }
 
-    public void setGewaehlterKunde(String gewaehlterKunde) {
+    public void setGewaehlterKunde(Kunde gewaehlterKunde) {
         this.gewaehlterKunde = gewaehlterKunde;
     }
 

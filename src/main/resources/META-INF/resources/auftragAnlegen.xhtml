@@ -55,13 +55,39 @@
 
             <h:outputText value="Kunde"/>
             <h:panelGroup>
-                <p:selectOneMenu id="kundeWaehlen"
+                <p:selectOneMenu id="kundeWaehlen" value="#{kundenBean.gewaehlterKunde}"
                                  style="width:600px">
                     <p:ajax listener="#{kundenBean}" update=""/>
-                    <f:selectItem itemLabel="Kunde auswählen"
+                    <f:selectItem itemLabel="Kunde auswählen" value="#{kundenBean.gewaehlterKunde}"
                                   noSelectionOption="true"/>
                     <f:selectItems value="#{kundenBean.kunden}"/>
                 </p:selectOneMenu>
+            </h:panelGroup>
+
+            <h:outputText value="Ladung:"/>
+            <h:outputText value="Beschreibung"/>
+            <h:panelGroup>
+                <p:inputText id="Beschreibung" value="#{auftragsBean.beschreibung}"/>
+            </h:panelGroup>
+
+            <h:outputText value="Gewicht (in KG)"/>
+            <h:panelGroup>
+                <p:inputNumber id="Gewicht" value="#{auftragsBean.gewicht}" minValue="0"/>
+            </h:panelGroup>
+
+            <h:outputText value="Länge (in Meter)"/>
+            <h:panelGroup>
+                <p:inputNumber id="laenge" value="#{auftragsBean.laenge}" minValue="0"/>
+            </h:panelGroup>
+
+            <h:outputText value="Breite (in Meter)"/>
+            <h:panelGroup>
+                <p:inputNumber id="Breite" value="#{auftragsBean.breite}" minValue="0"/>
+            </h:panelGroup>
+
+            <h:outputText value="Höhe (in Meter)"/>
+            <h:panelGroup>
+                <p:inputNumber id="Hoehe" value="#{auftragsBean.hoehe}" minValue="0"/>
             </h:panelGroup>
 
             <h:outputText value="Startadresse:"/>
@@ -72,12 +98,12 @@
 
             <h:outputText value="Hausnummer"/>
             <h:panelGroup>
-                <p:inputText id="StartHsnr" value="#{auftragsBean.startHausnummer}"/>
+                <p:inputNumber id="StartHsnr" value="#{auftragsBean.startHausnummer}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputText value="Postleitzahl"/>
             <h:panelGroup>
-                <p:inputText id="StartPlz" value="#{auftragsBean.startPostleitzahl}"/>
+                <p:inputNumber id="StartPlz" value="#{auftragsBean.startPostleitzahl}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputText value="Ort"/>
@@ -99,12 +125,12 @@
 
             <h:outputText value="Hausnummer"/>
             <h:panelGroup>
-                <p:inputText id="ZielHsnr" value="#{auftragsBean.zielHausnummer}"/>
+                <p:inputNumber id="ZielHsnr" value="#{auftragsBean.zielHausnummer}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputText value="Postleitzahl"/>
             <h:panelGroup>
-                <p:inputText id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}"/>
+                <p:inputNumber id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputText value="Ort"/>
