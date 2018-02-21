@@ -15,6 +15,11 @@
         <p:growl id="messages"/>
 
         <p:menubar>
+
+            <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
+
+            <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
+
             <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
 
             <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
@@ -24,9 +29,10 @@
                 <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
             </p:submenu>
 
-            <p:menuitem value="Tour" url="http://www.primefaces.org"/>
-
-            <p:menuitem value="Maps" url="/maps.xhtml"/>
+            <p:submenu label="Touren">
+                <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
+                <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
+            </p:submenu>
 
 
             <p:submenu label="Help" icon="ui-icon-help">
@@ -45,100 +51,107 @@
             </f:facet>
         </p:menubar>
     </h:form>
-
     <h:form id="editorForm">
         <h1>Auftrag anlegen</h1>
 
+        <p:growl id="growl" showDetail="false"/>
 
-        <p:panelGrid id="editorGrid" columns="1" layout="grid" style="margin-bottom:30px">
-            <p:growl id="growl" showDetail="false"/>
+        <p:panelGrid id="editorGrid" columns="2" layout="grid" style="margin-bottom:20px">
 
-            <h:outputText value="Kunde"/>
+            <h:outputLabel value="Kunde"/>
             <h:panelGroup>
-                <p:selectOneMenu id="kundeWaehlen" value="#{kundenBean.gewaehlterKunde}"
+                <p:selectOneMenu id="kundeWaehlen" value="#{auftragsBean.gewaehlterKunde}"
                                  style="width:600px">
-                    <p:ajax listener="#{kundenBean}" update=""/>
-                    <f:selectItem itemLabel="Kunde auswählen" value="#{kundenBean.gewaehlterKunde}"
+                    <p:ajax listener="#{auftragsBean}" update=""/>
+                    <f:selectItem itemLabel="Kunde auswählen" value="#{auftragsBean.gewaehlterKunde}"
                                   noSelectionOption="true"/>
-                    <f:selectItems value="#{kundenBean.kunden}"/>
+                    <f:selectItems value="#{auftragsBean.kunden}"/>
                 </p:selectOneMenu>
             </h:panelGroup>
 
-            <h:outputText value="Ladung:"/>
-            <h:outputText value="Beschreibung"/>
+            <h3>Ladung </h3>
+            <h:outputText/>
+            <h:outputLabel value="Beschreibung"/>
             <h:panelGroup>
                 <p:inputText id="Beschreibung" value="#{auftragsBean.beschreibung}"/>
             </h:panelGroup>
 
-            <h:outputText value="Gewicht (in KG)"/>
+            <h:outputLabel value="Gewicht (in KG)"/>
             <h:panelGroup>
                 <p:inputNumber id="Gewicht" value="#{auftragsBean.gewicht}" minValue="0"/>
             </h:panelGroup>
 
-            <h:outputText value="Länge (in Meter)"/>
+            <h:outputLabel value="Länge (in Meter)"/>
             <h:panelGroup>
                 <p:inputNumber id="laenge" value="#{auftragsBean.laenge}" minValue="0"/>
             </h:panelGroup>
 
-            <h:outputText value="Breite (in Meter)"/>
+            <h:outputLabel value="Breite (in Meter)"/>
             <h:panelGroup>
                 <p:inputNumber id="Breite" value="#{auftragsBean.breite}" minValue="0"/>
             </h:panelGroup>
 
-            <h:outputText value="Höhe (in Meter)"/>
+            <h:outputLabel value="Höhe (in Meter)"/>
             <h:panelGroup>
                 <p:inputNumber id="Hoehe" value="#{auftragsBean.hoehe}" minValue="0"/>
             </h:panelGroup>
 
-            <h:outputText value="Startadresse:"/>
-            <h:outputText value="Straße"/>
+            <p:separator/>
+            <p:separator/>
+
+            <h3>Startadresse </h3>
+            <h:outputText/>
+            <h:outputLabel value="Straße"/>
             <h:panelGroup>
                 <p:inputText id="StartStrasse" value="#{auftragsBean.startStrasse}"/>
             </h:panelGroup>
 
-            <h:outputText value="Hausnummer"/>
+            <h:outputLabel value="Hausnummer"/>
             <h:panelGroup>
                 <p:inputNumber id="StartHsnr" value="#{auftragsBean.startHausnummer}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
-            <h:outputText value="Postleitzahl"/>
+            <h:outputLabel value="Postleitzahl"/>
             <h:panelGroup>
                 <p:inputNumber id="StartPlz" value="#{auftragsBean.startPostleitzahl}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
-            <h:outputText value="Ort"/>
+            <h:outputLabel value="Ort"/>
             <h:panelGroup>
                 <p:inputText id="StartOrt" value="#{auftragsBean.startOrt}"/>
             </h:panelGroup>
 
-            <h:outputText value="Land"/>
+            <h:outputLabel value="Land"/>
             <h:panelGroup>
                 <p:inputText id="StartLand" value="#{auftragsBean.startLand}"/>
             </h:panelGroup>
 
+            <p:separator/>
+            <p:separator/>
 
-            <h:outputText value="Zieladresse:"/>
-            <h:outputText value="Straße"/>
+            <h3>Zieladresse </h3>
+            <h:outputText/>
+            <h:outputLabel value="Straße"/>
             <h:panelGroup>
                 <p:inputText id="ZielStrasse" value="#{auftragsBean.zielStrasse}"/>
             </h:panelGroup>
 
-            <h:outputText value="Hausnummer"/>
+            <h:outputLabel value="Hausnummer"/>
             <h:panelGroup>
                 <p:inputNumber id="ZielHsnr" value="#{auftragsBean.zielHausnummer}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
-            <h:outputText value="Postleitzahl"/>
+            <h:outputLabel value="Postleitzahl"/>
             <h:panelGroup>
                 <p:inputNumber id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
-            <h:outputText value="Ort"/>
+            <h:outputLabel value="Ort"/>
             <h:panelGroup>
                 <p:inputText id="ZielOrt" value="#{auftragsBean.zielOrt}"/>
             </h:panelGroup>
 
-            <h:outputText value="Land"/>
+            <h:outputLabel value="Land"/>
             <h:panelGroup>
                 <p:inputText id="ZielLand" value="#{auftragsBean.zielLand}"/>
             </h:panelGroup>

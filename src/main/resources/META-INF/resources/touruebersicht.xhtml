@@ -14,13 +14,24 @@
         <p:growl id="messages"/>
 
         <p:menubar>
-            <p:menuitem value="Startseite" url="/startseite.xhtml"/>
+
+            <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
+
+            <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
 
             <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
 
             <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
 
-            <p:menuitem value="Maps" url="/maps.xhtml"/>
+            <p:submenu label="Aufträge">
+                <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
+                <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
+            </p:submenu>
+
+            <p:submenu label="Touren">
+                <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
+                <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
+            </p:submenu>
 
 
             <p:submenu label="Help" icon="ui-icon-help">
@@ -47,7 +58,7 @@
                 <div style="clear:both"/>
             </f:facet>
             <p:column style="width:16px">
-                <p:rowToggler />
+                <p:rowToggler/>
             </p:column>
 
             <p:column headerText="ID" style="text-align: center">
@@ -71,14 +82,14 @@
             </p:column>
 
             <p:rowExpansion>
-                <p:panelGrid  columns="5" columnClasses="label,value" style="width:800px">
+                <p:panelGrid columns="5" columnClasses="label,value" style="width:800px">
                     <f:facet name="header">
                         <h:outputText value="Detailinfo zur Tour: "/>
                     </f:facet>
-                    <h:outputText value="Tour-Id:" />
-                    <h:outputText value="#{tourTable.tourId}" />
-                    <h:outputText value="Bezeichnung:" />
-                    <h:outputText value="#{tourTable.bezeichnung}" />
+                    <h:outputText value="Tour-Id:"/>
+                    <h:outputText value="#{tourTable.tourId}"/>
+                    <h:outputText value="Bezeichnung:"/>
+                    <h:outputText value="#{tourTable.bezeichnung}"/>
                 </p:panelGrid>
             </p:rowExpansion>
             <f:facet name="footer">

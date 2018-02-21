@@ -13,6 +13,11 @@
         <p:growl id="messages"/>
 
         <p:menubar>
+
+            <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
+
+            <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
+
             <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
 
             <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
@@ -22,9 +27,10 @@
                 <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
             </p:submenu>
 
-            <p:menuitem value="Tour" url="http://www.primefaces.org"/>
-
-            <p:menuitem value="Maps" url="/maps.xhtml"/>
+            <p:submenu label="Touren">
+                <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
+                <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
+            </p:submenu>
 
 
             <p:submenu label="Help" icon="ui-icon-help">

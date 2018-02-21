@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Tour anlegen</title>
+    <title>Fuhrparkverwaltung</title>
 </h:head>
 <h:body>
     <h:form>
@@ -51,33 +50,50 @@
         </p:menubar>
     </h:form>
 
-    <h:form id="tourEingabe">
-        <h2>Tour anlegen: </h2>
-        <p>
-            Bitte die Daten zur Tour eingeben. TourId und Erstellzeit werden automatisch hinzugefügt. Zum Speichern der Tour den Button "Speichern" betätigen.
-        </p>
-        <h:panelGrid id = "tourEingabeGrid" columns="2" cellpadding="5">
-            <p:outputLabel for="bez" value="Bezeichnung: " />
-            <p:inputMask id="bez" value="#{tour.bezeichnung}" mask="" required="true"/>
+    <h:form id="fuhrpark">
+        <p:dataTable var="entry" value="#{fuhrparkBean.fuhrpark}" emptyMessage="Keine Kunden vorhanden">
 
-            <p:outputLabel for="faellig" value="fällig am:" />
-            <p:inputMask id="faellig" value="#{tour.faelligkeitsZeit}" mask="99.99.9999 99:99" required="true" placeholder="DD.MM.YYYY hh:mm"/>
+            <f:facet name="header">
+                <h:outputText value="Fuhrparkverwaltung"/>
+                <div style="clear:both"/>
+            </f:facet>
 
-            <p:commandButton value="Reset" type="reset" />
-            <p:commandButton value="Speichern" update="display"
-                             oncomplete="PF('dlg').show()"  ajax="true"/>
-        </h:panelGrid>
+            <p:column headerText="Id">
+                <h:outputText value="#{entry.fahrzeugId}"/>
+            </p:column>
 
-        <p:dialog widgetVar="dlg" modal="true" resizable="false" header="Gespeichert. Werte:" showEffect="fade">
-            <p:panelGrid id="display" columns="2" columnClasses="label,value">
-                <h:outputText value="Bezeichnung: " />
-                <h:outputText id="bezValue" value="#{tour.getBezeichnung()}" />
+            <p:column headerText="Marke">
+                <h:outputText value="#{entry.marke}"/>
+            </p:column>
 
-                <h:outputText value="fällig am: " />
-                <h:outputText id="faelligValue" value="#{tour.faelligkeitsZeit}" />
-            </p:panelGrid>
-        </p:dialog>
+            <p:column headerText="Kennzeichen">
+                <h:outputText value="#{entry.kennzeichen}"/>
+            </p:column>
+
+            <p:column headerText="Höhe">
+                <h:outputText value="#{entry.hoehe}"/>
+            </p:column>
+
+            <p:column headerText="Länge">
+                <h:outputText value="#{entry.laenge}"/>
+            </p:column>
+
+            <p:column headerText="Breite">
+                <h:outputText value="#{entry.breite}"/>
+            </p:column>
+
+            <p:column headerText="Leergewicht">
+                <h:outputText value="#{entry.leergewicht}"/>
+            </p:column>
+
+            <p:column headerText="Maximales Gewicht">
+                <h:outputText value="#{entry.maximalGewicht}"/>
+            </p:column>
+
+            <f:facet name="footer">
+                <div style="clear:both"/>
+            </f:facet>
+        </p:dataTable>
     </h:form>
-
 </h:body>
 </html>
