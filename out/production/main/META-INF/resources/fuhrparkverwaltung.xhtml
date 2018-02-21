@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Tour-Übersicht</title>
+    <title>Fuhrparkverwaltung</title>
 </h:head>
 <h:body>
     <h:form>
@@ -50,51 +49,49 @@
             </f:facet>
         </p:menubar>
     </h:form>
-    <h:form id="tourForm">
-        <p:dataTable var="tourTable" value="#{tourBean.tours}" emptyMessage="Keine Tour vorhanden" stickyHeader="true">
+
+    <h:form id="fuhrpark">
+        <p:dataTable var="entry" value="#{fuhrparkBean.fuhrpark}" emptyMessage="Keine Kunden vorhanden">
 
             <f:facet name="header">
-                <h:outputText value="Tour-Übersicht"/>
+                <h:outputText value="Fuhrparkverwaltung"/>
                 <div style="clear:both"/>
             </f:facet>
-            <p:column style="width:16px">
-                <p:rowToggler/>
+
+            <p:column headerText="Id">
+                <h:outputText value="#{entry.fahrzeugId}"/>
             </p:column>
 
-            <p:column headerText="ID" style="text-align: center">
-                <h:outputText value="#{tourTable.tourId}"/>
+            <p:column headerText="Marke">
+                <h:outputText value="#{entry.marke}"/>
             </p:column>
 
-            <p:column headerText="Bezeichnung" style="text-align: center">
-                <h:outputText value="#{tourTable.bezeichnung}"/>
+            <p:column headerText="Kennzeichen">
+                <h:outputText value="#{entry.kennzeichen}"/>
             </p:column>
 
-            <p:column headerText="erstellt" style="text-align: center">
-                <h:outputText value="#{tourTable.erstellZeit}"/>
+            <p:column headerText="Höhe">
+                <h:outputText value="#{entry.hoehe}"/>
             </p:column>
 
-            <p:column headerText="fällig" style="text-align: center">
-                <h:outputText value="#{tourTable.faelligkeitsZeit}"/>
+            <p:column headerText="Länge">
+                <h:outputText value="#{entry.laenge}"/>
             </p:column>
 
-            <p:column headerText="Status" style="text-align: center">
-                <h:outputText value="#{tourTable.status}"/>
+            <p:column headerText="Breite">
+                <h:outputText value="#{entry.breite}"/>
             </p:column>
 
-            <p:rowExpansion>
-                <p:panelGrid columns="5" columnClasses="label,value" style="width:800px">
-                    <f:facet name="header">
-                        <h:outputText value="Detailinfo zur Tour: "/>
-                    </f:facet>
-                    <h:outputText value="Tour-Id:"/>
-                    <h:outputText value="#{tourTable.tourId}"/>
-                    <h:outputText value="Bezeichnung:"/>
-                    <h:outputText value="#{tourTable.bezeichnung}"/>
-                </p:panelGrid>
-            </p:rowExpansion>
+            <p:column headerText="Leergewicht">
+                <h:outputText value="#{entry.leergewicht}"/>
+            </p:column>
+
+            <p:column headerText="Maximales Gewicht">
+                <h:outputText value="#{entry.maximalGewicht}"/>
+            </p:column>
+
             <f:facet name="footer">
-                <p:link outcome="/tourAnlegen.xhtml" value="Tour anlegen">
-                </p:link>
+                <div style="clear:both"/>
             </f:facet>
         </p:dataTable>
     </h:form>

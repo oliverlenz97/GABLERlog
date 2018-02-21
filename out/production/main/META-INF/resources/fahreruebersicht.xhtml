@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Tour-Übersicht</title>
+    <title>Fahrerübersicht</title>
 </h:head>
 <h:body>
     <h:form>
@@ -50,51 +50,35 @@
             </f:facet>
         </p:menubar>
     </h:form>
-    <h:form id="tourForm">
-        <p:dataTable var="tourTable" value="#{tourBean.tours}" emptyMessage="Keine Tour vorhanden" stickyHeader="true">
+    <h:form id="drivers">
+        <p:dataTable var="entry" value="#{fahrerBean.fahrer}" emptyMessage="Keine Kunden vorhanden">
 
             <f:facet name="header">
-                <h:outputText value="Tour-Übersicht"/>
+                <h:outputText value="Fahrerübersicht"/>
                 <div style="clear:both"/>
             </f:facet>
-            <p:column style="width:16px">
-                <p:rowToggler/>
+
+            <p:column headerText="Vorname">
+                <h:outputText value="#{entry.vorname}"/>
             </p:column>
 
-            <p:column headerText="ID" style="text-align: center">
-                <h:outputText value="#{tourTable.tourId}"/>
+            <p:column headerText="Nachname">
+                <h:outputText value="#{entry.nachname}"/>
             </p:column>
 
-            <p:column headerText="Bezeichnung" style="text-align: center">
-                <h:outputText value="#{tourTable.bezeichnung}"/>
+            <p:column headerText="Führerscheinklasse">
+                <h:outputText value="#{entry.fuehrerscheinKlasse}"/>
             </p:column>
 
-            <p:column headerText="erstellt" style="text-align: center">
-                <h:outputText value="#{tourTable.erstellZeit}"/>
+            <p:column headerText="Id">
+                <h:outputText value="#{entry.fahrerId}"/>
             </p:column>
 
-            <p:column headerText="fällig" style="text-align: center">
-                <h:outputText value="#{tourTable.faelligkeitsZeit}"/>
-            </p:column>
-
-            <p:column headerText="Status" style="text-align: center">
-                <h:outputText value="#{tourTable.status}"/>
-            </p:column>
-
-            <p:rowExpansion>
-                <p:panelGrid columns="5" columnClasses="label,value" style="width:800px">
-                    <f:facet name="header">
-                        <h:outputText value="Detailinfo zur Tour: "/>
-                    </f:facet>
-                    <h:outputText value="Tour-Id:"/>
-                    <h:outputText value="#{tourTable.tourId}"/>
-                    <h:outputText value="Bezeichnung:"/>
-                    <h:outputText value="#{tourTable.bezeichnung}"/>
-                </p:panelGrid>
-            </p:rowExpansion>
             <f:facet name="footer">
-                <p:link outcome="/tourAnlegen.xhtml" value="Tour anlegen">
-                </p:link>
+                <h:outputLink url="http://localhost:8080/kundeHinzufuegen.xhtml">
+                    <h:outputText value="Fahrer anlegen"/>
+                </h:outputLink>
+                <div style="clear:both"/>
             </f:facet>
         </p:dataTable>
     </h:form>
