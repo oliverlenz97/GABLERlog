@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Fuhrparkverwaltung</title>
+    <title>Routenübersicht</title>
 </h:head>
 <h:body>
     <h:form>
@@ -49,48 +50,30 @@
             </f:facet>
         </p:menubar>
     </h:form>
-
-    <h:form id="fuhrpark">
-        <p:dataTable var="entry" value="#{fuhrparkBean.fuhrpark}" emptyMessage="Keine Fahrzeuge vorhanden">
+    <h:form id="customers">
+        <p:dataTable var="entry" value="#{kundenBean.kunden}" emptyMessage="Keine Kunden vorhanden">
 
             <f:facet name="header">
-                <h:outputText value="Fuhrparkverwaltung"/>
+                <h:outputText value="Kundenübersicht"/>
                 <div style="clear:both"/>
             </f:facet>
 
+            <p:column headerText="Firma">
+                <h:outputText value="#{entry.firmenbezeichnung}"/>
+            </p:column>
+
+            <p:column headerText="Ansprechpartner">
+                <h:outputText value="#{entry.ansprechpartner}"/>
+            </p:column>
+
             <p:column headerText="Id">
-                <h:outputText value="#{entry.fahrzeugId}"/>
-            </p:column>
-
-            <p:column headerText="Marke">
-                <h:outputText value="#{entry.marke}"/>
-            </p:column>
-
-            <p:column headerText="Kennzeichen">
-                <h:outputText value="#{entry.kennzeichen}"/>
-            </p:column>
-
-            <p:column headerText="Höhe">
-                <h:outputText value="#{entry.hoehe}"/>
-            </p:column>
-
-            <p:column headerText="Länge">
-                <h:outputText value="#{entry.laenge}"/>
-            </p:column>
-
-            <p:column headerText="Breite">
-                <h:outputText value="#{entry.breite}"/>
-            </p:column>
-
-            <p:column headerText="Leergewicht">
-                <h:outputText value="#{entry.leergewicht}"/>
-            </p:column>
-
-            <p:column headerText="Maximales Gewicht">
-                <h:outputText value="#{entry.maximalGewicht}"/>
+                <h:outputText value="#{entry.kundenId}"/>
             </p:column>
 
             <f:facet name="footer">
+                <h:outputLink url="http://localhost:8080/kundeHinzufuegen.xhtml">
+                    <h:outputText value="Kunde anlegen"/>
+                </h:outputLink>
                 <div style="clear:both"/>
             </f:facet>
         </p:dataTable>

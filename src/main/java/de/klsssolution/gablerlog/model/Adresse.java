@@ -7,6 +7,8 @@ public class Adresse {
     private int hausnummer;
     private int postleitzahl;
 
+    private String adresseSql = "create table adresse ()";
+
     public String getStrasse() {
         return strasse;
     }

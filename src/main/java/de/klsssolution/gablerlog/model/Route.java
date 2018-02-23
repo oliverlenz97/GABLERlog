@@ -1,10 +1,14 @@
 package de.klsssolution.gablerlog.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Route {
     private double distanz;
     private int id;
     private Adresse startadresse;
     private Adresse zieladresse;
+
 
     public double getDistanz() {
         return distanz;

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Auftragsübersicht</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:growl id="messages"/>
+
+        <p:menubar>
+
+            <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
+
+            <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
+
+            <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
+
+            <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
+
+            <p:submenu label="Aufträge">
+                <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
+                <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
+            </p:submenu>
+
+            <p:submenu label="Touren">
+                <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
+                <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
+            </p:submenu>
+
+
+            <p:submenu label="Help" icon="ui-icon-help">
+                <p:menuitem value="Contents" url="#"/>
+                <p:submenu label="Search" icon="ui-icon-search">
+                    <p:submenu label="Text">
+                        <p:menuitem value="Workspace" url="#"/>
+                    </p:submenu>
+                    <p:menuitem value="File" url="#"/>
+                </p:submenu>
+            </p:submenu>
+
+            <f:facet name="options">
+                <p:inputText style="margin-right:10px" placeholder="Search"/>
+                <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"/>
+            </f:facet>
+        </p:menubar>
+    </h:form>
+    <h:form id="drivers">
+        <p:dataTable var="entry" value="#{auftragsBean.auftraege}" emptyMessage="Keine Kunden vorhanden">
+
+            <f:facet name="header">
+                <h:outputText value="Auftragsübersicht"/>
+                <div style="clear:both"/>
+            </f:facet>
+
+            <p:column headerText="Auftragsnummer">
+                <h:outputText value="#{entry.auftragsnummer}"/>
+            </p:column>
+
+            <p:column headerText="Kunde">
+                <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
+            </p:column>
+
+            <p:column headerText="Startadresse">
+                <h:outputText value="#{entry.route.startadresse.showAdresse()}"/>
+            </p:column>
+
+            <p:column headerText="Zieladresse">
+                <h:outputText value="#{entry.route.zieladresse.showAdresse()}"/>
+            </p:column>
+
+            <p:column headerText="Ladung">
+                <h:outputText value="#{entry.ladung.beschreibung}"/>
+            </p:column>
+
+            <!-- url="/auftragAnlegen.xhtml" -->
+
+            <f:facet name="footer">
+                <h:link outcome="/auftragAnlegen.xhtml">
+                    <h:outputText value="Auftrag anlegen"/>
+                </h:link>
+                <div style="clear:both"/>
+            </f:facet>
+        </p:dataTable>
+    </h:form>
+</h:body>
+
+
+<h:form id="tableForm">
+    <h:panelGrid>
+        <h:panelGroup>
+            <p:dataTable id="nichtGewaehlteAuftraege" emptyMessage="Keine Daten vorhanden."
+                         var="entry" value="#{auftragsBean.auftraege}">
+                <f:facet name="header">
+                    <h1>Bitte Aufträge wählen und einem Fahrzeug zuordnen</h1>
+                </f:facet>
+                <p:column headerText="" style="width:70px;text-align:center">
+                    <p:commandLink actionListener="#{noInterestBean.add(entry)}" value="+"
+                                   update=":tableForm:nichtGewaehlteAuftraege :tableForm:gewaehlteAuftraege">
+                    </p:commandLink>
+                </p:column>
+
+                <p:column headerText="Kunde" filterBy="#{entry.kunde.firmenbezeichnung}"
+                          filterMatchMode="contains">
+                    <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
+                </p:column>
+
+                <p:column headerText="Auftragsnummer">
+                    <h:outputText value="#{entry.auftragsnummer}"/>
+                </p:column>
+
+            </p:dataTable>
+        </h:panelGroup>
+
+        <p:separator/>
+
+        <h:panelGroup>
+            <p:dataTable id="gewaehlteAuftraege" emptyMessage="Keine Daten vorhanden." var="entry"
+                         value="#{auftragsBean.auftraege}">
+                <f:facet name="header">
+                    <h2>Merkliste</h2>
+                </f:facet>
+
+                <p:column headerText="" style="width:70px;text-align:center">
+                    <p:commandLink actionListener="#{interestBean.remove(entry)}" value="-"
+                                   update=":tableForm:nichtGewaehlteAuftraege :tableForm:gewaehlteAuftraege">
+
+                    </p:commandLink>
+                </p:column>
+
+                <p:column headerText="Kunde" filterBy="#{entry.kunde.firmenbezeichnung}"
+                          filterMatchMode="contains">
+                    <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
+                </p:column>
+
+                <p:column headerText="Auftragsnummer">
+                    <h:outputText value="#{entry.auftragsnummer}"/>
+                </p:column>
+            </p:dataTable>
+        </h:panelGroup>
+    </h:panelGrid>
+</h:form>
+
+
+</html>

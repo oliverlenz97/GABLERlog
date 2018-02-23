@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.primefaces.model.SelectableDataModel;
+
 @ManagedBean
 @SessionScoped
 public class AuftragsBean {
@@ -38,53 +40,23 @@ public class AuftragsBean {
     private double hoehe;
     private double laenge;
 
+    private List<Auftrag> gewaehlteAuftraege;
+
 
     @PostConstruct
     public void setup() {
-        auftragslisteErstellen();
         kundenlisteErstellen();
+        auftraege = Auftrag.getAlleAuftraege();
     }
 
-    public void auftragslisteErstellen() {
-        List<Auftrag> auftraege = new ArrayList<Auftrag>();
-
-        Auftrag auftrag1 = new Auftrag();
-        Route route = new Route();
-        auftrag1.setAuftragsnummer(0001);
-        Kunde kunde1 = new Kunde();
-        kunde1.setKundenId(1);
-        kunde1.setAnsprechpartner("Max Meier");
-        kunde1.setFirmenbezeichnung("TestFirma GmbH");
-        auftrag1.setKunde(kunde1);
-        Ladung ladung1 = new Ladung();
-        ladung1.setBeschreibung("Gläser");
-        ladung1.setBreite(1.04);
-        ladung1.setGewicht(12);
-        ladung1.setHoehe(1.5);
-        ladung1.setId(1);
-        ladung1.setKategorie("Haushalt");
-        ladung1.setLaenge(0.8);
-        auftrag1.setLadung(ladung1);
-        auftrag1.setStatus("Erfasst");
-
-        Adresse startadresse = new Adresse();
-        Adresse zieladresse = new Adresse();
-        startadresse.setOrt("Retzstadt");
-        zieladresse.setOrt("Würzburg");
-        startadresse.setPostleitzahl(33);
-        zieladresse.setPostleitzahl(12);
-        startadresse.setStrasse("Hauptstraße");
-        zieladresse.setStrasse("Marktplatz");
-        startadresse.setLand("Deutschland");
-        zieladresse.setLand("Deutschland");
-
-        route.setStartadresse(startadresse);
-        route.setZieladresse(zieladresse);
-        auftrag1.setRoute(route);
-        auftraege.add(auftrag1);
-
-        this.auftraege = auftraege;
+    public List<Auftrag> getGewaehlteAuftraege() {
+        return gewaehlteAuftraege;
     }
+
+    public void setGewaehlteAuftraege(List<Auftrag> selectedCars) {
+        this.gewaehlteAuftraege = selectedCars;
+    }
+
 
     public void kundenlisteErstellen() {
         List<Kunde> kunden = new ArrayList<Kunde>();
@@ -158,10 +130,10 @@ public class AuftragsBean {
         route.setStartadresse(startadresse);
         route.setZieladresse(zieladresse);
 
-
         neuerAuftrag.setRoute(route);
 
-        this.auftraege.add(neuerAuftrag);
+        // this.auftraege.add(neuerAuftrag);
+        Auftrag.auftragHinzufuegen(neuerAuftrag);
         auftragsnummer = 0;
     }
 

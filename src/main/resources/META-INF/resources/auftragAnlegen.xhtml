@@ -58,14 +58,14 @@
 
         <p:panelGrid id="editorGrid" columns="2" layout="grid" style="margin-bottom:20px">
 
-            <h:outputLabel value="Kunde"/>
+            <h:outputText value="Kunde"/>
             <h:panelGroup>
-                <p:selectOneMenu id="kundeWaehlen" value="#{auftragsBean.gewaehlterKunde}"
+                <p:selectOneMenu id="kundeWaehlen" value="#{kundenBean.gewaehlterKunde}"
                                  style="width:600px">
-                    <p:ajax listener="#{auftragsBean}" update=""/>
-                    <f:selectItem itemLabel="Kunde auswählen" value="#{auftragsBean.gewaehlterKunde}"
+                    <p:ajax listener="#{kundenBean.onChange}" update=""/>
+                    <f:selectItem itemLabel="Kunde auswählen" value="#{kundenBean.gewaehlterKunde}"
                                   noSelectionOption="true"/>
-                    <f:selectItems value="#{auftragsBean.kunden}"/>
+                    <f:selectItems value="#{kundenBean.kunden}"/>
                 </p:selectOneMenu>
             </h:panelGroup>
 
