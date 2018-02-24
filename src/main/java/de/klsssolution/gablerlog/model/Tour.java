@@ -1,5 +1,7 @@
 package de.klsssolution.gablerlog.model;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -116,6 +118,92 @@ public class Tour {
     public void setStatus(String status) {
         this.status = status;
     }
+
+
+    public Boolean kapazitätPruefen(Tour tour) {
+        if (tour.gewichtPruefen() == false || this.laengePruefen() == false || this.breitePruefen() == false || this.hoehePruefen() == false) {
+            return false;
+        }
+        return true;
+    }
+
+    public Boolean gewichtPruefen() {
+        List<Route> routen = this.getAlleRouten();
+        double gesamtgewicht = 0;
+        for (Route route : routen) {
+            //Auftrag holen
+            List<Auftrag> auftraege = Auftrag.getAlleAuftraege();
+            for (Auftrag auftrag : auftraege) {
+                if (auftrag.getRoute().equals(route)) {
+                    gesamtgewicht = gesamtgewicht + auftrag.getLadung().getGewicht();
+                }
+            }
+        }
+        double verfuegbaresGewicht = this.getFahrzeug().getMaximalGewicht() - this.getFahrzeug().getLeergewicht();
+        if (verfuegbaresGewicht < gesamtgewicht) {
+            System.out.println("Ladung zu groß!" + " Gesamtgewicht: " + gesamtgewicht);
+            System.out.println("Verfügbares Gewicht: " + verfuegbaresGewicht);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Fehler", "Gewicht zu groß!"));
+            return false;
+        } else {
+            System.out.println("Gesamtgewicht: " + gesamtgewicht);
+            System.out.println("Verfügbares Gewicht: " + verfuegbaresGewicht);
+
+            return true;
+        }
+    }
+
+    public Boolean laengePruefen() {
+        List<Route> routen = this.getAlleRouten();
+        double gesamtlaenge = this.getFahrzeug().getLaenge();
+        for (Route route : routen) {
+            //Auftrag holen
+            List<Auftrag> auftraege = Auftrag.getAlleAuftraege();
+            for (Auftrag auftrag : auftraege) {
+                if (auftrag.getRoute().equals(route)) {
+                    if (auftrag.getLadung().getLaenge() > gesamtlaenge) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public Boolean breitePruefen() {
+        List<Route> routen = this.getAlleRouten();
+        double gesamtbreite = this.getFahrzeug().getBreite();
+        for (Route route : routen) {
+            //Auftrag holen
+            List<Auftrag> auftraege = Auftrag.getAlleAuftraege();
+            for (Auftrag auftrag : auftraege) {
+                if (auftrag.getRoute().equals(route)) {
+                    if (auftrag.getLadung().getBreite() > gesamtbreite) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public Boolean hoehePruefen() {
+        List<Route> routen = this.getAlleRouten();
+        double gesamthoehe = this.getFahrzeug().getHoehe();
+        for (Route route : routen) {
+            //Auftrag holen
+            List<Auftrag> auftraege = Auftrag.getAlleAuftraege();
+            for (Auftrag auftrag : auftraege) {
+                if (auftrag.getRoute().equals(route)) {
+                    if (auftrag.getLadung().getHoehe() > gesamthoehe) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
 
 }
 
