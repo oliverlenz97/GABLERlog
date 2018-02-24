@@ -73,6 +73,10 @@ public class AuftragsallokationBean {
     }
 
     public void speichern() {
+        if (gewaehlteAuftraege.isEmpty()) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Speichern nicht möglich", "Keine Aufträge ausgewählt"));
+            return;
+        }
         Tour tour = new Tour();
         for (int i = 0; i < Fahrzeug.getFuhrpark().size(); i++) {
             if (Fahrzeug.getFuhrpark().get(i).getFahrzeugId() == fahrzeugnummer) {
@@ -88,7 +92,7 @@ public class AuftragsallokationBean {
         tour.setErstellZeit(new Date());
         tour.setBezeichnung("Test");
         Tour.getAlleTouren().add(tour);
-        if (kapazitätPruefen(tour) == false) {
+        if (!kapazitätPruefen(tour)) {
             tour = null;
             return;
         }
