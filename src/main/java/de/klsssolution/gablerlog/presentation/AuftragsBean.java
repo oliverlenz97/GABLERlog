@@ -3,8 +3,10 @@ package de.klsssolution.gablerlog.presentation;
 import de.klsssolution.gablerlog.model.*;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -134,6 +136,7 @@ public class AuftragsBean {
 
         // this.auftraege.add(neuerAuftrag);
         Auftrag.auftragHinzufuegen(neuerAuftrag);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", ""));
         auftragsnummer = 0;
     }
 

@@ -51,6 +51,6 @@ public class Adresse {
     }
 
     public String showAdresse() {
-        return ("" + getStrasse() + " " + getPostleitzahl() + " " + getOrt() + " " + getLand());
+        return ("" + getStrasse() + " " + getHausnummer() + " " + getPostleitzahl() + " " + getOrt() + " " + getLand());
     }
 }

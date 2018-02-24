@@ -35,9 +35,9 @@ public class Fahrzeug {
         fahrzeug1.setHoehe(3.2);
         fahrzeug1.setKennzeichen("MSP-AS-109");
         fahrzeug1.setLaenge(8.5);
-        fahrzeug1.setLeergewicht(9.000);
+        fahrzeug1.setLeergewicht(9000);
         fahrzeug1.setMarke("Mercedes");
-        fahrzeug1.setMaximalGewicht(17.500);
+        fahrzeug1.setMaximalGewicht(9010);
 
 
         Fahrzeug fahrzeug2 = new Fahrzeug();
@@ -47,9 +47,9 @@ public class Fahrzeug {
         fahrzeug2.setHoehe(3.3);
         fahrzeug2.setKennzeichen("ERB-O-705");
         fahrzeug2.setLaenge(7.2);
-        fahrzeug2.setLeergewicht(8.500);
+        fahrzeug2.setLeergewicht(8500);
         fahrzeug2.setMarke("Mercedes");
-        fahrzeug2.setMaximalGewicht(16.500);
+        fahrzeug2.setMaximalGewicht(16500);
 
         fuhrpark.add(fahrzeug1);
         fuhrpark.add(fahrzeug2);

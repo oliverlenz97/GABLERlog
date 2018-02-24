@@ -2,24 +2,42 @@ package de.klsssolution.gablerlog.model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Tour {
     private int tourId;
     private String bezeichnung;
-    private LocalDateTime erstellZeit;
+    private Date erstellZeit;
     private LocalDateTime faelligkeitsZeit;
     private LocalDateTime endzeitTatsaechlich;
     private String status;
     // Auto-Inkrement für TourId, beim Erstellen eines Tour-Objekts wird Wert um 1 erhöht und als tourId zugewiesen
     private static final AtomicInteger count = new AtomicInteger(0);
-    private Route[] routen;
+    private List<Route> alleRouten;
+    private Fahrzeug fahrzeug;
+
+    public Fahrzeug getFahrzeug() {
+        return fahrzeug;
+    }
+
+    public void setFahrzeug(Fahrzeug fahrzeug) {
+        this.fahrzeug = fahrzeug;
+    }
 
     public static List<Tour> alleTouren = tourenlisteErstellen();
 
     public static List<Tour> getAlleTouren() {
         return alleTouren;
+    }
+
+    public List<Route> getAlleRouten() {
+        return alleRouten;
+    }
+
+    public void setAlleRouten(List<Route> alleRouten) {
+        this.alleRouten = alleRouten;
     }
 
     public static void setAlleTouren(List<Tour> alleTouren) {
@@ -32,6 +50,12 @@ public class Tour {
         Tour tour1 = new Tour();
         tour1.setTourId();
         tour1.setBezeichnung("WÜ Stadt Mittwoch Vormittag");
+        Route route = new Route();
+        route.setDistanz(23);
+        route.setId(4);
+        List<Route> neueRoute = new ArrayList<Route>();
+        neueRoute.add(route);
+        tour1.setAlleRouten(neueRoute);
         tour1.setFaelligkeitsZeit(ZeitFormat.zeitstempelErzeugen("2018-03-06 10:30"));
         touren.add(tour1);
 
@@ -53,7 +77,7 @@ public class Tour {
         return bezeichnung;
     }
 
-    public LocalDateTime getErstellZeit() {
+    public Date getErstellZeit() {
         return erstellZeit;
     }
 
@@ -77,7 +101,7 @@ public class Tour {
         this.bezeichnung = bezeichnung;
     }
 
-    public void setErstellZeit(LocalDateTime erstellZeit) {
+    public void setErstellZeit(Date erstellZeit) {
         this.erstellZeit = erstellZeit;
     }
 

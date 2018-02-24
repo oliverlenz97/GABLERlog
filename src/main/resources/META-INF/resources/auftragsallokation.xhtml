@@ -49,7 +49,17 @@
             </f:facet>
         </p:menubar>
     </h:form>
-    <h:form id="drivers">
+    <h:form id="auftragsallokation">
+
+
+        <h3> Fahrzeug zuordnen </h3>
+        <p> Bitte Fahrzeugnummer eingeben und danach Aufträge zuordnen. Die Kapazität wird automatisch geprüft.  </p>
+
+        <h:outputLabel value="Fahrzeugnummer: "/>
+        <h:panelGroup>
+            <p:inputNumber id="Fahrzeugnummer" value="#{auftragsallokationBean.fahrzeugnummer}" decimalPlaces="0"/>
+        </h:panelGroup>
+
         <p:dataTable var="entry" value="#{auftragsBean.auftraege}" emptyMessage="Keine Kunden vorhanden">
 
             <f:facet name="header">
@@ -91,15 +101,18 @@
 
 
 <h:form id="tableForm">
+    <p:messages id="message" showDetail="true" closable="true">
+    </p:messages>
     <h:panelGrid>
         <h:panelGroup>
             <p:dataTable id="nichtGewaehlteAuftraege" emptyMessage="Keine Daten vorhanden."
-                         var="entry" value="#{auftragsBean.auftraege}">
+                         var="entry" value="#{auftragsallokationBean.nichtZugeordneteAuftraege}"
+                         rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
                 <f:facet name="header">
                     <h1>Bitte Aufträge wählen und einem Fahrzeug zuordnen</h1>
                 </f:facet>
                 <p:column headerText="" style="width:70px;text-align:center">
-                    <p:commandLink actionListener="#{noInterestBean.add(entry)}" value="+"
+                    <p:commandLink actionListener="#{auftragsallokationBean.auftragAuswaehlen(entry)}" value="+"
                                    update=":tableForm:nichtGewaehlteAuftraege :tableForm:gewaehlteAuftraege">
                     </p:commandLink>
                 </p:column>
@@ -120,13 +133,14 @@
 
         <h:panelGroup>
             <p:dataTable id="gewaehlteAuftraege" emptyMessage="Keine Daten vorhanden." var="entry"
-                         value="#{auftragsBean.auftraege}">
+                         value="#{auftragsallokationBean.gewaehlteAuftraege}"
+                         rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
                 <f:facet name="header">
                     <h2>Merkliste</h2>
                 </f:facet>
 
                 <p:column headerText="" style="width:70px;text-align:center">
-                    <p:commandLink actionListener="#{interestBean.remove(entry)}" value="-"
+                    <p:commandLink actionListener="#{auftragsallokationBean.auftragEntfernen(entry)}" value="-"
                                    update=":tableForm:nichtGewaehlteAuftraege :tableForm:gewaehlteAuftraege">
 
                     </p:commandLink>
@@ -143,6 +157,12 @@
             </p:dataTable>
         </h:panelGroup>
     </h:panelGrid>
+
+    <p:commandButton value="Speichern" type="submit" id="speichernButton"
+                     actionListener="#{auftragsallokationBean.speichern()}"
+                     ajax="true" update="tableForm:message" rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
+
+
 </h:form>
 
 
