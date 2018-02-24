@@ -19,7 +19,6 @@ public class AuftragsallokationBean {
 
     private Boolean fahrzeugAusgewaehlt = false;
 
-
     public void setFahrzeugnummer(int fahrzeugnummer) {
         fahrzeugAusgewaehlt = true;
         this.fahrzeugnummer = fahrzeugnummer;
@@ -68,7 +67,6 @@ public class AuftragsallokationBean {
                 nichtZugeordneteAuftraege.add(auftrag);
             }
         }
-
         return nichtZugeordneteAuftraege;
     }
 
@@ -93,11 +91,12 @@ public class AuftragsallokationBean {
         tour.setBezeichnung("Test");
         Tour.getAlleTouren().add(tour);
         if (!tour.kapazitätPruefen(tour)) {
+            Tour.alleTouren.remove(tour);
             tour = null;
             return;
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", ""));
         }
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", ""));
-
     }
 
 
@@ -107,14 +106,5 @@ public class AuftragsallokationBean {
 
     public void auftragEntfernen(Auftrag auftrag) {
         gewaehlteAuftraege.remove(auftrag);
-
-    }
-
-    public void auftragAuswaehlen() {
-
-    }
-
-    public void auftragEntfernen() {
-
     }
 }

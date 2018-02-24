@@ -2,15 +2,13 @@ package de.klsssolution.gablerlog.model;
 
 import javax.faces.bean.ManagedBean;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @ManagedBean
 public class Kunde {
     private String firmenbezeichnung;
     private String ansprechpartner;
-    private Integer kundenId;
+    private int kundenId;
 
     private static List<Kunde> alleKunden = kundenlisteErstellen();
 
@@ -29,7 +27,7 @@ public class Kunde {
         Kunde kunde1 = new Kunde();
         kunde1.setFirmenbezeichnung("Ecotest GmbH");
         kunde1.setAnsprechpartner("Tim Müller");
-        kunde1.setKundenId(123456);
+        kunde1.setKundenId(1);
 
         kunden.add(kunde1);
 

@@ -37,7 +37,7 @@ public class Fahrzeug {
         fahrzeug1.setLaenge(8.5);
         fahrzeug1.setLeergewicht(9000);
         fahrzeug1.setMarke("Mercedes");
-        fahrzeug1.setMaximalGewicht(9010);
+        fahrzeug1.setMaximalGewicht(19000);
 
 
         Fahrzeug fahrzeug2 = new Fahrzeug();

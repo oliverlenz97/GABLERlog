@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
     <title>Gabler Log - Login</title>
 </h:head>
 <h:body>
-    <h:form id="hello-world">
+    <h:form id="login">
         <p:panel header="Gabler Log - Login">
             <h:panelGrid columns="2" cellpadding="4">
                 <h:outputText value="Username: "/>
-                <p:inputText id="username" value="#{login.benutzername}"/>
+                <p:inputText id="username" value="#{loginBean.userName}"/>
                 <h:outputText value="Password: " feedback="false"/>
-                <p:password placeholder="Password" value="#{login.passwort}" feedback="false"/>
+                <p:password placeholder="Password" value="#{loginBean.password}" feedback="false"/>
 
             </h:panelGrid>
-            <p:commandButton value="Login" id="loginButton" ajax="false"/>
 
-            <p:commandButton type="submit" id="loginButton2" action="#{login.login}"
-                             value="Anmelden" ajax="false" icon="fa fa-check"/>
+            <p:commandButton type="submit" id="loginButton" action="#{loginBean.login}"
+                             value="Anmelden" ajax="false" icon="fa fa-check" update="login:link"/>
+            <h:outputLink id="link" rendered="#{loginBean.loginErfolgreich}" url="/kundenuebersicht.xhtml.xhtml"
+                          value="Weiter"/>
 
-            <p:link href="http://www.iwelt.de" rendered="#{login.login}"> </p:link>
 
         </p:panel>
     </h:form>

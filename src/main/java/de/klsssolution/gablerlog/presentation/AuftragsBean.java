@@ -7,18 +7,14 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import org.primefaces.model.SelectableDataModel;
 
 @ManagedBean
 @SessionScoped
 public class AuftragsBean {
 
-    private Kunde kunde;
+    private int kundennummer;
+
     private Ladung ladung;
 
     private String startStrasse;
@@ -42,65 +38,20 @@ public class AuftragsBean {
     private double hoehe;
     private double laenge;
 
-    private List<Auftrag> gewaehlteAuftraege;
-
-
     @PostConstruct
     public void setup() {
-        kundenlisteErstellen();
         auftraege = Auftrag.getAlleAuftraege();
     }
 
-    public List<Auftrag> getGewaehlteAuftraege() {
-        return gewaehlteAuftraege;
-    }
-
-    public void setGewaehlteAuftraege(List<Auftrag> selectedCars) {
-        this.gewaehlteAuftraege = selectedCars;
-    }
-
-
-    public void kundenlisteErstellen() {
-        List<Kunde> kunden = new ArrayList<Kunde>();
-
-        Kunde kunde1 = new Kunde();
-        kunde1.setFirmenbezeichnung("Ecotest GmbH");
-        kunde1.setAnsprechpartner("Tim Müller");
-        kunde1.setKundenId(123456);
-
-        kunden.add(kunde1);
-
-        Kunde kunde2 = new Kunde();
-        kunde2.setFirmenbezeichnung("Meier und Sohn");
-        kunde2.setAnsprechpartner("Anna Schneider");
-        kunde2.setKundenId(98765);
-
-        kunden.add(kunde2);
-
-        Kunde kunde3 = new Kunde();
-        kunde3.setFirmenbezeichnung("Zara SE");
-        kunde3.setAnsprechpartner("Thomas Doe");
-        kunde3.setKundenId(65432);
-
-        kunden.add(kunde3);
-        this.kunden = kunden;
-
-        Map<String, String> kundenMap = new HashMap<String, String>();
-        List<String> firmenbezeichnungen = new ArrayList<String>();
-        for (Kunde kunde : kunden) {
-            kundenMap.put(kunde.getFirmenbezeichnung(), kunde.getFirmenbezeichnung());
-            firmenbezeichnungen.add(kunde.getFirmenbezeichnung());
-        }
-        this.kundenMap = kundenMap;
-        this.firmenbezeichnungen = firmenbezeichnungen;
-
-    }
-
-
     public void auftragHinzufuegen() {
-
         Auftrag neuerAuftrag = new Auftrag();
-        neuerAuftrag.setKunde(kunde);
+
+        for (int i = 0; i < Kunde.getAlleKunden().size(); i++) {
+            if (Kunde.getAlleKunden().get(i).getKundenId() == this.kundennummer) {
+                neuerAuftrag.setKunde(Kunde.getAlleKunden().get(i));
+            }
+        }
+
 
         Route route = new Route();
         Adresse startadresse = new Adresse();
@@ -134,9 +85,11 @@ public class AuftragsBean {
 
         neuerAuftrag.setRoute(route);
 
-        // this.auftraege.add(neuerAuftrag);
+        //this.auftraege.add(neuerAuftrag);
         Auftrag.auftragHinzufuegen(neuerAuftrag);
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", ""));
+        FacesContext.getCurrentInstance().
+
+                addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", ""));
         auftragsnummer = 0;
     }
 
@@ -192,13 +145,6 @@ public class AuftragsBean {
     private int auftragsnummer = 0;
     private String status = "Erfasst";
 
-    public Kunde getKunde() {
-        return kunde;
-    }
-
-    public void setKunde(Kunde kunde) {
-        this.kunde = kunde;
-    }
 
     public Ladung getLadung() {
         return ladung;
@@ -298,6 +244,14 @@ public class AuftragsBean {
         this.zielOrt = zielOrt;
     }
 
+    public int getKundennummer() {
+        return kundennummer;
+    }
+
+    public void setKundennummer(int kundennummer) {
+        this.kundennummer = kundennummer;
+    }
+
     public String getZielLand() {
         return zielLand;
     }
@@ -330,7 +284,6 @@ public class AuftragsBean {
         this.zielPostleitzahl = zielPostleitzahl;
     }
 
-
     private List<Kunde> kunden;
     private List<String> firmenbezeichnungen;
 
@@ -342,25 +295,7 @@ public class AuftragsBean {
         this.firmenbezeichnungen = firmenbezeichnungen;
     }
 
-    private Kunde gewaehlterKunde;
-    private Map<String, String> kundenMap;
-
-
-    public Kunde getGewaehlterKunde() {
-        return gewaehlterKunde;
-    }
-
-    public void setGewaehlterKunde(Kunde gewaehlterKunde) {
-        this.gewaehlterKunde = gewaehlterKunde;
-    }
-
     public List<Kunde> getKunden() {
         return kunden;
     }
-
-    public Map<String, String> getKundenMap() {
-        return kundenMap;
-    }
-
-
 }

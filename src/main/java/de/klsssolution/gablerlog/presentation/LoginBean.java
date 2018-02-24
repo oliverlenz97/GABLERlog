@@ -4,15 +4,23 @@ import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class LoginBean {
-    private String userName = "test";
-    // von DB alle user durchsuchen nach username
-    // password speichern und überprüfen
-    private String password= "test";
+    private String userName = "";
+    private String password = "";
+    private Boolean loginErfolgreich = false;
 
     public boolean login() {
         String un = "test";
         String pw = "test";
-        return (un.equals(userName) && pw.equals(password));
+        if (un.equals(userName) && pw.equals(password)) {
+            loginErfolgreich = true;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Boolean getLoginErfolgreich() {
+        return loginErfolgreich;
     }
 
     public String getUserName() {

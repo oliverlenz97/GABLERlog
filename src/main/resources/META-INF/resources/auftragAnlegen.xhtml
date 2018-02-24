@@ -60,15 +60,10 @@
 
         <p:panelGrid id="editorGrid" columns="2" layout="grid" style="margin-bottom:20px">
 
-            <h:outputText value="Kunde"/>
+            <h:outputText value="Kundennummer"/>
             <h:panelGroup>
-                <p:selectOneMenu id="kundeWaehlen" value="#{kundenBean.gewaehlterKunde}"
-                                 style="width:600px">
-                    <p:ajax listener="#{kundenBean.onChange}" update=""/>
-                    <f:selectItem itemLabel="Kunde auswählen" value="#{kundenBean.gewaehlterKunde}"
-                                  noSelectionOption="true"/>
-                    <f:selectItems value="#{kundenBean.kunden}"/>
-                </p:selectOneMenu>
+                <p:inputNumber id="Kundennummer" value="#{auftragsBean.kundennummer}" minValue="0" decimalPlaces="0"
+                               decimalSeparator=""/>
             </h:panelGroup>
 
             <h3>Ladung </h3>

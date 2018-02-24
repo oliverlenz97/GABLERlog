@@ -51,7 +51,7 @@
         </p:menubar>
     </h:form>
     <h:form id="tourForm">
-        <p:dataTable var="tourTable" value="#{tourBean.tours}" emptyMessage="Keine Tour vorhanden" stickyHeader="true">
+        <p:dataTable var="tour" value="#{tourBean.tours}" emptyMessage="Keine Tour vorhanden" stickyHeader="true">
 
             <f:facet name="header">
                 <h:outputText value="Tour-Übersicht"/>
@@ -62,23 +62,23 @@
             </p:column>
 
             <p:column headerText="ID" style="text-align: center">
-                <h:outputText value="#{tourTable.tourId}"/>
+                <h:outputText value="#{tour.tourId}"/>
             </p:column>
 
             <p:column headerText="Bezeichnung" style="text-align: center">
-                <h:outputText value="#{tourTable.bezeichnung}"/>
+                <h:outputText value="#{tour.bezeichnung}"/>
             </p:column>
 
             <p:column headerText="erstellt" style="text-align: center">
-                <h:outputText value="#{tourTable.erstellZeit}"/>
+                <h:outputText value="#{tour.erstellZeit}"/>
             </p:column>
 
             <p:column headerText="fällig" style="text-align: center">
-                <h:outputText value="#{tourTable.faelligkeitsZeit}"/>
+                <h:outputText value="#{tour.faelligkeitsZeit}"/>
             </p:column>
 
             <p:column headerText="Status" style="text-align: center">
-                <h:outputText value="#{tourTable.status}"/>
+                <h:outputText value="#{tour.status}"/>
             </p:column>
 
             <p:rowExpansion>
@@ -87,9 +87,10 @@
                         <h:outputText value="Detailinfo zur Tour: "/>
                     </f:facet>
                     <h:outputText value="Tour-Id:"/>
-                    <h:outputText value="#{tourTable.tourId}"/>
-                    <h:outputText value="Bezeichnung:"/>
-                    <h:outputText value="#{tourTable.bezeichnung}"/>
+                    <h:outputText value="#{tour.tourId}"/>
+                    <h:outputText value="FahrzeugId:"/>
+                    <h:outputText value="#{tour.fahrzeug.fahrzeugId}"/>
+
                 </p:panelGrid>
             </p:rowExpansion>
             <f:facet name="footer">
