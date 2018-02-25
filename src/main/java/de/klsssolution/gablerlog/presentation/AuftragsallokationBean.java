@@ -74,31 +74,32 @@ public class AuftragsallokationBean {
         if (gewaehlteAuftraege.isEmpty()) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Speichern nicht möglich", "Keine Aufträge ausgewählt"));
             return;
-        }
-        Tour tour = new Tour();
-        for (int i = 0; i < Fahrzeug.getFuhrpark().size(); i++) {
-            if (Fahrzeug.getFuhrpark().get(i).getFahrzeugId() == fahrzeugnummer) {
-                tour.setFahrzeug(Fahrzeug.getFuhrpark().get(i));
-                System.out.println(fahrzeugnummer);
-            } else System.out.println("Fahrzeug nicht vorhanden");
-        }
-        List<Route> routen = new ArrayList<>();
-        for (Auftrag auftrag : gewaehlteAuftraege) {
-            routen.add(auftrag.getRoute());
-        }
-        tour.setAlleRouten(routen);
-        tour.setErstellZeit(new Date());
-        tour.setBezeichnung("Test");
-        Tour.getAlleTouren().add(tour);
-        if (!tour.kapazitätPruefen(tour)) {
-            Tour.alleTouren.remove(tour);
-            tour = null;
-            return;
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", ""));
+            Tour tour = new Tour();
+            for (int i = 0; i < Fahrzeug.getFuhrpark().size(); i++) {
+                if (Fahrzeug.getFuhrpark().get(i).getFahrzeugId() == fahrzeugnummer) {
+                    tour.setFahrzeug(Fahrzeug.getFuhrpark().get(i));
+                    System.out.println(fahrzeugnummer);
+                }
+            }
+            List<Route> routen = new ArrayList<>();
+            for (Auftrag auftrag : gewaehlteAuftraege) {
+                routen.add(auftrag.getRoute());
+            }
+            tour.setAlleRouten(routen);
+            tour.setErstellZeit(new Date());
+            tour.setBezeichnung("Test");
+            Tour.getAlleTouren().add(tour);
+            if (tour.kapazitätPruefen(tour) == false) {
+                System.out.println("Kapazität nicht ausreichend");
+                Tour.alleTouren.remove(tour);
+                tour = null;
+                return;
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", ""));
+            }
         }
     }
-
 
     public void auftragAuswaehlen(Auftrag auftrag) {
         gewaehlteAuftraege.add(auftrag);

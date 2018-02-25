@@ -47,8 +47,11 @@ public class AuftragsBean {
         Auftrag neuerAuftrag = new Auftrag();
 
         for (int i = 0; i < Kunde.getAlleKunden().size(); i++) {
+            System.out.println("Aus View: " + kundennummer);
+
             if (Kunde.getAlleKunden().get(i).getKundenId() == this.kundennummer) {
                 neuerAuftrag.setKunde(Kunde.getAlleKunden().get(i));
+                System.out.println("aus Liste: " + Kunde.getAlleKunden().get(i).getKundenId());
             }
         }
 

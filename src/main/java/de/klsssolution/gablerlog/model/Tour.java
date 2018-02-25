@@ -54,6 +54,12 @@ public class Tour {
         tour1.setBezeichnung("WÜ Stadt Mittwoch Vormittag");
         Route route = new Route();
         route.setDistanz(23);
+        Adresse adresseStart = new Adresse();
+        adresseStart.setOrt("München");
+        route.setStartadresse(adresseStart);
+        Adresse adresseZiel = new Adresse();
+        adresseZiel.setOrt("Hamburg");
+        route.setZieladresse(adresseZiel);
         route.setId(4);
         List<Route> neueRoute = new ArrayList<Route>();
         neueRoute.add(route);
@@ -162,6 +168,7 @@ public class Tour {
             for (Auftrag auftrag : auftraege) {
                 if (auftrag.getRoute().equals(route)) {
                     if (auftrag.getLadung().getLaenge() > gesamtlaenge) {
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Fehler", "Ladung zu lang"));
                         return false;
                     }
                 }
@@ -179,6 +186,7 @@ public class Tour {
             for (Auftrag auftrag : auftraege) {
                 if (auftrag.getRoute().equals(route)) {
                     if (auftrag.getLadung().getBreite() > gesamtbreite) {
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Fehler", "Ladung zu breit!"));
                         return false;
                     }
                 }
@@ -196,6 +204,7 @@ public class Tour {
             for (Auftrag auftrag : auftraege) {
                 if (auftrag.getRoute().equals(route)) {
                     if (auftrag.getLadung().getHoehe() > gesamthoehe) {
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Fehler", "Ladung zu hoch!"));
                         return false;
                     }
                 }

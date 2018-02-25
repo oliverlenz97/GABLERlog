@@ -1,12 +1,5 @@
 package de.klsssolution.gablerlog.presentation;
 
-import com.google.maps.DirectionsApi;
-import com.google.maps.DirectionsApiRequest;
-import com.google.maps.GeoApiContext;
-import com.google.maps.model.DirectionsResult;
-import com.sun.jndi.cosnaming.ExceptionMapper;
-
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 

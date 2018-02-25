@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
@@ -51,7 +50,9 @@
         </p:menubar>
     </h:form>
     <h:form id="tourForm">
-        <p:dataTable var="tour" value="#{tourBean.tours}" emptyMessage="Keine Tour vorhanden" stickyHeader="true">
+        <p:dataTable id="tourTable" var="tour" value="#{tourBean.tours}" emptyMessage="Keine Tour vorhanden"
+                     stickyHeader="true">
+
 
             <f:facet name="header">
                 <h:outputText value="Tour-Übersicht"/>
@@ -81,6 +82,12 @@
                 <h:outputText value="#{tour.status}"/>
             </p:column>
 
+            <p:column headerText="Tour anzeigen">
+                <p:commandLink value="Anzeigen" type="button"
+                               action="#{tourenberechnungBean.actionButtonAnzeigen(tour)}">
+                </p:commandLink>
+            </p:column>
+
             <p:rowExpansion>
                 <p:panelGrid columns="5" columnClasses="label,value" style="width:800px">
                     <f:facet name="header">
@@ -98,6 +105,7 @@
                 </p:link>
             </f:facet>
         </p:dataTable>
+
     </h:form>
 </h:body>
 </html>

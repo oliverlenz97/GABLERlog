@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
@@ -54,7 +53,8 @@
 <h:form>
     <p:growl id="growl" life="3000"/>
     <h:outputText value="Startadresse: "/>
-    <p:inputText id="startadresse" value="#{mapsBean.startAdresse}"/>
+    <h:inputText value="#{tourenberechnungBean.startadresse}" id="startZentrale"/>
+    <p:inputText id="zwischenziel" value="#{mapsBean.startAdresse}"/>
     <h:outputText value="Zieladresse: "/>
     <p:inputText id="zieladresse" value="#{mapsBean.zielAdresse}"/>
 </h:form>
@@ -79,12 +79,30 @@
     directionsDisplay.setMap(map);
 
     function calcRoute(event) {
+
+        var waypts = [];
+        var waypts2 = [];
+
+        for (var i = 0; i < "#{tourenberechnungBean.adressen.size}"; i++) {
+            waypts.push("#{tourenberechnungBean.adressen.get(i)}}");
+        }
+        waypts2.push({
+            location: 'Nürnberg',
+            stopover: true
+        });
+        waypts2.push({
+            location: 'München',
+            stopover: true
+        });
         var directions = {
-            origin: $('[id*="startadresse"]').val(), // Wert aus Inputbox mit jQuery abfragen
+            origin: $('[id*="startZentrale"]').val(), // Wert aus Inputbox mit jQuery abfragen
+            waypoints: waypts,
+            optimizeWaypoints: true,
             destination: $('[id*="zieladresse"]').val(),
             travelMode: 'DRIVING',
             unitSystem: google.maps.UnitSystem.METRIC
         };
+
 
         directionsService.route(directions, function (result, status) {
             console.log(result);
