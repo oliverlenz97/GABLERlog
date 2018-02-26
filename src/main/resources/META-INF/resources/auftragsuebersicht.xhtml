@@ -53,8 +53,9 @@
             </f:facet>
         </p:menubar>
     </h:form>
-    <h:form id="drivers">
-        <p:dataTable var="entry" value="#{auftragsBean.auftraege}" emptyMessage="Keine Kunden vorhanden">
+    <h:form id="auftraege">
+        <p:dataTable var="entry" value="#{auftragsBean.auftraege}" emptyMessage="Keine Kunden vorhanden"
+                     id="auftragTable">
 
             <f:facet name="header">
                 <h:outputText value="Auftragsübersicht"/>
@@ -63,6 +64,10 @@
 
             <p:column headerText="Auftragsnummer">
                 <h:outputText value="#{entry.auftragsnummer}"/>
+            </p:column>
+
+            <p:column headerText="Fällig bis">
+                <h:outputText value="#{entry.faelligBis}"/>
             </p:column>
 
             <p:column headerText="Kunde">
@@ -81,6 +86,20 @@
                 <h:outputText value="#{entry.ladung.beschreibung}"/>
             </p:column>
 
+            <p:column headerText="Ladung Daten">
+                <h:outputText value="#{entry.ladung.gewicht}"/>
+            </p:column>
+
+            <p:column headerText="Status">
+                <h:outputText value="#{entry.status}"/>
+            </p:column>
+
+            <p:column headerText="">
+                <p:commandLink value="Loeschen" type="button"
+                               action="#{auftragsBean.actionButtonLoeschen(entry)}" update="auftraege:auftragTable">
+                </p:commandLink>
+            </p:column>
+
             <!-- url="/auftragAnlegen.xhtml" -->
 
             <f:facet name="footer">
@@ -90,6 +109,21 @@
                 <div style="clear:both"/>
             </f:facet>
         </p:dataTable>
+
+        <p:dialog id="loeschenDialog" header="Auftrag wirklich löschen?" widgetVar="digi" minHeight="50"
+                  modal="true">
+            <p:ajax event="close"/> <!--  update=":loeschenDialog" -->
+            <p:panelGrid>
+                <h:panelGroup>
+
+                </h:panelGroup>
+                <h:panelGroup>
+                    <p:commandButton value="Löschen"
+                                     actionListener="#{(auftragsBean.auftragLoeschen())}"
+                                     update="auftraege:auftragTable" style="margin-left:55px"/>
+                </h:panelGroup>
+            </p:panelGrid>
+        </p:dialog>
     </h:form>
 </h:body>
 </html>

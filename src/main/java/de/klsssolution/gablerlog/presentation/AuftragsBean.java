@@ -1,42 +1,51 @@
 package de.klsssolution.gablerlog.presentation;
 
 import de.klsssolution.gablerlog.model.*;
+import org.primefaces.context.RequestContext;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import java.util.Date;
 import java.util.List;
 
 @ManagedBean
 @SessionScoped
 public class AuftragsBean {
 
-    private int kundennummer;
+    private Double kundennummer;
 
     private Ladung ladung;
 
     private String startStrasse;
     private String startOrt;
     private String startLand;
-    private int startHausnummer;
+    private Double startHausnummer = new Double(0);
     private String startZusatz;
-    private int startPostleitzahl;
+    private Double startPostleitzahl = new Double(0);
 
     private String zielStrasse;
     private String zielOrt;
     private String zielLand;
-    private int zielHausnummer;
+    private Double zielHausnummer = new Double(0);
     private String zielZusatz;
-    private int zielPostleitzahl;
+    private Double zielPostleitzahl = new Double(0);
 
-    private double gewicht;
+    private Double gewicht = new Double(0);
     private String beschreibung;
     private String kategorie;
-    private double breite;
-    private double hoehe;
-    private double laenge;
+    private Double breite = new Double(0);
+    private Double hoehe = new Double(0);
+    private Double laenge = new Double(0);
+    private Date faelligBis;
+    private Date heute = new Date();
+
+    private Auftrag gewaehlterAuftrag;
+
+
+    private List<Auftrag> auftraege;
 
     @PostConstruct
     public void setup() {
@@ -45,16 +54,19 @@ public class AuftragsBean {
 
     public void auftragHinzufuegen() {
         Auftrag neuerAuftrag = new Auftrag();
+        Boolean kundeGefunden = false;
+        //TODO: fälligkeitsdatum abspeichern
 
         for (int i = 0; i < Kunde.getAlleKunden().size(); i++) {
-            System.out.println("Aus View: " + kundennummer);
-
-            if (Kunde.getAlleKunden().get(i).getKundenId() == this.kundennummer) {
+            if (Kunde.getAlleKunden().get(i).getKundenId() == kundennummer.intValue()) {
+                kundeGefunden = true;
                 neuerAuftrag.setKunde(Kunde.getAlleKunden().get(i));
-                System.out.println("aus Liste: " + Kunde.getAlleKunden().get(i).getKundenId());
             }
         }
-
+        if (!kundeGefunden) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Speichern nicht möglich", "Kunde nicht gefunden"));
+            return;
+        }
 
         Route route = new Route();
         Adresse startadresse = new Adresse();
@@ -71,83 +83,72 @@ public class AuftragsBean {
 
         neuerAuftrag.setLadung(ladung);
 
-        startadresse.setHausnummer(startHausnummer);
-        startadresse.setLand(startLand);
-        startadresse.setOrt(startOrt);
-        startadresse.setPostleitzahl(startPostleitzahl);
         startadresse.setStrasse(startStrasse);
+        startadresse.setHausnummer(startHausnummer.intValue());
+        startadresse.setPostleitzahl(startHausnummer.intValue());
+        startadresse.setOrt(startOrt);
+        startadresse.setLand(startLand);
 
-        zieladresse.setHausnummer(zielHausnummer);
-        zieladresse.setLand(zielLand);
-        zieladresse.setOrt(zielOrt);
-        zieladresse.setPostleitzahl(zielPostleitzahl);
         zieladresse.setStrasse(zielStrasse);
+        zieladresse.setHausnummer(zielHausnummer.intValue());
+        zieladresse.setPostleitzahl(zielPostleitzahl.intValue());
+        zieladresse.setOrt(zielOrt);
+        zieladresse.setLand(zielLand);
 
         route.setStartadresse(startadresse);
         route.setZieladresse(zieladresse);
 
         neuerAuftrag.setRoute(route);
+        neuerAuftrag.setFaelligBis(faelligBis);
 
-        //this.auftraege.add(neuerAuftrag);
         Auftrag.auftragHinzufuegen(neuerAuftrag);
-        FacesContext.getCurrentInstance().
-
-                addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", ""));
-        auftragsnummer = 0;
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", ""));
+        resetData();
     }
 
+    private void resetData() {
+        kundennummer = 0.0;
+        ladung = null;
 
-    public double getGewicht() {
-        return gewicht;
+        startStrasse = null;
+        startOrt = "";
+        startLand = "";
+        startHausnummer = 0.0;
+        startZusatz = "";
+        startPostleitzahl = 0.0;
+
+        zielStrasse = "";
+        zielOrt = "";
+        zielLand = "";
+        zielHausnummer = 0.0;
+        zielZusatz = "";
+        zielPostleitzahl = 0.0;
+
+        gewicht = 0.0;
+        beschreibung = "";
+        kategorie = "";
+        breite = 0.0;
+        hoehe = 0.0;
+        laenge = 0.0;
     }
 
-    public void setGewicht(double gewicht) {
-        this.gewicht = gewicht;
+    public void auftragLoeschen() {
+        auftraege.remove(gewaehlterAuftrag);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Auftrag gelöscht", ""));
     }
 
-    public String getBeschreibung() {
-        return beschreibung;
+    public void actionButtonLoeschen(Auftrag auftrag) {
+        RequestContext.getCurrentInstance().execute("PF('digi').show();");
+        gewaehlterAuftrag = auftrag;
     }
 
-    public void setBeschreibung(String beschreibung) {
-        this.beschreibung = beschreibung;
+    public Double getKundennummer() {
+        return kundennummer;
     }
 
-    public String getKategorie() {
-        return kategorie;
+    public void setKundennummer(Double kundennummer) {
+        this.kundennummer = kundennummer;
     }
-
-    public void setKategorie(String kategorie) {
-        this.kategorie = kategorie;
-    }
-
-    public double getBreite() {
-        return breite;
-    }
-
-    public void setBreite(double breite) {
-        this.breite = breite;
-    }
-
-    public double getHoehe() {
-        return hoehe;
-    }
-
-    public void setHoehe(double hoehe) {
-        this.hoehe = hoehe;
-    }
-
-    public double getLaenge() {
-        return laenge;
-    }
-
-    public void setLaenge(double laenge) {
-        this.laenge = laenge;
-    }
-
-    private int auftragsnummer = 0;
-    private String status = "Erfasst";
-
 
     public Ladung getLadung() {
         return ladung;
@@ -155,32 +156,6 @@ public class AuftragsBean {
 
     public void setLadung(Ladung ladung) {
         this.ladung = ladung;
-    }
-
-    public int getAuftragsnummer() {
-        return auftragsnummer;
-    }
-
-    public void setAuftragsnummer(int auftragsnummer) {
-        this.auftragsnummer = auftragsnummer;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setAuftraege(List<Auftrag> auftraege) {
-        this.auftraege = auftraege;
-    }
-
-    private List<Auftrag> auftraege;
-
-    public List<Auftrag> getAuftraege() {
-        return auftraege;
     }
 
     public String getStartStrasse() {
@@ -207,11 +182,11 @@ public class AuftragsBean {
         this.startLand = startLand;
     }
 
-    public int getStartHausnummer() {
+    public Double getStartHausnummer() {
         return startHausnummer;
     }
 
-    public void setStartHausnummer(int startHausnummer) {
+    public void setStartHausnummer(Double startHausnummer) {
         this.startHausnummer = startHausnummer;
     }
 
@@ -223,11 +198,11 @@ public class AuftragsBean {
         this.startZusatz = startZusatz;
     }
 
-    public int getStartPostleitzahl() {
+    public Double getStartPostleitzahl() {
         return startPostleitzahl;
     }
 
-    public void setStartPostleitzahl(int startPostleitzahl) {
+    public void setStartPostleitzahl(Double startPostleitzahl) {
         this.startPostleitzahl = startPostleitzahl;
     }
 
@@ -247,14 +222,6 @@ public class AuftragsBean {
         this.zielOrt = zielOrt;
     }
 
-    public int getKundennummer() {
-        return kundennummer;
-    }
-
-    public void setKundennummer(int kundennummer) {
-        this.kundennummer = kundennummer;
-    }
-
     public String getZielLand() {
         return zielLand;
     }
@@ -263,11 +230,11 @@ public class AuftragsBean {
         this.zielLand = zielLand;
     }
 
-    public int getZielHausnummer() {
+    public Double getZielHausnummer() {
         return zielHausnummer;
     }
 
-    public void setZielHausnummer(int zielHausnummer) {
+    public void setZielHausnummer(Double zielHausnummer) {
         this.zielHausnummer = zielHausnummer;
     }
 
@@ -279,26 +246,88 @@ public class AuftragsBean {
         this.zielZusatz = zielZusatz;
     }
 
-    public int getZielPostleitzahl() {
+    public Double getZielPostleitzahl() {
         return zielPostleitzahl;
     }
 
-    public void setZielPostleitzahl(int zielPostleitzahl) {
+    public void setZielPostleitzahl(Double zielPostleitzahl) {
         this.zielPostleitzahl = zielPostleitzahl;
     }
 
-    private List<Kunde> kunden;
-    private List<String> firmenbezeichnungen;
-
-    public List<String> getFirmenbezeichnungen() {
-        return firmenbezeichnungen;
+    public Double getGewicht() {
+        return gewicht;
     }
 
-    public void setFirmenbezeichnungen(List<String> firmenbezeichnungen) {
-        this.firmenbezeichnungen = firmenbezeichnungen;
+    public void setGewicht(Double gewicht) {
+        this.gewicht = gewicht;
     }
 
-    public List<Kunde> getKunden() {
-        return kunden;
+    public String getBeschreibung() {
+        return beschreibung;
     }
+
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
+    }
+
+    public String getKategorie() {
+        return kategorie;
+    }
+
+    public void setKategorie(String kategorie) {
+        this.kategorie = kategorie;
+    }
+
+    public Double getBreite() {
+        return breite;
+    }
+
+    public void setBreite(Double breite) {
+        this.breite = breite;
+    }
+
+    public Double getHoehe() {
+        return hoehe;
+    }
+
+    public void setHoehe(Double hoehe) {
+        this.hoehe = hoehe;
+    }
+
+    public Double getLaenge() {
+        return laenge;
+    }
+
+    public void setLaenge(Double laenge) {
+        this.laenge = laenge;
+    }
+
+    public List<Auftrag> getAuftraege() {
+        return auftraege;
+    }
+
+    public void setAuftraege(List<Auftrag> auftraege) {
+        this.auftraege = auftraege;
+    }
+
+    public Date getFaelligBis() {
+        return faelligBis;
+    }
+
+    public void setFaelligBis(Date faelligBis) {
+        this.faelligBis = faelligBis;
+    }
+
+    public Date getHeute() {
+        return heute;
+    }
+
+    public Auftrag getGewaehlterAuftrag() {
+        return gewaehlterAuftrag;
+    }
+
+    public void setGewaehlterAuftrag(Auftrag gewaehlterAuftrag) {
+        this.gewaehlterAuftrag = gewaehlterAuftrag;
+    }
+
 }

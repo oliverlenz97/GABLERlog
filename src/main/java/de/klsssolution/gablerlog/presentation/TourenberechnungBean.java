@@ -7,6 +7,8 @@ import de.klsssolution.gablerlog.model.Tour;
 import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.SessionScoped;
+import java.awt.*;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +42,7 @@ public class TourenberechnungBean {
         return waypointArray;
     }
 
-    public void actionButtonAnzeigen(Tour tour) {
+    public void actionButtonAnzeigen(Tour tour) throws Exception {
         List<Route> routen = tour.getAlleRouten();
         List<String> adressen = new ArrayList<>();
         for (Route route : routen) {
@@ -49,5 +51,6 @@ public class TourenberechnungBean {
             //TODO: ganze Adresse ausgeben
         }
         this.adressen = adressen;
+        //return "/maps.xhtml";
     }
 }

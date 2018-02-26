@@ -64,11 +64,14 @@
 
         <p:panelGrid id="editorGrid" columns="2" layout="grid" style="margin-bottom:20px">
 
-            <h:outputText value="Kundennummer"/>
+            <h:outputLabel value="Kundennummer"/>
             <h:panelGroup>
-                <p:inputNumber id="Kundennummer" value="#{auftragsBean.kundennummer}" minValue="0" decimalPlaces="0"
-                               decimalSeparator=""/>
+                <p:inputText id="Kunde" value="#{auftragsBean.kundennummer}"/>
             </h:panelGroup>
+
+            <h:outputLabel value="Fällig bis: "/>
+            <p:calendar id="date" value="#{auftragsBean.faelligBis}" mindate="#{auftragsBean.heute}"
+                        locale="de" navigator="true" pattern="dd.MM.yyyy"/>
 
             <h3>Ladung </h3>
             <h:outputText/>
@@ -79,22 +82,22 @@
 
             <h:outputLabel value="Gewicht (in KG)"/>
             <h:panelGroup>
-                <p:inputNumber id="Gewicht" value="#{auftragsBean.gewicht}" minValue="0"/>
+                <p:inputNumber id="Gewicht" value="#{auftragsBean.gewicht}" minValue="0" maxValue="10000"/>
             </h:panelGroup>
 
             <h:outputLabel value="Länge (in Meter)"/>
             <h:panelGroup>
-                <p:inputNumber id="laenge" value="#{auftragsBean.laenge}" minValue="0"/>
+                <p:inputNumber id="laenge" value="#{auftragsBean.laenge}" minValue="0" maxValue="30"/>
             </h:panelGroup>
 
             <h:outputLabel value="Breite (in Meter)"/>
             <h:panelGroup>
-                <p:inputNumber id="Breite" value="#{auftragsBean.breite}" minValue="0"/>
+                <p:inputNumber id="Breite" value="#{auftragsBean.breite}" minValue="0" maxValue="10"/>
             </h:panelGroup>
 
             <h:outputLabel value="Höhe (in Meter)"/>
             <h:panelGroup>
-                <p:inputNumber id="Hoehe" value="#{auftragsBean.hoehe}" minValue="0"/>
+                <p:inputNumber id="Hoehe" value="#{auftragsBean.hoehe}" minValue="0" maxValue="20"/>
             </h:panelGroup>
 
             <p:separator/>
@@ -109,14 +112,12 @@
 
             <h:outputLabel value="Hausnummer"/>
             <h:panelGroup>
-                <p:inputNumber id="StartHsnr" value="#{auftragsBean.startHausnummer}" decimalSeparator="" minValue="0"
-                               decimalPlaces="0"/>
+                <p:inputText id="StartHausnummer" value="#{auftragsBean.startHausnummer}"/>
             </h:panelGroup>
 
             <h:outputLabel value="Postleitzahl"/>
             <h:panelGroup>
-                <p:inputNumber id="StartPlz" value="#{auftragsBean.startPostleitzahl}" minValue="0" decimalPlaces="0"
-                               decimalSeparator=""/>
+                <p:inputText id="StartPlz" value="#{auftragsBean.startPostleitzahl}"/>
             </h:panelGroup>
 
             <h:outputLabel value="Ort"/>
@@ -138,17 +139,14 @@
             <h:panelGroup>
                 <p:inputText id="ZielStrasse" value="#{auftragsBean.zielStrasse}"/>
             </h:panelGroup>
-
             <h:outputLabel value="Hausnummer"/>
             <h:panelGroup>
-                <p:inputNumber id="ZielHsnr" value="#{auftragsBean.zielHausnummer}" decimalSeparator="" minValue="0"
-                               decimalPlaces="0"/>
+                <p:inputText id="ZielHausnummer" value="#{auftragsBean.zielHausnummer}"/>
             </h:panelGroup>
 
             <h:outputLabel value="Postleitzahl"/>
             <h:panelGroup>
-                <p:inputNumber id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}" minValue="0"
-                               decimalSeparator="" decimalPlaces="0"/>
+                <p:inputText id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}"/>
             </h:panelGroup>
 
             <h:outputLabel value="Ort"/>
@@ -165,10 +163,7 @@
             <p:commandButton value="Speichern" type="submit" id="speichernButton"
                              actionListener="#{auftragsBean.auftragHinzufuegen()}"
                              ajax="true" update="editorForm:message"/>
-
         </p:panelGrid>
-
-
     </h:form>
 </h:body>
 </html>

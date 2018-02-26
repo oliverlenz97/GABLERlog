@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
@@ -60,25 +59,26 @@
         <p>
             Bitte die Daten zur Tour eingeben. TourId und Erstellzeit werden automatisch hinzugefügt. Zum Speichern der Tour den Button "Speichern" betätigen.
         </p>
-        <h:panelGrid id = "tourEingabeGrid" columns="2" cellpadding="5">
-            <p:outputLabel for="bez" value="Bezeichnung: " />
+        <h:panelGrid id="tourEingabeGrid" columns="2" cellpadding="5">
+            <p:outputLabel for="bez" value="Bezeichnung: "/>
             <p:inputMask id="bez" value="#{tour.bezeichnung}" mask="" required="true"/>
 
-            <p:outputLabel for="faellig" value="fällig am:" />
-            <p:inputMask id="faellig" value="#{tour.faelligkeitsZeit}" mask="99.99.9999 99:99" required="true" placeholder="DD.MM.YYYY hh:mm"/>
+            <p:outputLabel for="faellig" value="fällig am:"/>
+            <p:inputMask id="faellig" value="#{tour.faelligkeitsZeit}" mask="99.99.9999 99:99" required="true"
+                         placeholder="DD.MM.YYYY hh:mm"/>
 
-            <p:commandButton value="Reset" type="reset" />
+            <p:commandButton value="Reset" type="reset"/>
             <p:commandButton value="Speichern" update="display"
-                             oncomplete="PF('dlg').show()"  ajax="true"/>
+                             oncomplete="PF('dlg').show()" ajax="true"/>
         </h:panelGrid>
 
         <p:dialog widgetVar="dlg" modal="true" resizable="false" header="Gespeichert. Werte:" showEffect="fade">
             <p:panelGrid id="display" columns="2" columnClasses="label,value">
-                <h:outputText value="Bezeichnung: " />
-                <h:outputText id="bezValue" value="#{tour.getBezeichnung()}" />
+                <h:outputText value="Bezeichnung: "/>
+                <h:outputText id="bezValue" value="#{tour.getBezeichnung()}"/>
 
-                <h:outputText value="fällig am: " />
-                <h:outputText id="faelligValue" value="#{tour.faelligkeitsZeit}" />
+                <h:outputText value="fällig am: "/>
+                <h:outputText id="faelligValue" value="#{tour.faelligkeitsZeit}"/>
             </p:panelGrid>
         </p:dialog>
     </h:form>

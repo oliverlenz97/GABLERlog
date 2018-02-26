@@ -71,6 +71,7 @@ public class AuftragsallokationBean {
     }
 
     public void speichern() {
+        //TODO: max. 5 Auftraege zuordnen, ansonsten Fehlermeldung
         if (gewaehlteAuftraege.isEmpty()) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Speichern nicht möglich", "Keine Aufträge ausgewählt"));
             return;
