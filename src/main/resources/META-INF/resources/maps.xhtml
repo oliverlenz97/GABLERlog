@@ -3,7 +3,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
     <title>Routenplanung</title>
@@ -53,10 +54,13 @@
 <h:form>
     <p:growl id="growl" life="3000"/>
     <h:outputText value="Startadresse: "/>
-    <h:inputText value="#{tourenberechnungBean.startadresse}" id="startZentrale"/>
-    <p:inputText id="zwischenziel" value="#{mapsBean.startAdresse}"/>
+    <p:inputText value="#{tourenberechnungBean.startadresse}" id="startZentrale"/>
+    <p:inputText id="zwischenziel1" value="#{tourenberechnungBean.adressen.get(0)}"/>
+    <p:inputText id="zwischenziel2" value="#{tourenberechnungBean.adressen.get(1)}"/>
+    <p:inputText id="zwischenziel3" value="Mosbach"/>
     <h:outputText value="Zieladresse: "/>
-    <p:inputText id="zieladresse" value="#{mapsBean.zielAdresse}"/>
+    <p:inputText id="zieladresse" value="#{tourenberechnungBean.startadresse}"/>
+
 </h:form>
 
 <button onclick="calcRoute();">Let's Go!</button>
@@ -83,9 +87,24 @@
         var waypts = [];
         var waypts2 = [];
 
-        for (var i = 0; i < "#{tourenberechnungBean.adressen.size}"; i++) {
-            waypts.push("#{tourenberechnungBean.adressen.get(i)}}");
+        waypts.push({
+            location: $('[id*="zwischenziel1"]').val(),
+            stopover: true
+        });
+        waypts.push({
+            location: $('[id*="zwischenziel2"]').val(),
+            stopover: true
+        });
+        if ($('[id*="zwischenziel3"]').val() == "") {
+
+        } else {
+            waypts.push({
+                location: $('[id*="zwischenziel3"]').val(),
+                stopover: true
+            });
         }
+
+
         waypts2.push({
             location: 'Nürnberg',
             stopover: true
@@ -94,11 +113,13 @@
             location: 'München',
             stopover: true
         });
+
+
         var directions = {
             origin: $('[id*="startZentrale"]').val(), // Wert aus Inputbox mit jQuery abfragen
             waypoints: waypts,
             optimizeWaypoints: true,
-            destination: $('[id*="zieladresse"]').val(),
+            destination: $('[id*="startZentrale"]').val(),
             travelMode: 'DRIVING',
             unitSystem: google.maps.UnitSystem.METRIC
         };
@@ -117,5 +138,3 @@
 </script>
 </body>
 </html>
-
-
