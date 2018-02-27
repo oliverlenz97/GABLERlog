@@ -15,7 +15,6 @@ public class Route {
         id = count;
     }
 
-
     public double getDistanz() {
         return distanz;
     }
