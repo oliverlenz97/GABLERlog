@@ -6,8 +6,6 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class Login {
     private String benutzername;
-    // von DB alle user durchsuchen nach username
-    // password speichern und überprüfen
     private String passwort;
 
     public boolean login() {

@@ -55,7 +55,6 @@ public class AuftragsBean {
     public void auftragHinzufuegen() {
         Auftrag neuerAuftrag = new Auftrag();
         Boolean kundeGefunden = false;
-        //TODO: fälligkeitsdatum abspeichern
 
         for (int i = 0; i < Kunde.getAlleKunden().size(); i++) {
             if (Kunde.getAlleKunden().get(i).getKundenId() == kundennummer.intValue()) {
@@ -85,7 +84,7 @@ public class AuftragsBean {
 
         startadresse.setStrasse(startStrasse);
         startadresse.setHausnummer(startHausnummer.intValue());
-        startadresse.setPostleitzahl(startHausnummer.intValue());
+        startadresse.setPostleitzahl(startPostleitzahl.intValue());
         startadresse.setOrt(startOrt);
         startadresse.setLand(startLand);
 
@@ -130,6 +129,7 @@ public class AuftragsBean {
         breite = 0.0;
         hoehe = 0.0;
         laenge = 0.0;
+        faelligBis = null;
     }
 
     public void auftragLoeschen() {

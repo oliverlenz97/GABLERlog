@@ -9,6 +9,7 @@
 </h:head>
 <h:body>
     <h:form id="login">
+        <p:messages id="message" showDetail="true" closable="true"/>
         <p:panel header="Gabler Log - Login">
             <h:panelGrid columns="2" cellpadding="4">
                 <h:outputText value="Username: "/>
@@ -19,12 +20,12 @@
             </h:panelGrid>
 
             <p:commandButton type="submit" id="loginButton" action="#{loginBean.login}"
-                             value="Anmelden" ajax="false" icon="fa fa-check" update="login:link"/>
-            <h:outputLink id="link" rendered="#{loginBean.loginErfolgreich}" url="/kundenuebersicht.xhtml.xhtml"
-                          value="Weiter"/>
-
+                             value="Anmelden" ajax="false" icon="fa fa-check" update="login:link login:message"/>
 
         </p:panel>
+        <h:link outcome="/kundenuebersicht.xhtml" rendered="#{loginBean.loginErfolgreich}">
+            <h:outputText value="Weiter"/>
+        </h:link>
     </h:form>
 </h:body>
 </html>

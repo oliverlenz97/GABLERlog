@@ -14,22 +14,6 @@ import java.util.Map;
 @ViewScoped
 public class KundenBean {
     private List<Kunde> kunden;
-    private List<String> firmenbezeichnungen;
-
-    public void onChange() {
-        System.out.println("Kunde: " + gewaehlterKunde);
-    }
-
-
-    private Kunde gewaehlterKunde;
-
-    public Kunde getGewaehlterKunde() {
-        return gewaehlterKunde;
-    }
-
-    public void setGewaehlterKunde(Kunde gewaehlterKunde) {
-        this.gewaehlterKunde = gewaehlterKunde;
-    }
 
     public List<Kunde> getKunden() {
         return kunden;

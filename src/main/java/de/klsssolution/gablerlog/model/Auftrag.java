@@ -14,6 +14,12 @@ public class Auftrag {
     private String status = "Erfasst";
     private Route route;
     private Date faelligBis;
+    private static int count = 0;
+
+    public Auftrag() {
+        count = count + 1;
+        auftragsnummer = count;
+    }
 
     public Date getFaelligBis() {
         return faelligBis;
@@ -38,7 +44,6 @@ public class Auftrag {
 
         Auftrag auftrag1 = new Auftrag();
         Route route = new Route();
-        auftrag1.setAuftragsnummer(0001);
         Kunde kunde1 = new Kunde();
         kunde1.setKundenId(1);
         kunde1.setAnsprechpartner("Max Meier");
@@ -76,7 +81,6 @@ public class Auftrag {
 
         Auftrag auftrag2 = new Auftrag();
         Route route2 = new Route();
-        auftrag2.setAuftragsnummer(0002);
         Kunde kunde2 = new Kunde();
         kunde2.setFirmenbezeichnung("Meier und Sohn");
         kunde2.setAnsprechpartner("Anna Schneider");
@@ -168,6 +172,9 @@ public class Auftrag {
         this.route = route;
     }
 
+    public static int getCount() {
+        return count;
+    }
 
 }
 

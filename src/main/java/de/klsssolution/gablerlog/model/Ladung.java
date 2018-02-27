@@ -7,7 +7,13 @@ public class Ladung {
     private double breite;
     private double hoehe;
     private double laenge;
+    private static int count = 0;
     private int id;
+
+    public Ladung() {
+        count = count + 1;
+        id = count;
+    }
 
     public double getGewicht() {
         return gewicht;

@@ -4,12 +4,12 @@ import de.klsssolution.gablerlog.model.*;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.*;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class AuftragsallokationBean {
     private int fahrzeugnummer;
 
@@ -71,9 +71,11 @@ public class AuftragsallokationBean {
     }
 
     public void speichern() {
-        //TODO: max. 5 Auftraege zuordnen, ansonsten Fehlermeldung
         if (gewaehlteAuftraege.isEmpty()) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Speichern nicht möglich", "Keine Aufträge ausgewählt"));
+            return;
+        } else if (gewaehlteAuftraege.size() > 5) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Speichern nicht möglich", "Bitte maximal 5 Aufträge zuordnen"));
             return;
         } else {
             Tour tour = new Tour();
@@ -90,12 +92,12 @@ public class AuftragsallokationBean {
             tour.setAlleRouten(routen);
             tour.setErstellZeit(new Date());
             tour.setBezeichnung("Test");
+            tour.setStatus("");
             Tour.getAlleTouren().add(tour);
             if (tour.kapazitätPruefen(tour) == false) {
                 System.out.println("Kapazität nicht ausreichend");
                 Tour.alleTouren.remove(tour);
                 tour = null;
-                return;
             } else {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", ""));
             }

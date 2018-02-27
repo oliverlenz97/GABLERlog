@@ -16,9 +16,14 @@ public class Tour {
     private LocalDateTime endzeitTatsaechlich;
     private String status;
     // Auto-Inkrement für TourId, beim Erstellen eines Tour-Objekts wird Wert um 1 erhöht und als tourId zugewiesen
-    private static final AtomicInteger count = new AtomicInteger(0);
+    private static int count = 0;
     private List<Route> alleRouten;
     private Fahrzeug fahrzeug;
+
+    public Tour() {
+        count = count + 1;
+        tourId = count;
+    }
 
     public Fahrzeug getFahrzeug() {
         return fahrzeug;
@@ -50,7 +55,6 @@ public class Tour {
         List<Tour> touren = new ArrayList<Tour>();
 
         Tour tour1 = new Tour();
-        tour1.setTourId();
         tour1.setBezeichnung("WÜ Stadt Mittwoch Vormittag");
         Route route = new Route();
         route.setDistanz(23);
@@ -60,7 +64,6 @@ public class Tour {
         Adresse adresseZiel = new Adresse();
         adresseZiel.setOrt("Hamburg");
         route.setZieladresse(adresseZiel);
-        route.setId(4);
         List<Route> neueRoute = new ArrayList<Route>();
         neueRoute.add(route);
         tour1.setAlleRouten(neueRoute);
@@ -68,9 +71,21 @@ public class Tour {
         touren.add(tour1);
 
         Tour tour2 = new Tour();
-        tour2.setTourId();
         tour2.setBezeichnung("WÜ Stadt Freitag Nachmittag");
         tour2.setFaelligkeitsZeit(ZeitFormat.zeitstempelErzeugen("2018-03-18 14:30"));
+
+        Route route2 = new Route();
+        route2.setDistanz(23);
+        Adresse adresseStart2 = new Adresse();
+        adresseStart2.setOrt("Berlin");
+        route2.setStartadresse(adresseStart2);
+        Adresse adresseZiel2 = new Adresse();
+        adresseZiel2.setOrt("Bremen");
+        route2.setZieladresse(adresseZiel2);
+        List<Route> neueRoute2 = new ArrayList<Route>();
+        neueRoute2.add(route2);
+        tour2.setAlleRouten(neueRoute2);
+        tour2.setFaelligkeitsZeit(ZeitFormat.zeitstempelErzeugen("2018-03-06 10:30"));
         touren.add(tour2);
 
         return touren;
@@ -99,10 +114,6 @@ public class Tour {
 
     public String getStatus() {
         return status;
-    }
-
-    public void setTourId() {
-        this.tourId = count.incrementAndGet();
     }
 
     public void setBezeichnung(String bezeichnung) {

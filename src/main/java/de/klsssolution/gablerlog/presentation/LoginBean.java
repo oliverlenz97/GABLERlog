@@ -1,6 +1,8 @@
 package de.klsssolution.gablerlog.presentation;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 @ManagedBean
 public class LoginBean {
@@ -15,6 +17,7 @@ public class LoginBean {
             loginErfolgreich = true;
             return true;
         } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Anmelden fehlgeschlagen", ""));
             return false;
         }
     }

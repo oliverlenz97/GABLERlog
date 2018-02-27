@@ -66,7 +66,7 @@
 
             <h:outputLabel value="Kundennummer"/>
             <h:panelGroup>
-                <p:inputText id="Kunde" value="#{auftragsBean.kundennummer}"/>
+                <p:inputText id="Kunde" value="#{auftragsBean.kundennummer}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputLabel value="Fällig bis: "/>
@@ -82,22 +82,22 @@
 
             <h:outputLabel value="Gewicht (in KG)"/>
             <h:panelGroup>
-                <p:inputNumber id="Gewicht" value="#{auftragsBean.gewicht}" minValue="0" maxValue="10000"/>
+                <p:inputNumber id="Gewicht" value="#{auftragsBean.gewicht}" minValue="0.0" maxValue="10000.0"/>
             </h:panelGroup>
 
             <h:outputLabel value="Länge (in Meter)"/>
             <h:panelGroup>
-                <p:inputNumber id="laenge" value="#{auftragsBean.laenge}" minValue="0" maxValue="30"/>
+                <p:inputNumber id="laenge" value="#{auftragsBean.laenge}" minValue="0.0" maxValue="30.0"/>
             </h:panelGroup>
 
             <h:outputLabel value="Breite (in Meter)"/>
             <h:panelGroup>
-                <p:inputNumber id="Breite" value="#{auftragsBean.breite}" minValue="0" maxValue="10"/>
+                <p:inputNumber id="Breite" value="#{auftragsBean.breite}" minValue="0.0" maxValue="10.0"/>
             </h:panelGroup>
 
             <h:outputLabel value="Höhe (in Meter)"/>
             <h:panelGroup>
-                <p:inputNumber id="Hoehe" value="#{auftragsBean.hoehe}" minValue="0" maxValue="20"/>
+                <p:inputNumber id="Hoehe" value="#{auftragsBean.hoehe}" minValue="0.0" maxValue="20.0"/>
             </h:panelGroup>
 
             <p:separator/>
@@ -112,12 +112,13 @@
 
             <h:outputLabel value="Hausnummer"/>
             <h:panelGroup>
-                <p:inputText id="StartHausnummer" value="#{auftragsBean.startHausnummer}"/>
+                <p:inputNumber id="StartHausnummer" value="#{auftragsBean.startHausnummer}" minValue="0"
+                               decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputLabel value="Postleitzahl"/>
             <h:panelGroup>
-                <p:inputText id="StartPlz" value="#{auftragsBean.startPostleitzahl}"/>
+                <p:inputNumber id="StartPlz" value="#{auftragsBean.startPostleitzahl}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputLabel value="Ort"/>
@@ -141,12 +142,13 @@
             </h:panelGroup>
             <h:outputLabel value="Hausnummer"/>
             <h:panelGroup>
-                <p:inputText id="ZielHausnummer" value="#{auftragsBean.zielHausnummer}"/>
+                <p:inputNumber id="ZielHausnummer" value="#{auftragsBean.zielHausnummer}" minValue="0"
+                               decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputLabel value="Postleitzahl"/>
             <h:panelGroup>
-                <p:inputText id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}"/>
+                <p:inputNumber id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}" minValue="0" decimalPlaces="0"/>
             </h:panelGroup>
 
             <h:outputLabel value="Ort"/>
