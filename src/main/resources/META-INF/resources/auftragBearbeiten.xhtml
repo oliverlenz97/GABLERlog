@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+    <title>Auftrag anlegen</title>
+</h:head>
+<h:body>
+
+    <h:form>
+        <p:growl id="messages"/>
+
+        <p:menubar>
+
+            <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
+
+            <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
+
+            <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
+
+            <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
+
+            <p:menuitem value="Auftragsallokation" url="/auftragsallokation.xhtml"/>
+
+            <p:menuitem value="Maps" url="/maps.xhtml"/>
+
+            <p:submenu label="Aufträge">
+                <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
+                <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
+            </p:submenu>
+
+            <p:submenu label="Touren">
+                <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
+                <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
+            </p:submenu>
+
+
+            <p:submenu label="Help" icon="ui-icon-help">
+                <p:menuitem value="Contents" url="#"/>
+                <p:submenu label="Search" icon="ui-icon-search">
+                    <p:submenu label="Text">
+                        <p:menuitem value="Workspace" url="#"/>
+                    </p:submenu>
+                    <p:menuitem value="File" url="#"/>
+                </p:submenu>
+            </p:submenu>
+
+            <f:facet name="options">
+                <p:inputText style="margin-right:10px" placeholder="Search"/>
+                <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"/>
+            </f:facet>
+        </p:menubar>
+    </h:form>
+    <h:form id="editorForm">
+        <h1>Auftrag bearbeiten</h1>
+
+        <p:growl id="growl" showDetail="false"/>
+        <p:messages id="message" showDetail="true" closable="true">
+        </p:messages>
+
+        <p:panelGrid id="editorGrid" columns="2" layout="grid" style="margin-bottom:20px">
+
+            <h:outputLabel value="Fällig bis: "/>
+            <p:calendar id="date" value="#{auftragsBean.gewaehlterAuftrag.faelligBis}" mindate="#{auftragsBean.heute}"
+                        locale="de" navigator="true" pattern="dd.MM.yyyy"/>
+
+            <h3>Ladung </h3>
+            <h:outputText/>
+            <h:outputLabel value="Beschreibung"/>
+            <h:panelGroup>
+                <p:inputText id="Beschreibung" value="#{auftragsBean.gewaehlterAuftrag}"/>
+            </h:panelGroup>
+
+            <h:outputLabel value="Gewicht (in KG)"/>
+            <h:panelGroup>
+                <p:inputNumber id="Gewicht" value="#{auftragsBean.gewaehlterAuftrag.ladung.gewicht}" minValue="0.0"
+                               maxValue="10000.0"/>
+            </h:panelGroup>
+
+            <h:outputLabel value="Länge (in Meter)"/>
+            <h:panelGroup>
+                <p:inputNumber id="laenge" value="#{auftragsBean.ladung.laenge}" minValue="0.0" maxValue="30.0"/>
+            </h:panelGroup>
+
+            <h:outputLabel value="Breite (in Meter)"/>
+            <h:panelGroup>
+                <p:inputNumber id="Breite" value="#{auftragsBean.ladung.breite}" minValue="0.0" maxValue="10.0"/>
+            </h:panelGroup>
+
+            <h:outputLabel value="Höhe (in Meter)"/>
+            <h:panelGroup>
+                <p:inputNumber id="Hoehe" value="#{auftragsBean.ladung.hoehe}" minValue="0.0" maxValue="20.0"/>
+            </h:panelGroup>
+
+            <p:separator/>
+            <p:separator/>
+
+            <h3>Startadresse </h3>
+            <h:outputText/>
+            <h:outputLabel value="Straße"/>
+            <h:panelGroup>
+                <p:inputText id="StartStrasse" value="#{auftragsBean.gewaehlterAuftrag}"/>
+            </h:panelGroup>
+
+            <h:outputLabel value="Hausnummer"/>
+            <h:panelGroup>
+                <p:inputNumber id="StartHausnummer" value="#{auftragsBean.startHausnummer}" minValue="0"
+                               decimalPlaces="0"/>
+            </h:panelGroup>
+
+            <h:outputLabel value="Postleitzahl"/>
+            <h:panelGroup>
+                <p:inputNumber id="StartPlz" value="#{auftragsBean.startPostleitzahl}" minValue="0" decimalPlaces="0"/>
+            </h:panelGroup>
+
+            <h:outputLabel value="Ort"/>
+            <h:panelGroup>
+                <p:inputText id="StartOrt" value="#{auftragsBean.startOrt}"/>
+            </h:panelGroup>
+
+            <h:outputLabel value="Land"/>
+            <h:panelGroup>
+                <p:inputText id="StartLand" value="#{auftragsBean.startLand}"/>
+            </h:panelGroup>
+
+            <p:separator/>
+            <p:separator/>
+
+            <h3>Zieladresse </h3>
+            <h:outputText/>
+            <h:outputLabel value="Straße"/>
+            <h:panelGroup>
+                <p:inputText id="ZielStrasse" value="#{auftragsBean.zielStrasse}"/>
+            </h:panelGroup>
+            <h:outputLabel value="Hausnummer"/>
+            <h:panelGroup>
+                <p:inputNumber id="ZielHausnummer" value="#{auftragsBean.zielHausnummer}" minValue="0"
+                               decimalPlaces="0"/>
+            </h:panelGroup>
+
+            <h:outputLabel value="Postleitzahl"/>
+            <h:panelGroup>
+                <p:inputNumber id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}" minValue="0" decimalPlaces="0"/>
+            </h:panelGroup>
+
+            <h:outputLabel value="Ort"/>
+            <h:panelGroup>
+                <p:inputText id="ZielOrt" value="#{auftragsBean.zielOrt}"/>
+            </h:panelGroup>
+
+            <h:outputLabel value="Land"/>
+            <h:panelGroup>
+                <p:inputText id="ZielLand" value="#{auftragsBean.zielLand}"/>
+            </h:panelGroup>
+
+
+            <p:commandButton value="Speichern" type="submit" id="speichernButton"
+                             actionListener="#{auftragsBean.auftragHinzufuegen()}"
+                             ajax="true" update="editorForm:message"/>
+        </p:panelGrid>
+    </h:form>
+</h:body>
+</html>

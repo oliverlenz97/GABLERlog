@@ -8,6 +8,12 @@ public class Route {
     private int id;
     private Adresse startadresse;
     private Adresse zieladresse;
+    private static int count = 0;
+
+    public Route() {
+        count = count + 1;
+        id = count;
+    }
 
 
     public double getDistanz() {

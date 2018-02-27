@@ -105,6 +105,10 @@ public class AuftragsBean {
         resetData();
     }
 
+    public void auftragBearbeiten(Auftrag auftrag) {
+
+    }
+
     private void resetData() {
         kundennummer = 0.0;
         ladung = null;

@@ -64,7 +64,7 @@
             <p:inputNumber id="Fahrzeugnummer" value="#{auftragsallokationBean.fahrzeugnummer}" decimalPlaces="0"/>
         </h:panelGroup>
 
-        <p:dataTable var="entry" value="#{auftragsBean.auftraege}" emptyMessage="Keine Kunden vorhanden"
+        <p:dataTable var="entry" value="#{auftragsBean.auftraege}" emptyMessage="Keine Aufträge vorhanden"
                      rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
 
             <f:facet name="header">
@@ -110,7 +110,7 @@
     </p:messages>
     <h:panelGrid>
         <h:panelGroup>
-            <p:dataTable id="nichtGewaehlteAuftraege" emptyMessage="Keine Daten vorhanden."
+            <p:dataTable id="nichtGewaehlteAuftraege" emptyMessage="Alle Aufträge sind bereits einer Tour zugeordnet"
                          var="entry" value="#{auftragsallokationBean.nichtZugeordneteAuftraege}"
                          rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
                 <f:facet name="header">
@@ -137,7 +137,7 @@
         <p:separator/>
 
         <h:panelGroup>
-            <p:dataTable id="gewaehlteAuftraege" emptyMessage="Keine Daten vorhanden." var="entry"
+            <p:dataTable id="gewaehlteAuftraege" emptyMessage="Kein Auftrag ausgewählt" var="entry"
                          value="#{auftragsallokationBean.gewaehlteAuftraege}"
                          rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
                 <f:facet name="header">

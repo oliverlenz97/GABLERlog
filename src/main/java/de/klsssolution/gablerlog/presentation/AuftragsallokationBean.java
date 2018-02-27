@@ -42,7 +42,7 @@ public class AuftragsallokationBean {
     private List<Auftrag> findeAlleNichtZugeordnetenAuftraege() {
         List<Auftrag> nichtZugeordneteAuftraege = new ArrayList<>();
         List<Tour> alleTouren = Tour.getAlleTouren();
-        Set<Integer> idSet = new HashSet<Integer>();
+        Set<Integer> idSet = new TreeSet<Integer>();
 
         for (Tour tour : alleTouren) {
             if (tour.getAlleRouten() != null) {
@@ -53,7 +53,6 @@ public class AuftragsallokationBean {
                     for (Route route : verknuepfteRouten) {
                         idSet.add(route.getId());
                         //Set mit allen Routenids, die einer Tour zugeordnet wurden
-                        //--> diese dürfen  nicht angezeigt werden
                     }
                 }
             }
@@ -62,7 +61,7 @@ public class AuftragsallokationBean {
         List<Auftrag> alleAuftraege = Auftrag.getAlleAuftraege();
         for (Auftrag auftrag : alleAuftraege) {
             if (idSet.contains(auftrag.getRoute().getId())) {
-
+                //ist die id enthalten, ist der Auftrag bereits einer Tour zugeordnet
             } else {
                 nichtZugeordneteAuftraege.add(auftrag);
             }
