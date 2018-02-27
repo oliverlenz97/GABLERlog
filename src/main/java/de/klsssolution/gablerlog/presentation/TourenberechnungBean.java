@@ -30,7 +30,7 @@ public class TourenberechnungBean {
     /*
     IDs der Touren als String abspeichern, da sie für das Dropdown-Menü als String vorliegen müssen
      */
-    public List<String> getTourenIds() {
+    private List<String> getTourenIds() {
         List<String> ids = new ArrayList<String>();
         for (Tour tour : touren) {
             String adresse = tour.getTourId() + "";
