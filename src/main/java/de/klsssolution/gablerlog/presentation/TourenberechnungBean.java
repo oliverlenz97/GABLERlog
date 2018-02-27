@@ -27,6 +27,9 @@ public class TourenberechnungBean {
         tourIds = getTourenIds();
     }
 
+    /*
+    IDs der Touren als String abspeichern, da sie für das Dropdown-Menü als String vorliegen müssen
+     */
     public List<String> getTourenIds() {
         List<String> ids = new ArrayList<String>();
         for (Tour tour : touren) {
@@ -36,6 +39,9 @@ public class TourenberechnungBean {
         return ids;
     }
 
+    /*
+    Für die im Dropdown-Menü gewählte Tourid die entsprechende Tour finden und die Adressen der Routen speichern.
+     */
     public void actionTourWaehlen() {
         Tour ausgewaehlteTour = new Tour();
         Boolean tourGefunden = false;
@@ -59,27 +65,14 @@ public class TourenberechnungBean {
         }
     }
 
-    public void actionButtonAnzeigen(Tour tour) throws Exception {
-        List<Route> routen = tour.getAlleRouten();
-        List<String> adressen = new ArrayList<>();
-        for (Route route : routen) {
-            adressen.add(route.getStartadresse().getOrt());
-            adressen.add(route.getZieladresse().getOrt());
-            //TODO: ganze Adresse ausgeben
-        }
-        this.adressen = adressen;
-        //return "/maps.xhtml";
-    }
-
     /*
-    Methode, um Null-Pointer Exceptions aus der View zu vermeiden
+    Methode, um Null-Pointer Exceptions durch get(x) zu vermeiden
      */
     public String getAdresse(int nummer) {
         if (adressen.size() > nummer) {
             return adressen.get(nummer);
         } else return "";
     }
-
 
     public String getStartadresse() {
         return startadresse;

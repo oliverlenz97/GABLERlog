@@ -52,6 +52,10 @@ public class AuftragsBean {
         auftraege = Auftrag.getAlleAuftraege();
     }
 
+    /*
+    Neuen Auftrag erstellen. Kunde wird aus Kundenliste gesucht, Route wird aus Adressen erstellt.
+    Die Ladung wird mit den entsprechenden Werten gespeichert.
+     */
     public void auftragHinzufuegen() {
         Auftrag neuerAuftrag = new Auftrag();
         Boolean kundeGefunden = false;
@@ -141,6 +145,10 @@ public class AuftragsBean {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Auftrag gelöscht", ""));
     }
 
+    /*
+    Dialog aus der View aufrufen, um abzufragen, ob der Disponent den Auftrag wirklich löschen will.
+    Abspeichern des gewählten Auftrags aus der Tabelle.
+     */
     public void actionButtonLoeschen(Auftrag auftrag) {
         RequestContext.getCurrentInstance().execute("PF('digi').show();");
         gewaehlterAuftrag = auftrag;

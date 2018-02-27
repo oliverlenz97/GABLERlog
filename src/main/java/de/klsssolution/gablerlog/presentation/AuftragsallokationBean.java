@@ -21,6 +21,7 @@ public class AuftragsallokationBean {
 
     public void setFahrzeugnummer(int fahrzeugnummer) {
         fahrzeugAusgewaehlt = true;
+        //fahrzeugAusgewählt auf true setzen, damit Tabellen der Auftragsallokation angezeigt werden
         this.fahrzeugnummer = fahrzeugnummer;
     }
 
@@ -39,6 +40,9 @@ public class AuftragsallokationBean {
         return nichtZugeordneteAuftraege;
     }
 
+    /*
+    Alle Aufträge finden, die noch nicht in einer Tour eingeplant sind
+     */
     private List<Auftrag> findeAlleNichtZugeordnetenAuftraege() {
         List<Auftrag> nichtZugeordneteAuftraege = new ArrayList<>();
         List<Tour> alleTouren = Tour.getAlleTouren();
@@ -69,6 +73,9 @@ public class AuftragsallokationBean {
         return nichtZugeordneteAuftraege;
     }
 
+    /*
+    Tour erstellen mit Liste an Routen, die von den ausgewählten Aufträgen kommen
+     */
     public void speichern() {
         if (gewaehlteAuftraege.isEmpty()) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Speichern nicht möglich", "Keine Aufträge ausgewählt"));
