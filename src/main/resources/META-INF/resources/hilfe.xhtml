@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+    <title>Hilfe</title>
+</h:head>
+<h:body>
+
+    <h:form>
+        <p:growl id="messages"/>
+
+        <p:menubar>
+
+            <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
+
+            <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
+
+            <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
+
+            <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
+
+            <p:menuitem value="Auftragsallokation" url="/auftragsallokation.xhtml"/>
+
+            <p:menuitem value="Maps" url="/maps.xhtml"/>
+
+            <p:submenu label="Aufträge">
+                <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
+                <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
+            </p:submenu>
+
+            <p:submenu label="Touren">
+                <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
+                <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
+            </p:submenu>
+
+            <p:menuitem value="Hilfe" icon="ui-icon-search" url="/hilfe.xhtml"/>
+        </p:menubar>
+    </h:form>
+    <h:form id="hilfeForm">
+        <h1>Hilfe</h1>
+        <h2>Fuhrparkverwaltung</h2>
+        <p>Hier erhalten Sie einen schnellen Überblick über alle Fahrzeuge, die sich in unserem Fukrpark befinden.</p>
+
+        <h2>Fahrerübersicht</h2>
+        <p>Hier erhalten Sie einen schnellen Überblick über alle Fahrer.</p>
+
+        <h2>Kundenübersicht</h2>
+        <p>Hier erhalten Sie einen schnellen Überblick über alle Kunden.</p>
+
+        <h2>Auftragsallokation</h2>
+        <p>Hier können sie eine Tour erstellen. Wählen Sie zunächst ein Fahrzeug aus, das die Tour fahren soll.
+            Danach erhalten Sie einen Überblick, über alle Aufträge, die noch keiner Tour zugeordnet wurden und somit
+            ausgewählt werden können. Wenn Sie fälschlicherweise einen Auftrag ausgewählt haben, können Sie diesen durch
+            einen Klick auf das Minus-Symbol links in der Tabelle wieder entfernen.
+            <br/> Bisher gibt es eine Beschränkung der Aufträge auf maximal fünf pro Tour.
+            <br/>
+            Wenn sie auf "Speichern" drücken, wird automatisch geprüft, ob das zulässige Ladungsgewicht des Fahrzeugs dem
+            Gesamtgewicht der Ladungen der Aufträge entspricht. Außerdem wird die Gesamtlänge, -breite und -höhe der einzelnen
+            Ladungen mit den Fahrzeugdaten verglichen.
+        </p>
+
+        <h2>Aufträge</h2>
+        <p>Hier erhalten Sie einen schnellen Überblick über alle Aufträge. <br/>
+            Außerdem können sie entweder über das Menü oder über den Link in der Auftragstabelle einen neuen Auftrag anlegen.
+            Hierzu werden verschiedene Daten abgefragt. Der Kunde wird anhand der eingegebenen Kunden-Id gesucht.
+            Die Eingabefelder sind teilweise auf nummerische Eingaben beschränkt, um fehlerhafte Eingaben zu verhindern.
+            Außerdem wurde bei den nummerischen Eingabefeldern ein Maximum angegeben, um unsinnige Eingaben nicht zuzulassen.
+        </p>
+
+        <h2>Tour Berechnen</h2>
+        <p>Hier finden Sie ein Dropdown-Menü, in dem Sie eine Tour-Id auswählen können. Zu der entsprechenden Tour wird
+            im Anschluss, wenn sie auf den Button drücken, die optimape Reihenfolge der Aufträge und die optimale Tour ausgegeben. </p>
+
+    </h:form>
+</h:body>
+</html>
