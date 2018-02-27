@@ -38,6 +38,11 @@
                 <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
             </p:submenu>
 
+            <f:facet name="options">
+                <h:link outcome="/login.xhtml">
+                    <h:outputText value="Logout"/>
+                </h:link> </f:facet>
+
             <p:menuitem value="Hilfe" icon="ui-icon-search" url="/hilfe.xhtml"/>
         </p:menubar>
     </h:form>
