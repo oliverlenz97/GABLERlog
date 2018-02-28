@@ -64,10 +64,6 @@
                 <h:outputText value="#{tour.bezeichnung}"/>
             </p:column>
 
-            <p:column headerText="erstellt" style="text-align: center">
-                <h:outputText value="#{tour.erstellZeit}"/>
-            </p:column>
-
             <p:column headerText="Startdatum" style="text-align: center">
                 <h:outputText value="#{tour.startDatum}"/>
             </p:column>
@@ -78,14 +74,16 @@
 
 
             <p:rowExpansion>
-                <p:panelGrid columns="5" columnClasses="label,value" style="width:800px">
+                <p:panelGrid columns="8" columnClasses="label,value">
                     <f:facet name="header">
                         <h:outputText value="Detailinfo zur Tour: "/>
                     </f:facet>
-                    <h:outputText value="Tour-Id:"/>
-                    <h:outputText value="#{tour.tourId}"/>
                     <h:outputText value="FahrzeugId:"/>
                     <h:outputText value="#{tour.fahrzeug.fahrzeugId}"/>
+                    <h:outputText value="Fahrer:"/>
+                    <h:outputText value="Testfahrer"/>
+                    <h:outputText value="Erstellt am:"/>
+                    <h:outputText value="#{tour.erstellZeit}"/>
 
                 </p:panelGrid>
             </p:rowExpansion>

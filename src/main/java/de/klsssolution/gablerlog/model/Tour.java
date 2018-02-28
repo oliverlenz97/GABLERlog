@@ -23,6 +23,7 @@ public class Tour {
     public Tour() {
         erstellZeit = new Date();
         count = count + 1;
+        status = "Inaktiv";
         tourId = count;
     }
 
@@ -69,6 +70,7 @@ public class Tour {
         neueRoute.add(route);
         tour1.setAlleRouten(neueRoute);
         tour1.setStartDatum(new Date(2018, 4, 3));
+        tour1.setFahrzeug(Fahrzeug.getFuhrpark().get(0));
         touren.add(tour1);
 
         Tour tour2 = new Tour();
@@ -83,6 +85,8 @@ public class Tour {
         Adresse adresseZiel2 = new Adresse();
         adresseZiel2.setOrt("Bremen");
         route2.setZieladresse(adresseZiel2);
+        tour2.setFahrzeug(Fahrzeug.getFuhrpark().get(1));
+
         List<Route> neueRoute2 = new ArrayList<Route>();
         neueRoute2.add(route2);
         tour2.setAlleRouten(neueRoute2);

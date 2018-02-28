@@ -6,12 +6,12 @@ import de.klsssolution.gablerlog.model.Tour;
 
 import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import java.util.ArrayList;
 import java.util.List;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class TourenberechnungBean {
 
     private String startadresse;

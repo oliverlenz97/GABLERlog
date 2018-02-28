@@ -13,6 +13,8 @@ import java.util.*;
 public class AuftragsallokationBean {
     private int fahrzeugnummer;
 
+    private Date heute = new Date();
+
     private String beschreibung;
 
     private Date tourDatum;
@@ -97,8 +99,10 @@ public class AuftragsallokationBean {
             }
             List<Route> routen = new ArrayList<>();
             for (Auftrag auftrag : gewaehlteAuftraege) {
+                auftrag.setStatus("Zugewiesen");
                 routen.add(auftrag.getRoute());
             }
+            System.out.println(tourDatum + beschreibung);
             tour.setStartDatum(tourDatum);
             tour.setAlleRouten(routen);
             tour.setBezeichnung(beschreibung);
@@ -135,6 +139,11 @@ public class AuftragsallokationBean {
     }
 
     public void setBeschreibung(String beschreibung) {
+        System.out.println("Setter: " + beschreibung);
         this.beschreibung = beschreibung;
+    }
+
+    public Date getHeute() {
+        return heute;
     }
 }

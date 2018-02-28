@@ -48,23 +48,27 @@
 
         <h3> Fahrzeug zuordnen </h3>
         <p> Bitte Fahrzeugnummer eingeben und danach Aufträge zuordnen. Die Kapazität wird automatisch geprüft. </p>
-        <p:panelGrid id="editorGrid" columns="2" layout="grid" style="margin-bottom:20px">
+        <p:panelGrid id="fahrzeugGrid" columns="2" layout="grid" style="margin-bottom:20px">
+
 
             <h:outputLabel value="Fahrzeugnummer: "/>
             <h:panelGroup>
                 <p:inputNumber id="Fahrzeugnummer" value="#{auftragsallokationBean.fahrzeugnummer}" decimalPlaces="0"/>
             </h:panelGroup>
+        </p:panelGrid>
 
-            <h:outputLabel value="Tour Startdatum: " rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
-            <p:calendar id="date" value="#{auftragsallokationBean.tourDatum}" mindate="#{auftragsBean.heute}"
-                        locale="de" navigator="true" pattern="dd.MM.yyyy"
-                        rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
+        <p:panelGrid id="editorGrid" columns="2" layout="grid" style="margin-bottom:20px"
+                     rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
+            <h:outputLabel value="Tour Startdatum: "/>
+            <p:calendar id="date" value="#{auftragsallokationBean.tourDatum}"
+                        mindate="#{auftragsallokationBean.heute}"
+                        locale="de" navigator="true" pattern="dd.MM.yyyy"/>
             <h:outputLabel value="Beschreibung: "/>
             <h:panelGroup>
-                <p:inputTextarea id="Beschreibung" value="#{auftragsallokationBean.beschreibung}"/>
+                <p:inputText id="Beschreibung" value="#{auftragsallokationBean.beschreibung}"/>
             </h:panelGroup>
-
         </p:panelGrid>
+
 
         <p:dataTable var="entry" value="#{auftragsBean.auftraege}" emptyMessage="Keine Aufträge vorhanden"
                      rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
