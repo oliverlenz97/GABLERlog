@@ -13,6 +13,12 @@ import java.util.*;
 public class AuftragsallokationBean {
     private int fahrzeugnummer;
 
+    private Date heute = new Date();
+
+    private String beschreibung;
+
+    private Date tourDatum;
+
     public int getFahrzeugnummer() {
         return fahrzeugnummer;
     }
@@ -21,7 +27,7 @@ public class AuftragsallokationBean {
 
     public void setFahrzeugnummer(int fahrzeugnummer) {
         fahrzeugAusgewaehlt = true;
-        //fahrzeugAusgewählt auf true setzen, damit Tabellen der Auftragsallokation angezeigt werden
+        //fahrzeugAusgewählt auf true setzen, damit Tabellen in der Auftragsallokation angezeigt werden
         this.fahrzeugnummer = fahrzeugnummer;
     }
 
@@ -93,11 +99,13 @@ public class AuftragsallokationBean {
             }
             List<Route> routen = new ArrayList<>();
             for (Auftrag auftrag : gewaehlteAuftraege) {
+                auftrag.setStatus("Zugewiesen");
                 routen.add(auftrag.getRoute());
             }
+            System.out.println(tourDatum + beschreibung);
+            tour.setStartDatum(tourDatum);
             tour.setAlleRouten(routen);
-            tour.setErstellZeit(new Date());
-            tour.setBezeichnung("Test");
+            tour.setBezeichnung(beschreibung);
             tour.setStatus("");
             Tour.getAlleTouren().add(tour);
             if (tour.kapazitätPruefen(tour) == false) {
@@ -116,5 +124,26 @@ public class AuftragsallokationBean {
 
     public void auftragEntfernen(Auftrag auftrag) {
         gewaehlteAuftraege.remove(auftrag);
+    }
+
+    public Date getTourDatum() {
+        return tourDatum;
+    }
+
+    public void setTourDatum(Date tourDatum) {
+        this.tourDatum = tourDatum;
+    }
+
+    public String getBeschreibung() {
+        return beschreibung;
+    }
+
+    public void setBeschreibung(String beschreibung) {
+        System.out.println("Setter: " + beschreibung);
+        this.beschreibung = beschreibung;
+    }
+
+    public Date getHeute() {
+        return heute;
     }
 }

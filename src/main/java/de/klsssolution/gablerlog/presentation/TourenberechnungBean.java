@@ -6,12 +6,12 @@ import de.klsssolution.gablerlog.model.Tour;
 
 import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import java.util.ArrayList;
 import java.util.List;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class TourenberechnungBean {
 
     private String startadresse;
@@ -30,7 +30,7 @@ public class TourenberechnungBean {
     /*
     IDs der Touren als String abspeichern, da sie für das Dropdown-Menü als String vorliegen müssen
      */
-    public List<String> getTourenIds() {
+    private List<String> getTourenIds() {
         List<String> ids = new ArrayList<String>();
         for (Tour tour : touren) {
             String adresse = tour.getTourId() + "";

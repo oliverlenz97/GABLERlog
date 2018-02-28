@@ -48,11 +48,27 @@
 
         <h3> Fahrzeug zuordnen </h3>
         <p> Bitte Fahrzeugnummer eingeben und danach Aufträge zuordnen. Die Kapazität wird automatisch geprüft. </p>
+        <p:panelGrid id="fahrzeugGrid" columns="2" layout="grid" style="margin-bottom:20px">
 
-        <h:outputLabel value="Fahrzeugnummer: "/>
-        <h:panelGroup>
-            <p:inputNumber id="Fahrzeugnummer" value="#{auftragsallokationBean.fahrzeugnummer}" decimalPlaces="0"/>
-        </h:panelGroup>
+
+            <h:outputLabel value="Fahrzeugnummer: "/>
+            <h:panelGroup>
+                <p:inputNumber id="Fahrzeugnummer" value="#{auftragsallokationBean.fahrzeugnummer}" decimalPlaces="0"/>
+            </h:panelGroup>
+        </p:panelGrid>
+
+        <p:panelGrid id="editorGrid" columns="2" layout="grid" style="margin-bottom:20px"
+                     rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
+            <h:outputLabel value="Tour Startdatum: "/>
+            <p:calendar id="date" value="#{auftragsallokationBean.tourDatum}"
+                        mindate="#{auftragsallokationBean.heute}"
+                        locale="de" navigator="true" pattern="dd.MM.yyyy"/>
+            <h:outputLabel value="Beschreibung: "/>
+            <h:panelGroup>
+                <p:inputText id="Beschreibung" value="#{auftragsallokationBean.beschreibung}"/>
+            </h:panelGroup>
+        </p:panelGrid>
+
 
         <p:dataTable var="entry" value="#{auftragsBean.auftraege}" emptyMessage="Keine Aufträge vorhanden"
                      rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
@@ -67,10 +83,6 @@
             </p:column>
 
             <p:column headerText="Kunde">
-                <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
-            </p:column>
-
-            <p:column headerText="F">
                 <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
             </p:column>
 
@@ -98,6 +110,8 @@
     </h:form>
 </h:body>
 
+<p:separator/>
+
 
 <h:form id="tableForm">
     <p:messages id="message" showDetail="true" closable="true">
@@ -108,7 +122,7 @@
                          var="entry" value="#{auftragsallokationBean.nichtZugeordneteAuftraege}"
                          rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
                 <f:facet name="header">
-                    <h4>Bitte Aufträge wählen und einem Fahrzeug zuordnen</h4>
+                    <h4>Aufträge wählen und der Tour zuordnen</h4>
                 </f:facet>
                 <p:column headerText="" style="width:70px;text-align:center">
                     <p:commandLink actionListener="#{auftragsallokationBean.auftragAuswaehlen(entry)}" value="+"

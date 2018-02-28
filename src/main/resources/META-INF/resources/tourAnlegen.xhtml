@@ -53,7 +53,7 @@
             <p:inputMask id="bez" value="#{tour.bezeichnung}" mask="" required="true"/>
 
             <p:outputLabel for="faellig" value="fällig am:"/>
-            <p:inputMask id="faellig" value="#{tour.faelligkeitsZeit}" mask="99.99.9999 99:99" required="true"
+            <p:inputMask id="faellig" value="#{tour.startDatum}" mask="99.99.9999 99:99" required="true"
                          placeholder="DD.MM.YYYY hh:mm"/>
 
             <p:commandButton value="Reset" type="reset"/>
@@ -67,7 +67,7 @@
                 <h:outputText id="bezValue" value="#{tour.getBezeichnung()}"/>
 
                 <h:outputText value="fällig am: "/>
-                <h:outputText id="faelligValue" value="#{tour.faelligkeitsZeit}"/>
+                <h:outputText id="faelligValue" value="#{tour.startDatum}"/>
             </p:panelGrid>
         </p:dialog>
     </h:form>

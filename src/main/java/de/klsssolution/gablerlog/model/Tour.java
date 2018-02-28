@@ -12,8 +12,8 @@ public class Tour {
     private int tourId;
     private String bezeichnung;
     private Date erstellZeit;
-    private LocalDateTime faelligkeitsZeit;
-    private LocalDateTime endzeitTatsaechlich;
+    private Date startDatum;
+    private Date endzeitTatsaechlich;
     private String status;
     // Auto-Inkrement für TourId, beim Erstellen eines Tour-Objekts wird Wert um 1 erhöht und als tourId zugewiesen
     private static int count = 0;
@@ -21,7 +21,9 @@ public class Tour {
     private Fahrzeug fahrzeug;
 
     public Tour() {
+        erstellZeit = new Date();
         count = count + 1;
+        status = "Inaktiv";
         tourId = count;
     }
 
@@ -67,12 +69,13 @@ public class Tour {
         List<Route> neueRoute = new ArrayList<Route>();
         neueRoute.add(route);
         tour1.setAlleRouten(neueRoute);
-        tour1.setFaelligkeitsZeit(ZeitFormat.zeitstempelErzeugen("2018-03-06 10:30"));
+        tour1.setStartDatum(new Date(2018, 4, 3));
+        tour1.setFahrzeug(Fahrzeug.getFuhrpark().get(0));
         touren.add(tour1);
 
         Tour tour2 = new Tour();
         tour2.setBezeichnung("WÜ Stadt Freitag Nachmittag");
-        tour2.setFaelligkeitsZeit(ZeitFormat.zeitstempelErzeugen("2018-03-18 14:30"));
+        tour2.setStartDatum(new Date(2018, 5, 9));
 
         Route route2 = new Route();
         route2.setDistanz(23);
@@ -82,10 +85,12 @@ public class Tour {
         Adresse adresseZiel2 = new Adresse();
         adresseZiel2.setOrt("Bremen");
         route2.setZieladresse(adresseZiel2);
+        tour2.setFahrzeug(Fahrzeug.getFuhrpark().get(1));
+
         List<Route> neueRoute2 = new ArrayList<Route>();
         neueRoute2.add(route2);
         tour2.setAlleRouten(neueRoute2);
-        tour2.setFaelligkeitsZeit(ZeitFormat.zeitstempelErzeugen("2018-03-06 10:30"));
+        tour2.setStartDatum(new Date(2018, 4, 6));
         touren.add(tour2);
 
         return touren;
@@ -104,12 +109,12 @@ public class Tour {
         return erstellZeit;
     }
 
-    public LocalDateTime getEndzeitTatsaechlich() {
+    public Date getEndzeitTatsaechlich() {
         return endzeitTatsaechlich;
     }
 
-    public LocalDateTime getFaelligkeitsZeit() {
-        return faelligkeitsZeit;
+    public Date getStartDatum() {
+        return startDatum;
     }
 
     public String getStatus() {
@@ -124,11 +129,11 @@ public class Tour {
         this.erstellZeit = erstellZeit;
     }
 
-    public void setFaelligkeitsZeit(LocalDateTime faelligkeitsZeit) {
-        this.faelligkeitsZeit = faelligkeitsZeit;
+    public void setStartDatum(Date startDatum) {
+        this.startDatum = startDatum;
     }
 
-    public void setEndzeitTatsaechlich(LocalDateTime endzeitTatsaechlich) {
+    public void setEndzeitTatsaechlich(Date endzeitTatsaechlich) {
         this.endzeitTatsaechlich = endzeitTatsaechlich;
     }
 
