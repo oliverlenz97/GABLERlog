@@ -23,7 +23,6 @@ public class LoginBean {
     }
 
     public String loginAufrufen() {
-        System.out.println("Aufgerufen");
         return "/login.xhtml";
     }
 

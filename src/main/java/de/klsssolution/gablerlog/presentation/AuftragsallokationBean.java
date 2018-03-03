@@ -13,11 +13,11 @@ import java.util.*;
 public class AuftragsallokationBean {
     private int fahrzeugnummer;
 
+    private String beschreibung = "s";
+    private Date startDatum = new Date();
+
     private Date heute = new Date();
 
-    private String beschreibung;
-
-    private Date tourDatum;
 
     public int getFahrzeugnummer() {
         return fahrzeugnummer;
@@ -33,6 +33,10 @@ public class AuftragsallokationBean {
 
     public Boolean getFahrzeugAusgewaehlt() {
         return fahrzeugAusgewaehlt;
+    }
+
+    public void setFahrzeugAusgewaehlt(boolean b) {
+        fahrzeugAusgewaehlt = b;
     }
 
     private List<Auftrag> nichtZugeordneteAuftraege = findeAlleNichtZugeordnetenAuftraege();
@@ -102,13 +106,12 @@ public class AuftragsallokationBean {
                 auftrag.setStatus("Zugewiesen");
                 routen.add(auftrag.getRoute());
             }
-            System.out.println(tourDatum + beschreibung);
-            tour.setStartDatum(tourDatum);
+            System.out.println(startDatum + " " + beschreibung);
+            tour.setStartDatum(startDatum);
             tour.setAlleRouten(routen);
             tour.setBezeichnung(beschreibung);
-            tour.setStatus("");
             Tour.getAlleTouren().add(tour);
-            if (tour.kapazitätPruefen(tour) == false) {
+            if (tour.kapazitätPruefen() == false) {
                 System.out.println("Kapazität nicht ausreichend");
                 Tour.alleTouren.remove(tour);
                 tour = null;
@@ -126,12 +129,8 @@ public class AuftragsallokationBean {
         gewaehlteAuftraege.remove(auftrag);
     }
 
-    public Date getTourDatum() {
-        return tourDatum;
-    }
-
-    public void setTourDatum(Date tourDatum) {
-        this.tourDatum = tourDatum;
+    public Date getHeute() {
+        return heute;
     }
 
     public String getBeschreibung() {
@@ -139,11 +138,14 @@ public class AuftragsallokationBean {
     }
 
     public void setBeschreibung(String beschreibung) {
-        System.out.println("Setter: " + beschreibung);
         this.beschreibung = beschreibung;
     }
 
-    public Date getHeute() {
-        return heute;
+    public Date getStartDatum() {
+        return startDatum;
+    }
+
+    public void setStartDatum(Date startDatum) {
+        this.startDatum = startDatum;
     }
 }

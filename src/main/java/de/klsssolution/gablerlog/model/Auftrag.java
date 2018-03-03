@@ -2,6 +2,7 @@ package de.klsssolution.gablerlog.model;
 
 import org.primefaces.model.SelectableDataModel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -59,6 +60,7 @@ public class Auftrag {
         ladung1.setLaenge(0.8);
         auftrag1.setLadung(ladung1);
         auftrag1.setStatus("Erfasst");
+        auftrag1.setFaelligBis(new Date(118, 4, 2));
 
         Adresse startadresse = new Adresse();
         Adresse zieladresse = new Adresse();
@@ -96,6 +98,7 @@ public class Auftrag {
         ladung2.setLaenge(12);
         auftrag2.setLadung(ladung2);
         auftrag2.setStatus("Erfasst");
+        auftrag2.setFaelligBis(new Date(118, 5, 23));
 
         Adresse startadresse2 = new Adresse();
         Adresse zieladresse2 = new Adresse();
@@ -176,5 +179,10 @@ public class Auftrag {
         return count;
     }
 
+    public String datumAusgeben(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat("E, d.M.y");
+        return format.format(date);
+    }
 }
+
 

@@ -2,6 +2,7 @@ package de.klsssolution.gablerlog.model;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -69,13 +70,13 @@ public class Tour {
         List<Route> neueRoute = new ArrayList<Route>();
         neueRoute.add(route);
         tour1.setAlleRouten(neueRoute);
-        tour1.setStartDatum(new Date(2018, 4, 3));
+        tour1.setStartDatum(new Date(118, 4, 3));
         tour1.setFahrzeug(Fahrzeug.getFuhrpark().get(0));
         touren.add(tour1);
 
         Tour tour2 = new Tour();
         tour2.setBezeichnung("WÜ Stadt Freitag Nachmittag");
-        tour2.setStartDatum(new Date(2018, 5, 9));
+        tour2.setStartDatum(new Date(118, 5, 9));
 
         Route route2 = new Route();
         route2.setDistanz(23);
@@ -90,7 +91,7 @@ public class Tour {
         List<Route> neueRoute2 = new ArrayList<Route>();
         neueRoute2.add(route2);
         tour2.setAlleRouten(neueRoute2);
-        tour2.setStartDatum(new Date(2018, 4, 6));
+        tour2.setStartDatum(new Date(118, 4, 6));
         touren.add(tour2);
 
         return touren;
@@ -141,9 +142,8 @@ public class Tour {
         this.status = status;
     }
 
-//TODO parameter löschen
-    public Boolean kapazitätPruefen(Tour tour) {
-        if (tour.gewichtPruefen() == false || this.laengePruefen() == false || this.breitePruefen() == false || this.hoehePruefen() == false) {
+    public Boolean kapazitätPruefen() {
+        if (this.gewichtPruefen() == false || this.laengePruefen() == false || this.breitePruefen() == false || this.hoehePruefen() == false) {
             return false;
         }
         return true;
@@ -229,7 +229,10 @@ public class Tour {
         return true;
     }
 
-
+    public String datumAusgeben(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat("E, d.M.y");
+        return format.format(date);
+    }
 }
 
 

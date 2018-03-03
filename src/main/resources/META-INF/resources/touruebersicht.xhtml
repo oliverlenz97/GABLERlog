@@ -37,7 +37,7 @@
             </p:column>
 
             <p:column headerText="Startdatum" style="text-align: center">
-                <h:outputText value="#{tour.startDatum}"/>
+                <h:outputText value="#{tour.datumAusgeben(tour.startDatum)}"/>
             </p:column>
 
             <p:column headerText="Status" style="text-align: center">
@@ -55,7 +55,7 @@
                     <h:outputText value="Fahrer:"/>
                     <h:outputText value="Testfahrer"/>
                     <h:outputText value="Erstellt am:"/>
-                    <h:outputText value="#{tour.erstellZeit}"/>
+                    <h:outputText value="#{tour.datumAusgeben(tour.erstellZeit)}"/>
 
                 </p:panelGrid>
             </p:rowExpansion>
