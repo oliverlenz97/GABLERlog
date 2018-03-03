@@ -9,109 +9,106 @@
     <title>Auftragsallokation</title>
 </h:head>
 <h:body>
-    <h:form>
-        <p:growl id="messages"/>
-
+    <h:form id="header">
+        <p:growl id="growl"/>
         <ui:include src="../templates/mainmenu.xhtml"/>
 
     </h:form>
     <h:form id="auftragsallokation">
+        <p:messages id="message" showDetail="true" closable="true"/>
 
 
         <h3> Fahrzeug zuordnen </h3>
         <p> Bitte Fahrzeugnummer eingeben und danach Aufträge zuordnen. Die Kapazität wird automatisch geprüft. </p>
         <p:panelGrid id="fahrzeugGrid" columns="2" layout="grid" style="margin-bottom:20px">
-
             <h:outputLabel value="Fahrzeugnummer: "/>
             <h:panelGroup>
                 <p:inputNumber id="Fahrzeugnummer" value="#{auftragsallokationBean.fahrzeugnummer}" decimalPlaces="0"
                                required="true" requiredMessage="Bitte Fahrzeug auswählen"/>
             </h:panelGroup>
+
+            <h:outputLabel value="Tour Startdatum: " rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
+            <h:panelGroup>
+
+                <p:calendar id="date" value="#{auftragsallokationBean.startDatum}"
+                            mindate="#{auftragsallokationBean.heute}"
+                            locale="de" navigator="true" pattern="dd.MM.yyyy" immediate="true"
+                            rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
+
+            </h:panelGroup>
+            <h:outputLabel value="Beschreibung: " rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
+            <h:panelGroup>
+
+                <p:inputText id="Beschreibung" value="#{auftragsallokationBean.beschreibung}"
+                             rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
+            </h:panelGroup>
         </p:panelGrid>
-
-        <p:panelGrid id="Test" columns="2" layout="grid" style="margin-bottom:20px"
-                     rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
-
-
-            <h:outputLabel value="Tour Startdatum: "/>
-            <p:calendar id="date" value="#{auftragsallokationBean.startDatum}"
-                        mindate="#{auftragsallokationBean.heute}"
-                        locale="de" navigator="true" pattern="dd.MM.yyyy" immediate="true"/>
-            <h:outputLabel value="Beschreibung: "/>
-            <p:inputText id="Beschreibung" value="#{auftragsallokationBean.beschreibung}" immediate="true"/>
-
-        </p:panelGrid>
-
-    </h:form>
-</h:body>
-
-<p:separator/>
-
-
-<h:form id="tableForm">
-    <p:messages id="message" showDetail="true" closable="true" rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
-    </p:messages>
-    <h:panelGrid>
-        <h:panelGroup>
-            <p:dataTable id="nichtGewaehlteAuftraege" emptyMessage="Alle Aufträge sind bereits einer Tour zugeordnet"
-                         var="entry" value="#{auftragsallokationBean.nichtZugeordneteAuftraege}"
-                         rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
-                <f:facet name="header">
-                    <h4>Aufträge wählen und der Tour zuordnen</h4>
-                </f:facet>
-                <p:column headerText="" style="width:70px;text-align:center">
-                    <p:commandLink actionListener="#{auftragsallokationBean.auftragAuswaehlen(entry)}" value="+"
-                                   update=":tableForm:nichtGewaehlteAuftraege :tableForm:gewaehlteAuftraege">
-                    </p:commandLink>
-                </p:column>
-
-                <p:column headerText="Kunde" filterBy="#{entry.kunde.firmenbezeichnung}"
-                          filterMatchMode="contains">
-                    <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
-                </p:column>
-
-                <p:column headerText="Auftragsnummer">
-                    <h:outputText value="#{entry.auftragsnummer}"/>
-                </p:column>
-
-            </p:dataTable>
-        </h:panelGroup>
 
         <p:separator/>
 
-        <h:panelGroup>
-            <p:dataTable id="gewaehlteAuftraege" emptyMessage="Kein Auftrag ausgewählt" var="entry"
-                         value="#{auftragsallokationBean.gewaehlteAuftraege}"
-                         rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
-                <f:facet name="header">
-                    <h2>Merkliste</h2>
-                </f:facet>
 
-                <p:column headerText="" style="width:70px;text-align:center">
-                    <p:commandLink actionListener="#{auftragsallokationBean.auftragEntfernen(entry)}" value="-"
-                                   update=":tableForm:nichtGewaehlteAuftraege :tableForm:gewaehlteAuftraege">
+        <h:panelGrid>
+            <h:panelGroup>
+                <p:dataTable id="nichtGewaehlteAuftraege"
+                             emptyMessage="Alle Aufträge sind bereits einer Tour zugeordnet"
+                             var="entry" value="#{auftragsallokationBean.nichtZugeordneteAuftraege}"
+                             rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
+                    <f:facet name="header">
+                        <h4>Aufträge wählen und der Tour zuordnen</h4>
+                    </f:facet>
+                    <p:column headerText="" style="width:70px;text-align:center">
+                        <p:commandLink actionListener="#{auftragsallokationBean.auftragAuswaehlen(entry)}" value="+"
+                                       update=":auftragsallokation:nichtGewaehlteAuftraege :auftragsallokation:gewaehlteAuftraege">
+                        </p:commandLink>
+                    </p:column>
 
-                    </p:commandLink>
-                </p:column>
+                    <p:column headerText="Kunde" filterBy="#{entry.kunde.firmenbezeichnung}"
+                              filterMatchMode="contains">
+                        <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
+                    </p:column>
 
-                <p:column headerText="Kunde" filterBy="#{entry.kunde.firmenbezeichnung}"
-                          filterMatchMode="contains">
-                    <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
-                </p:column>
+                    <p:column headerText="Auftragsnummer">
+                        <h:outputText value="#{entry.auftragsnummer}"/>
+                    </p:column>
 
-                <p:column headerText="Auftragsnummer">
-                    <h:outputText value="#{entry.auftragsnummer}"/>
-                </p:column>
-            </p:dataTable>
-        </h:panelGroup>
-    </h:panelGrid>
+                </p:dataTable>
+            </h:panelGroup>
 
-    <p:commandButton value="Speichern" type="submit" id="speichernButton"
-                     actionListener="#{auftragsallokationBean.speichern()}"
-                     ajax="false" update="tableForm:message" rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
+            <p:separator/>
 
+            <h:panelGroup>
+                <p:dataTable id="gewaehlteAuftraege" emptyMessage="Kein Auftrag ausgewählt" var="entry"
+                             value="#{auftragsallokationBean.gewaehlteAuftraege}"
+                             rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
+                    <f:facet name="header">
+                        <h2>Merkliste</h2>
+                    </f:facet>
 
-</h:form>
+                    <p:column headerText="" style="width:70px;text-align:center">
+                        <p:commandLink actionListener="#{auftragsallokationBean.auftragEntfernen(entry)}" value="-"
+                                       update=":auftragsallokation:nichtGewaehlteAuftraege :auftragsallokation:gewaehlteAuftraege">
 
+                        </p:commandLink>
+                    </p:column>
+
+                    <p:column headerText="Kunde" filterBy="#{entry.kunde.firmenbezeichnung}"
+                              filterMatchMode="contains">
+                        <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
+                    </p:column>
+
+                    <p:column headerText="Auftragsnummer">
+                        <h:outputText value="#{entry.auftragsnummer}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:panelGroup>
+        </h:panelGrid>
+
+        <p:commandButton value="Speichern" type="submit" id="speichernButton"
+                         actionListener="#{auftragsallokationBean.speichern()}"
+                         ajax="true" update="auftragsallokation:message"
+                         rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
+
+    </h:form>
+</h:body>
 
 </html>

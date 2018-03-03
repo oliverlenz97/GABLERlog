@@ -13,31 +13,16 @@ import java.util.*;
 public class AuftragsallokationBean {
     private int fahrzeugnummer;
 
-    private String beschreibung = "s";
-    private Date startDatum = new Date();
+    private String beschreibung;
+    private Date startDatum;
 
     private Date heute = new Date();
-
 
     public int getFahrzeugnummer() {
         return fahrzeugnummer;
     }
 
     private Boolean fahrzeugAusgewaehlt = false;
-
-    public void setFahrzeugnummer(int fahrzeugnummer) {
-        fahrzeugAusgewaehlt = true;
-        //fahrzeugAusgewählt auf true setzen, damit Tabellen in der Auftragsallokation angezeigt werden
-        this.fahrzeugnummer = fahrzeugnummer;
-    }
-
-    public Boolean getFahrzeugAusgewaehlt() {
-        return fahrzeugAusgewaehlt;
-    }
-
-    public void setFahrzeugAusgewaehlt(boolean b) {
-        fahrzeugAusgewaehlt = b;
-    }
 
     private List<Auftrag> nichtZugeordneteAuftraege = findeAlleNichtZugeordnetenAuftraege();
     private List<Auftrag> gewaehlteAuftraege = new ArrayList<>();
@@ -106,7 +91,6 @@ public class AuftragsallokationBean {
                 auftrag.setStatus("Zugewiesen");
                 routen.add(auftrag.getRoute());
             }
-            System.out.println(startDatum + " " + beschreibung);
             tour.setStartDatum(startDatum);
             tour.setAlleRouten(routen);
             tour.setBezeichnung(beschreibung);
@@ -147,5 +131,15 @@ public class AuftragsallokationBean {
 
     public void setStartDatum(Date startDatum) {
         this.startDatum = startDatum;
+    }
+
+    public Boolean getFahrzeugAusgewaehlt() {
+        return fahrzeugAusgewaehlt;
+    }
+
+    public void setFahrzeugnummer(int fahrzeugnummer) {
+        fahrzeugAusgewaehlt = true;
+        //fahrzeugAusgewählt auf true setzen, damit Tabellen in der Auftragsallokation angezeigt werden
+        this.fahrzeugnummer = fahrzeugnummer;
     }
 }

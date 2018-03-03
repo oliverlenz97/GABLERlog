@@ -230,8 +230,12 @@ public class Tour {
     }
 
     public String datumAusgeben(Date date) {
-        SimpleDateFormat format = new SimpleDateFormat("E, d.M.y");
-        return format.format(date);
+        if (date == null) {
+            return "";
+        } else {
+            SimpleDateFormat format = new SimpleDateFormat("E, d.M.y");
+            return format.format(date);
+        }
     }
 }
 
