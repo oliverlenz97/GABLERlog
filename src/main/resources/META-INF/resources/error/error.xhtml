@@ -3,7 +3,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 
 <h:head>
@@ -14,46 +14,7 @@
     <h:form>
         <p:growl id="messages"/>
 
-        <p:menubar>
-
-            <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
-
-            <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
-
-            <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
-
-            <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
-
-            <p:menuitem value="Auftragsallokation" url="/auftragsallokation.xhtml"/>
-
-            <p:menuitem value="Maps" url="/maps.xhtml"/>
-
-            <p:submenu label="Aufträge">
-                <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
-                <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
-            </p:submenu>
-
-            <p:submenu label="Touren">
-                <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
-                <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
-            </p:submenu>
-
-
-            <p:submenu label="Help" icon="ui-icon-help">
-                <p:menuitem value="Contents" url="#"/>
-                <p:submenu label="Search" icon="ui-icon-search">
-                    <p:submenu label="Text">
-                        <p:menuitem value="Workspace" url="#"/>
-                    </p:submenu>
-                    <p:menuitem value="File" url="#"/>
-                </p:submenu>
-            </p:submenu>
-
-            <f:facet name="options">
-                <p:inputText style="margin-right:10px" placeholder="Search"/>
-                <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"/>
-            </f:facet>
-        </p:menubar>
+        <ui:include src="../templates/mainmenu.xhtml"/>
     </h:form>
     <h:form id="editorForm">
         <h1>Ein Fehler ist passiert...</h1>

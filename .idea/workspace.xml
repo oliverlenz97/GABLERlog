@@ -3,14 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="c1da9a69-f6f1-4033-9c65-39fbaf561e1c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Adresse.java" afterPath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Adresse.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Auftrag.java" afterPath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Auftrag.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Flottenzentrale.java" afterPath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Flottenzentrale.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Tour.java" afterPath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Tour.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourenberechnungBean.java" afterPath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourenberechnungBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragAnlegen.xhtml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragAnlegen.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragsuebersicht.xhtml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragsuebersicht.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/tourBerechnen.xhtml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/tourBerechnen.xhtml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/DatenbankVerbindung.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/ZeitFormat.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/AuftragsBean.java" afterPath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/AuftragsBean.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourBean.java" afterPath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourBean.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragsallokation.xhtml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/tourAnlegen.xhtml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/dbtest.xhtml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/error/error.xhtml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/error/error.xhtml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/routenuebersicht.xhtml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,73 +38,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tourBerechnen.xhtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="auftragAnlegen.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragAnlegen.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="85" column="50" lean-forward="false" selection-start-line="85" selection-start-column="50" selection-end-line="85" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tourBerechnen.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/tourBerechnen.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="59" column="95" lean-forward="false" selection-start-line="59" selection-start-column="95" selection-end-line="59" selection-end-column="95" />
+            <state relative-caret-position="450">
+              <caret line="30" column="78" lean-forward="false" selection-start-line="30" selection-start-column="78" selection-end-line="30" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Adresse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Adresse.java">
+      <file leaf-file-name="startseite.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/startseite.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+            <state relative-caret-position="150">
+              <caret line="10" column="55" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="error.xhtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/error/error.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TourBean.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
               <folding>
-                <element signature="e#309#310#0" expanded="true" />
-                <element signature="e#339#340#0" expanded="true" />
-                <element signature="e#385#386#0" expanded="true" />
-                <element signature="e#423#424#0" expanded="true" />
-                <element signature="e#453#454#0" expanded="true" />
-                <element signature="e#479#480#0" expanded="true" />
-                <element signature="e#517#518#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#578#579#0" expanded="true" />
-                <element signature="e#605#606#0" expanded="true" />
-                <element signature="e#645#646#0" expanded="true" />
-                <element signature="e#677#678#0" expanded="true" />
-                <element signature="e#711#712#0" expanded="true" />
-                <element signature="e#744#745#0" expanded="true" />
-                <element signature="e#793#794#0" expanded="true" />
-                <element signature="e#837#838#0" expanded="true" />
-                <element signature="e#874#875#0" expanded="true" />
-                <element signature="e#909#910#0" expanded="true" />
-                <element signature="e#962#963#0" expanded="true" />
-                <element signature="e#1010#1011#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Auftrag.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Auftrag.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-189">
-              <caret line="110" column="46" lean-forward="false" selection-start-line="110" selection-start-column="46" selection-end-line="110" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tour.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Tour.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="99" column="38" lean-forward="false" selection-start-line="99" selection-start-column="38" selection-end-line="99" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TourenberechnungBean.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourenberechnungBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="61" column="64" lean-forward="true" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -118,15 +100,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Flottenzentrale.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Flottenzentrale.java">
+      <file leaf-file-name="login.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/login.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-              <folding>
-                <element signature="e#455#456#0" expanded="true" />
-                <element signature="e#495#496#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="225">
+              <caret line="15" column="87" lean-forward="false" selection-start-line="15" selection-start-column="87" selection-end-line="15" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TourenberechnungBean.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourenberechnungBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="61" column="64" lean-forward="true" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainmenu.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="62" lean-forward="false" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,6 +162,8 @@
       <find>alleDa</find>
       <find>showAd</find>
       <find>showA</find>
+      <find>reset</find>
+      <find>tourAnle</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -179,7 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/ManagedBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/TimeFormat.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/ZeitFormat.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/DBtest.java" />
@@ -193,7 +193,6 @@
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/FuhrparkBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Fahrzeug.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/MapsBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourBean.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TestBean.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/test.xhtml" />
@@ -202,7 +201,6 @@
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/KundenBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Kunde.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Ladung.java" />
-        <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/AuftragsBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Route.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/error.xhtml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragBearbeiten.xhtml" />
@@ -212,16 +210,13 @@
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/kundenuebersicht.xhtml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/routenuebersicht.xhtml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/tourAnlegen.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/login.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Login.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/touruebersicht.xhtml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/testAuftragsallokation.xhtml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragsallokation.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/AuftragsallokationBean.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/maps.xhtml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/startseite.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/LoginBean.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragAnlegen.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Auftrag.java" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Flottenzentrale.java" />
@@ -230,6 +225,12 @@
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragsuebersicht.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Tour.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/tourBerechnen.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/login.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/AuftragsBean.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/error/error.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/touruebersicht.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourBean.java" />
       </list>
     </option>
   </component>
@@ -370,6 +371,16 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="META-INF" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GABLERlog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GABLERlog" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="error" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GABLERlog" type="b2602c69:ProjectViewProjectNode" />
@@ -796,11 +807,25 @@
       <option name="project" value="LOCAL" />
       <updated>1520110912739</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Adresse angepasst.">
+      <created>1520113019807</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1520113019807</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Login Placeholder.">
+      <created>1520114449946</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1520114449946</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176151000" />
+    <option name="totallyTimeSpent" value="177745000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -816,7 +841,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16480447" sideWeight="0.50993377" order="16" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0851216" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17167382" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -831,8 +856,8 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14752117" sideWeight="0.48168498" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1668682" sideWeight="0.49006623" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2756953" sideWeight="0.48168498" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20798065" sideWeight="0.49006623" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280507" sideWeight="0.4945055" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20171674" sideWeight="0.49217638" order="5" side_tool="false" content_ui="combo" />
@@ -947,8 +972,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Auftrag speichern." />
-    <MESSAGE value="Adresse eingeben angepasst." />
     <MESSAGE value="Ladung erstellen." />
     <MESSAGE value="Listen ausgelagert in Model Klassen." />
     <MESSAGE value="Auftragsallokation." />
@@ -972,7 +995,9 @@
     <MESSAGE value="Logout, Datum angepasst." />
     <MESSAGE value="Fehler Tour anlegen behoben." />
     <MESSAGE value="Menu Icon eingefügt." />
-    <option name="LAST_COMMIT_MESSAGE" value="Menu Icon eingefügt." />
+    <MESSAGE value="Adresse angepasst." />
+    <MESSAGE value="Login Placeholder." />
+    <option name="LAST_COMMIT_MESSAGE" value="Login Placeholder." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1014,14 +1039,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/error.xhtml" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/error/error.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Ladung.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1058,18 +1075,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/DatenbankVerbindung.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <marker date="1519207269000" expanded="true" signature="837:872" ph="insert into person... " />
-            <marker date="1519207269000" expanded="true" signature="913:948" ph="insert into person... " />
-            <marker date="1519207269000" expanded="true" signature="1003:1023" ph="select * fro... person" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Mitarbeiter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1086,26 +1091,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/ZeitFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="51" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragBearbeiten.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/dbtest.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1123,17 +1112,17 @@
         <state relative-caret-position="237">
           <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4232#4233#0" expanded="true" />
-            <element signature="e#4267#4268#0" expanded="true" />
-            <element signature="e#4323#4324#0" expanded="true" />
-            <element signature="e#4371#4372#0" expanded="true" />
-            <element signature="e#4406#4407#0" expanded="true" />
-            <element signature="e#4439#4440#0" expanded="true" />
-            <element signature="e#4489#4490#0" expanded="true" />
-            <element signature="e#4533#4534#0" expanded="true" />
-            <element signature="e#4580#4581#0" expanded="true" />
-            <element signature="e#4622#4623#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#4232#4233#0" expanded="false" />
+            <element signature="e#4267#4268#0" expanded="false" />
+            <element signature="e#4323#4324#0" expanded="false" />
+            <element signature="e#4371#4372#0" expanded="false" />
+            <element signature="e#4406#4407#0" expanded="false" />
+            <element signature="e#4439#4440#0" expanded="false" />
+            <element signature="e#4489#4490#0" expanded="false" />
+            <element signature="e#4533#4534#0" expanded="false" />
+            <element signature="e#4580#4581#0" expanded="false" />
+            <element signature="e#4622#4623#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1155,14 +1144,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/fuhrparkverwaltung.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="48" lean-forward="false" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/kundenuebersicht.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="48" lean-forward="false" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
@@ -1194,50 +1175,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragsallokation.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="113" column="7" lean-forward="false" selection-start-line="113" selection-start-column="7" selection-end-line="113" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/login.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="85" lean-forward="false" selection-start-line="21" selection-start-column="80" selection-end-line="21" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/tourAnlegen.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/touruebersicht.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="108" lean-forward="false" selection-start-line="18" selection-start-column="108" selection-end-line="18" selection-end-column="108" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/routenuebersicht.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="13" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/startseite.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="88" lean-forward="false" selection-start-line="3" selection-start-column="88" selection-end-line="3" selection-end-column="88" />
           <folding />
         </state>
       </provider>
@@ -1311,40 +1252,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/AuftragsBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="41" column="27" lean-forward="false" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="27" />
-          <folding>
-            <element signature="method#resetData#0;class#AuftragsBean#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragAnlegen.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="85" column="50" lean-forward="false" selection-start-line="85" selection-start-column="50" selection-end-line="85" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Auftrag.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-189">
@@ -1393,14 +1300,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragsuebersicht.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Tour.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
@@ -1409,18 +1308,140 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourenberechnungBean.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/AuftragsBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="61" column="64" lean-forward="true" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
+        <state relative-caret-position="75">
+          <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/kundenuebersicht.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="40" column="22" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="40" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/tourAnlegen.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="107" column="63" lean-forward="false" selection-start-line="107" selection-start-column="45" selection-end-line="107" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/touruebersicht.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="62" column="45" lean-forward="false" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="62" lean-forward="false" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/tourBerechnen.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="59" column="95" lean-forward="false" selection-start-line="59" selection-start-column="95" selection-end-line="59" selection-end-column="95" />
+        <state relative-caret-position="450">
+          <caret line="30" column="78" lean-forward="false" selection-start-line="30" selection-start-column="78" selection-end-line="30" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/startseite.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="55" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/login.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="87" lean-forward="false" selection-start-line="15" selection-start-column="87" selection-end-line="15" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/routenuebersicht.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragAnlegen.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="85" column="50" lean-forward="false" selection-start-line="85" selection-start-column="50" selection-end-line="85" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragsuebersicht.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/dbtest.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/error/error.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/DatenbankVerbindung.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourenberechnungBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="61" column="64" lean-forward="true" selection-start-line="61" selection-start-column="64" selection-end-line="61" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/ZeitFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="51" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="51" />
           <folding />
         </state>
       </provider>

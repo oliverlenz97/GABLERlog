@@ -7,12 +7,13 @@ import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.Date;
 import java.util.List;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class AuftragsBean {
 
     private Double kundennummer;
@@ -106,38 +107,10 @@ public class AuftragsBean {
 
         Auftrag.auftragHinzufuegen(neuerAuftrag);
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Gespeichert", ""));
-        resetData();
     }
 
     public void auftragBearbeiten(Auftrag auftrag) {
 
-    }
-
-    private void resetData() {
-        kundennummer = 0.0;
-        ladung = null;
-
-        startStrasse = null;
-        startOrt = "";
-        startLand = "";
-        startHausnummer = 0.0;
-        startZusatz = "";
-        startPostleitzahl = 0.0;
-
-        zielStrasse = "";
-        zielOrt = "";
-        zielLand = "";
-        zielHausnummer = 0.0;
-        zielZusatz = "";
-        zielPostleitzahl = 0.0;
-
-        gewicht = 0.0;
-        beschreibung = "";
-        kategorie = "";
-        breite = 0.0;
-        hoehe = 0.0;
-        laenge = 0.0;
-        faelligBis = null;
     }
 
     public void auftragLoeschen() {
