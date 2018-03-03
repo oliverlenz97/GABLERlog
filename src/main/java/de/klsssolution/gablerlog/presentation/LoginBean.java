@@ -7,13 +7,13 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 public class LoginBean {
     private String userName = "";
-    private String password = "";
+    private String passwort = "";
     private Boolean loginErfolgreich = false;
 
     public String login() {
         String un = "test";
         String pw = "test";
-        if (un.equals(userName) && pw.equals(password)) {
+        if (un.equals(userName) && pw.equals(passwort)) {
             loginErfolgreich = true;
             return "/startseite.xhtml";
         } else {
@@ -34,7 +34,7 @@ public class LoginBean {
         return userName;
     }
 
-    public String getPassword() {
+    public String getPasswort() {
         return userName;
     }
 
@@ -42,7 +42,7 @@ public class LoginBean {
         this.userName = username;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswort(String passwort) {
+        this.passwort = passwort;
     }
 }
