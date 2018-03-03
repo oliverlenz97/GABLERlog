@@ -3,7 +3,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 
 <h:head>
@@ -14,37 +14,7 @@
     <h:form>
         <p:growl id="messages"/>
 
-        <p:menubar>
-
-            <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
-
-            <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
-
-            <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
-
-            <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
-
-            <p:menuitem value="Auftragsallokation" url="/auftragsallokation.xhtml"/>
-
-            <p:menuitem value="Maps" url="/maps.xhtml"/>
-
-            <p:submenu label="Aufträge">
-                <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
-                <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
-            </p:submenu>
-
-            <p:submenu label="Touren">
-                <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
-                <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
-            </p:submenu>
-
-            <f:facet name="options">
-                <h:link outcome="/login.xhtml">
-                    <h:outputText value="Logout"/>
-                </h:link> </f:facet>
-
-            <p:menuitem value="Hilfe" icon="ui-icon-search" url="/hilfe.xhtml"/>
-        </p:menubar>
+        <ui:include src="../templates/mainmenu.xhtml"/>
     </h:form>
     <h:form id="editorForm">
         <h1>Auftrag anlegen</h1>
@@ -57,38 +27,45 @@
 
             <h:outputLabel value="Kundennummer"/>
             <h:panelGroup>
-                <p:inputText id="Kunde" value="#{auftragsBean.kundennummer}" minValue="0" decimalPlaces="0"/>
+                <p:inputText id="Kunde" value="#{auftragsBean.kundennummer}" minValue="0" decimalPlaces="0"
+                             requiredMessage="Bitte Kundennummer eingeben" required="true"/>
             </h:panelGroup>
 
             <h:outputLabel value="Fällig bis: "/>
             <p:calendar id="date" value="#{auftragsBean.faelligBis}" mindate="#{auftragsBean.heute}"
-                        locale="de" navigator="true" pattern="dd.MM.yyyy"/>
+                        locale="de" navigator="true" pattern="dd.MM.yyyy" requiredMessage="Bitte Datum eingeben"
+                        required="true"/>
 
             <h3>Ladung </h3>
             <h:outputText/>
             <h:outputLabel value="Beschreibung"/>
             <h:panelGroup>
-                <p:inputText id="Beschreibung" value="#{auftragsBean.beschreibung}"/>
+                <p:inputText id="Beschreibung" value="#{auftragsBean.beschreibung}"
+                             requiredMessage="Bitte Beschreibung eingeben" required="true"/>
             </h:panelGroup>
 
             <h:outputLabel value="Gewicht (in KG)"/>
             <h:panelGroup>
-                <p:inputNumber id="Gewicht" value="#{auftragsBean.gewicht}" minValue="0.0" maxValue="10000.0"/>
+                <p:inputNumber id="Gewicht" value="#{auftragsBean.gewicht}" minValue="0.0" maxValue="10000.0"
+                               requiredMessage="Bitte Gewicht eingeben" required="true"/>
             </h:panelGroup>
 
             <h:outputLabel value="Länge (in Meter)"/>
             <h:panelGroup>
-                <p:inputNumber id="laenge" value="#{auftragsBean.laenge}" minValue="0.0" maxValue="30.0"/>
+                <p:inputNumber id="laenge" value="#{auftragsBean.laenge}" minValue="0.0" maxValue="30.0"
+                               requiredMessage="Bitte Länge eingeben" required="true"/>
             </h:panelGroup>
 
             <h:outputLabel value="Breite (in Meter)"/>
             <h:panelGroup>
-                <p:inputNumber id="Breite" value="#{auftragsBean.breite}" minValue="0.0" maxValue="10.0"/>
+                <p:inputNumber id="Breite" value="#{auftragsBean.breite}" minValue="0.0" maxValue="10.0"
+                               requiredMessage="Bitte Breite eingeben" required="true"/>
             </h:panelGroup>
 
             <h:outputLabel value="Höhe (in Meter)"/>
             <h:panelGroup>
-                <p:inputNumber id="Hoehe" value="#{auftragsBean.hoehe}" minValue="0.0" maxValue="20.0"/>
+                <p:inputNumber id="Hoehe" value="#{auftragsBean.hoehe}" minValue="0.0" maxValue="20.0"
+                               requiredMessage="Bitte Höhe eingeben" required="true"/>
             </h:panelGroup>
 
             <p:separator/>
@@ -98,23 +75,26 @@
             <h:outputText/>
             <h:outputLabel value="Straße"/>
             <h:panelGroup>
-                <p:inputText id="StartStrasse" value="#{auftragsBean.startStrasse}"/>
+                <p:inputText id="StartStrasse" value="#{auftragsBean.startStrasse}"
+                             requiredMessage="Bitte Straße eingeben" required="true"/>
             </h:panelGroup>
 
             <h:outputLabel value="Hausnummer"/>
             <h:panelGroup>
                 <p:inputNumber id="StartHausnummer" value="#{auftragsBean.startHausnummer}" minValue="0"
-                               decimalPlaces="0"/>
+                               decimalPlaces="0" requiredMessage="Bitte Hausnummer eingeben" required="true"/>
             </h:panelGroup>
 
             <h:outputLabel value="Postleitzahl"/>
             <h:panelGroup>
-                <p:inputNumber id="StartPlz" value="#{auftragsBean.startPostleitzahl}" minValue="0" decimalPlaces="0"/>
+                <p:inputNumber id="StartPlz" value="#{auftragsBean.startPostleitzahl}" minValue="0" decimalPlaces="0"
+                               requiredMessage="Bitte Postleitzahl eingeben" required="true"/>
             </h:panelGroup>
 
             <h:outputLabel value="Ort"/>
             <h:panelGroup>
-                <p:inputText id="StartOrt" value="#{auftragsBean.startOrt}"/>
+                <p:inputText id="StartOrt" value="#{auftragsBean.startOrt}" requiredMessage="Bitte Ort eingeben"
+                             required="true"/>
             </h:panelGroup>
 
             <h:outputLabel value="Land"/>
@@ -129,22 +109,25 @@
             <h:outputText/>
             <h:outputLabel value="Straße"/>
             <h:panelGroup>
-                <p:inputText id="ZielStrasse" value="#{auftragsBean.zielStrasse}"/>
+                <p:inputText id="ZielStrasse" value="#{auftragsBean.zielStrasse}"
+                             requiredMessage="Bitte Straße eingeben" required="true"/>
             </h:panelGroup>
             <h:outputLabel value="Hausnummer"/>
             <h:panelGroup>
                 <p:inputNumber id="ZielHausnummer" value="#{auftragsBean.zielHausnummer}" minValue="0"
-                               decimalPlaces="0"/>
+                               decimalPlaces="0" requiredMessage="Bitte Hausnummer eingeben" required="true"/>
             </h:panelGroup>
 
             <h:outputLabel value="Postleitzahl"/>
             <h:panelGroup>
-                <p:inputNumber id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}" minValue="0" decimalPlaces="0"/>
+                <p:inputNumber id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}" minValue="0" decimalPlaces="0"
+                               requiredMessage="Bitte Postleitzahl eingeben" required="true"/>
             </h:panelGroup>
 
             <h:outputLabel value="Ort"/>
             <h:panelGroup>
-                <p:inputText id="ZielOrt" value="#{auftragsBean.zielOrt}"/>
+                <p:inputText id="ZielOrt" value="#{auftragsBean.zielOrt}" requiredMessage="Bitte Ort eingeben"
+                             required="true"/>
             </h:panelGroup>
 
             <h:outputLabel value="Land"/>

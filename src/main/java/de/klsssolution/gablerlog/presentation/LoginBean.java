@@ -10,19 +10,6 @@ public class LoginBean {
     private String password = "";
     private Boolean loginErfolgreich = false;
 
-    /*
-        public boolean login() {
-            String un = "test";
-            String pw = "test";
-            if (un.equals(userName) && pw.equals(password)) {
-                loginErfolgreich = true;
-                return true;
-            } else {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Anmelden fehlgeschlagen", "Anmeldedaten falsch"));
-                return false;
-            }
-        }
-        */
     public String login() {
         String un = "test";
         String pw = "test";
@@ -33,6 +20,11 @@ public class LoginBean {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Anmelden fehlgeschlagen", "Anmeldedaten falsch"));
             return "";
         }
+    }
+
+    public String loginAufrufen() {
+        System.out.println("Aufgerufen");
+        return "/login.xhtml";
     }
 
     public Boolean getLoginErfolgreich() {

@@ -3,7 +3,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
     <title>Auftragsallokation</title>
@@ -12,36 +12,8 @@
     <h:form>
         <p:growl id="messages"/>
 
-        <p:menubar>
+        <ui:include src="../templates/mainmenu.xhtml"/>
 
-            <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
-
-            <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
-
-            <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
-
-            <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
-
-            <p:menuitem value="Auftragsallokation" url="/auftragsallokation.xhtml"/>
-
-            <p:menuitem value="Maps" url="/maps.xhtml"/>
-
-            <p:submenu label="Aufträge">
-                <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
-                <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
-            </p:submenu>
-
-            <p:submenu label="Touren">
-                <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
-                <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
-            </p:submenu>
-
-            <p:menuitem value="Hilfe" icon="ui-icon-search" url="/hilfe.xhtml"/>
-            <f:facet name="options">
-                <h:link outcome="/login.xhtml">
-                    <h:outputText value="Logout"/>
-                </h:link> </f:facet>
-        </p:menubar>
     </h:form>
     <h:form id="auftragsallokation">
 

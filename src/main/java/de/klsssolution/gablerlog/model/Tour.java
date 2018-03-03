@@ -141,7 +141,7 @@ public class Tour {
         this.status = status;
     }
 
-
+//TODO parameter löschen
     public Boolean kapazitätPruefen(Tour tour) {
         if (tour.gewichtPruefen() == false || this.laengePruefen() == false || this.breitePruefen() == false || this.hoehePruefen() == false) {
             return false;
