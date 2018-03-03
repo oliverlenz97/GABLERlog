@@ -3,7 +3,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
     <title>Tourenplan berechnen</title>
@@ -40,11 +41,11 @@
 </h:form>
 
 <h:form id="mapsForm">
+    <h:panelGrid columns="2">
+        <h:outputLabel value="Startadresse"/>
+        <p:inputText value="#{tourenberechnungBean.startadresse}" id="startZentrale" style="width:450px"/>
+    </h:panelGrid>
 
-
-    <p:growl id="growl" life="3000"/>
-    <h:outputText value="Startadresse: "/>
-    <p:inputText value="#{tourenberechnungBean.startadresse}" id="startZentrale" style="width:450px"/>
     <p:inputText id="zwischenziel1" value="#{tourenberechnungBean.getAdresse(0)}" style="width:450px"/>
     <p:inputText id="zwischenziel2" value="#{tourenberechnungBean.getAdresse(1)}" style="width:450px"/>
     <p:inputText id="zwischenziel3" value="#{tourenberechnungBean.getAdresse(2)}" style="width:450px"/>
@@ -56,8 +57,10 @@
     <p:inputText id="zwischenziel9" value="#{tourenberechnungBean.getAdresse(8)}" style="width:450px"/>
     <p:inputText id="zwischenziel10" value="#{tourenberechnungBean.getAdresse(9)}" style="width:450px"/>
 
-    <h:outputText value="Zieladresse: "/>
-    <p:inputText id="zieladresse" value="#{tourenberechnungBean.startadresse}" style="width:450px"/>
+    <h:panelGrid columns="2">
+        <h:outputLabel value="Zieladresse"/>
+        <p:inputText id="zieladresse" value="#{tourenberechnungBean.startadresse}" style="width:450px"/>
+    </h:panelGrid>
 
 </h:form>
 
