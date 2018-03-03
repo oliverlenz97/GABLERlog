@@ -82,13 +82,14 @@
             <h:outputLabel value="Hausnummer"/>
             <h:panelGroup>
                 <p:inputNumber id="StartHausnummer" value="#{auftragsBean.startHausnummer}" minValue="0"
-                               decimalPlaces="0" requiredMessage="Bitte Hausnummer eingeben" required="true"/>
+                               decimalPlaces="0" requiredMessage="Bitte Hausnummer eingeben" required="true"
+                               thousandSeparator=""/>
             </h:panelGroup>
 
             <h:outputLabel value="Postleitzahl"/>
             <h:panelGroup>
                 <p:inputNumber id="StartPlz" value="#{auftragsBean.startPostleitzahl}" minValue="0" decimalPlaces="0"
-                               requiredMessage="Bitte Postleitzahl eingeben" required="true"/>
+                               requiredMessage="Bitte Postleitzahl eingeben" required="true" thousandSeparator=""/>
             </h:panelGroup>
 
             <h:outputLabel value="Ort"/>
@@ -115,13 +116,14 @@
             <h:outputLabel value="Hausnummer"/>
             <h:panelGroup>
                 <p:inputNumber id="ZielHausnummer" value="#{auftragsBean.zielHausnummer}" minValue="0"
-                               decimalPlaces="0" requiredMessage="Bitte Hausnummer eingeben" required="true"/>
+                               decimalPlaces="0" requiredMessage="Bitte Hausnummer eingeben" required="true"
+                               thousandSeparator=""/>
             </h:panelGroup>
 
             <h:outputLabel value="Postleitzahl"/>
             <h:panelGroup>
                 <p:inputNumber id="ZielPlz" value="#{auftragsBean.zielPostleitzahl}" minValue="0" decimalPlaces="0"
-                               requiredMessage="Bitte Postleitzahl eingeben" required="true"/>
+                               requiredMessage="Bitte Postleitzahl eingeben" required="true" thousandSeparator=""/>
             </h:panelGroup>
 
             <h:outputLabel value="Ort"/>

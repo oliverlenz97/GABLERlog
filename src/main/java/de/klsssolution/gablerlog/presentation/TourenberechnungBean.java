@@ -23,7 +23,7 @@ public class TourenberechnungBean {
     @PostConstruct
     public void init() {
         Flottenzentrale f = new Flottenzentrale();
-        startadresse = f.getMapsAdresseZentrale();
+        startadresse = f.getZENTRALEN_ADRESSE().toString();
         tourIds = getTourenIds();
     }
 
@@ -58,8 +58,8 @@ public class TourenberechnungBean {
             List<Route> routen = ausgewaehlteTour.getAlleRouten();
             List<String> adressen = new ArrayList<>();
             for (Route route : routen) {
-                adressen.add(route.getStartadresse().getOrt());
-                adressen.add(route.getZieladresse().getOrt());
+                adressen.add(route.getStartadresse().toString());
+                adressen.add(route.getZieladresse().toString());
             }
             this.adressen = adressen;
         }

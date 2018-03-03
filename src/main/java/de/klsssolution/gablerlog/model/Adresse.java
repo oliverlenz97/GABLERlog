@@ -3,9 +3,10 @@ package de.klsssolution.gablerlog.model;
 public class Adresse {
     private String strasse;
     private String ort;
-    private String land;
+    private String land = "Deutschland";
     private int hausnummer;
     private int postleitzahl;
+
 
     private String adresseSql = "create table adresse ()";
 
@@ -50,8 +51,8 @@ public class Adresse {
         this.postleitzahl = postleitzahl;
     }
 
-    public String showAdresse() {
-        return ("" + getStrasse() + " " + getHausnummer() + " " + getPostleitzahl() + " " + getOrt() + " " + getLand());
+    public String toString() {
+        return (getStrasse() + " " + getHausnummer() + ", " + getPostleitzahl() + " " + getOrt() + " " + getLand());
     }
 
 }

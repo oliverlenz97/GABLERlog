@@ -62,9 +62,16 @@ public class Tour {
         Route route = new Route();
         route.setDistanz(23);
         Adresse adresseStart = new Adresse();
+        adresseStart.setStrasse("Stahlgruberring");
+        adresseStart.setHausnummer(22);
+        adresseStart.setPostleitzahl(81829);
         adresseStart.setOrt("München");
         route.setStartadresse(adresseStart);
+
         Adresse adresseZiel = new Adresse();
+        adresseZiel.setStrasse("Erzbergerstraße");
+        adresseZiel.setHausnummer(1);
+        adresseZiel.setPostleitzahl(22765);
         adresseZiel.setOrt("Hamburg");
         route.setZieladresse(adresseZiel);
         List<Route> neueRoute = new ArrayList<Route>();
@@ -81,9 +88,15 @@ public class Tour {
         Route route2 = new Route();
         route2.setDistanz(23);
         Adresse adresseStart2 = new Adresse();
+        adresseStart2.setStrasse("Margaretenstraße");
+        adresseStart2.setHausnummer(37);
+        adresseStart2.setPostleitzahl(12203);
         adresseStart2.setOrt("Berlin");
         route2.setStartadresse(adresseStart2);
         Adresse adresseZiel2 = new Adresse();
+        adresseZiel2.setStrasse("Schragestraße");
+        adresseZiel2.setHausnummer(4);
+        adresseZiel2.setPostleitzahl(28239);
         adresseZiel2.setOrt("Bremen");
         route2.setZieladresse(adresseZiel2);
         tour2.setFahrzeug(Fahrzeug.getFuhrpark().get(1));

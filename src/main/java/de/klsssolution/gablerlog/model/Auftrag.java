@@ -64,16 +64,15 @@ public class Auftrag {
 
         Adresse startadresse = new Adresse();
         Adresse zieladresse = new Adresse();
-        startadresse.setOrt("Retzstadt");
-        zieladresse.setOrt("Würzburg");
-        startadresse.setPostleitzahl(97282);
-        zieladresse.setPostleitzahl(97070);
-        startadresse.setHausnummer(33);
-        zieladresse.setHausnummer(12);
         startadresse.setStrasse("Hauptstraße");
-        zieladresse.setStrasse("Marktplatz");
-        startadresse.setLand("Deutschland");
-        zieladresse.setLand("Deutschland");
+        startadresse.setHausnummer(33);
+        startadresse.setPostleitzahl(97282);
+        startadresse.setOrt("Retzstadt");
+
+        zieladresse.setStrasse("Semmelstraße");
+        zieladresse.setHausnummer(12);
+        zieladresse.setPostleitzahl(97070);
+        zieladresse.setOrt("Würzburg");
 
         route.setStartadresse(startadresse);
         route.setZieladresse(zieladresse);
@@ -110,8 +109,6 @@ public class Auftrag {
         zieladresse2.setPostleitzahl(50667);
         startadresse2.setStrasse("Hauptstraße");
         zieladresse2.setStrasse("Marktplatz");
-        startadresse2.setLand("Deutschland");
-        zieladresse2.setLand("Deutschland");
 
         route2.setStartadresse(startadresse2);
         route2.setZieladresse(zieladresse2);
