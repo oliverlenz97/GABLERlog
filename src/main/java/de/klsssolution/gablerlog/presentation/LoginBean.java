@@ -15,7 +15,7 @@ public class LoginBean {
         String pw = "test";
         if (un.equals(userName) && pw.equals(password)) {
             loginErfolgreich = true;
-            return "/auftragsuebersicht.xhtml";
+            return "/startseite.xhtml";
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Anmelden fehlgeschlagen", "Anmeldedaten falsch"));
             return "";

@@ -10,7 +10,11 @@
 
 <h:body>
     <p:menubar>
-        <p:menuitem icon="/resources/META-INF/images/GablerLogLogo.jpg" url="/startseite.xhtml"/>
+        <p:menuitem>
+            <h:link outcome="/startseite.xhmtl">
+                <h:graphicImage name="/images/GablerLogLogo.jpg" height="50"/>
+            </h:link>
+        </p:menuitem>
 
         <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
 
