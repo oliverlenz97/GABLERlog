@@ -15,6 +15,12 @@ public class Fahrzeug {
     private String kennzeichen;
     private int fahrzeugId;
     private String fahrgestellnummer;
+    private static int count;
+
+    public Fahrzeug() {
+        count = count + 1;
+        fahrzeugId = count;
+    }
 
     private static List<Fahrzeug> fuhrpark = fuhrparkErstellen();
 
@@ -31,9 +37,8 @@ public class Fahrzeug {
         Fahrzeug fahrzeug1 = new Fahrzeug();
         fahrzeug1.setBreite(2.30);
         fahrzeug1.setFahrgestellnummer("sha930d");
-        fahrzeug1.setFahrzeugId(1);
         fahrzeug1.setHoehe(3.2);
-        fahrzeug1.setKennzeichen("MSP-AS-109");
+        fahrzeug1.setKennzeichen("MOS-SA-106");
         fahrzeug1.setLaenge(8.5);
         fahrzeug1.setLeergewicht(9000);
         fahrzeug1.setMarke("Mercedes");
@@ -43,16 +48,50 @@ public class Fahrzeug {
         Fahrzeug fahrzeug2 = new Fahrzeug();
         fahrzeug2.setBreite(2.40);
         fahrzeug2.setFahrgestellnummer("2450eok");
-        fahrzeug2.setFahrzeugId(2);
         fahrzeug2.setHoehe(3.3);
-        fahrzeug2.setKennzeichen("ERB-O-705");
+        fahrzeug2.setKennzeichen("MOS-O-754");
         fahrzeug2.setLaenge(7.2);
         fahrzeug2.setLeergewicht(8500);
         fahrzeug2.setMarke("Mercedes");
         fahrzeug2.setMaximalGewicht(16500);
 
+        Fahrzeug fahrzeug3 = new Fahrzeug();
+        fahrzeug3.setBreite(2.40);
+        fahrzeug3.setFahrgestellnummer("dja932");
+        fahrzeug3.setHoehe(3.3);
+        fahrzeug3.setKennzeichen("MOS-O-720");
+        fahrzeug3.setLaenge(7.2);
+        fahrzeug3.setLeergewicht(8500);
+        fahrzeug3.setMarke("Mercedes");
+        fahrzeug3.setMaximalGewicht(16500);
+
+        Fahrzeug fahrzeug4 = new Fahrzeug();
+        fahrzeug4.setBreite(2.0);
+        fahrzeug4.setFahrgestellnummer("sa3sla");
+        fahrzeug4.setHoehe(3.0);
+        fahrzeug4.setKennzeichen("MOS-G-732");
+        fahrzeug4.setLaenge(7.5);
+        fahrzeug4.setLeergewicht(8500);
+        fahrzeug4.setMarke("Mercedes");
+        fahrzeug4.setMaximalGewicht(18500);
+
+        Fahrzeug fahrzeug5 = new Fahrzeug();
+        fahrzeug5.setBreite(2.40);
+        fahrzeug5.setFahrgestellnummer("sa3sla");
+        fahrzeug5.setHoehe(3.3);
+        fahrzeug5.setKennzeichen("MOS-L-922");
+        fahrzeug5.setLaenge(7.2);
+        fahrzeug5.setLeergewicht(8500);
+        fahrzeug5.setMarke("Mercedes");
+        fahrzeug5.setMaximalGewicht(17500);
+
         fuhrpark.add(fahrzeug1);
         fuhrpark.add(fahrzeug2);
+        fuhrpark.add(fahrzeug3);
+        fuhrpark.add(fahrzeug4);
+        fuhrpark.add(fahrzeug5);
+
+
         return fuhrpark;
     }
 

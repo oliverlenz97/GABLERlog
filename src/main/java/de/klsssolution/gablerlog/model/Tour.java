@@ -60,7 +60,6 @@ public class Tour {
         Tour tour1 = new Tour();
         tour1.setBezeichnung("WÜ Stadt Mittwoch Vormittag");
         Route route = new Route();
-        route.setDistanz(23);
         Adresse adresseStart = new Adresse();
         adresseStart.setStrasse("Stahlgruberring");
         adresseStart.setHausnummer(22);
@@ -74,8 +73,43 @@ public class Tour {
         adresseZiel.setPostleitzahl(22765);
         adresseZiel.setOrt("Hamburg");
         route.setZieladresse(adresseZiel);
+
+        Route route1 = new Route();
+        Adresse adresseStart1 = new Adresse();
+        adresseStart1.setStrasse("Frankfurter Straße");
+        adresseStart1.setHausnummer(1);
+        adresseStart1.setPostleitzahl(64720);
+        adresseStart1.setOrt("Michelstadt");
+        route1.setStartadresse(adresseStart1);
+
+        Adresse adresseZiel1 = new Adresse();
+        adresseZiel1.setStrasse("Memelstraße");
+        adresseZiel1.setHausnummer(2);
+        adresseZiel1.setPostleitzahl(90453);
+        adresseZiel1.setOrt("Nürnberg");
+        route1.setZieladresse(adresseZiel1);
+
+
+        Route route5 = new Route();
+        Adresse adresseStart5 = new Adresse();
+        adresseStart5.setStrasse("Heubergweg");
+        adresseStart5.setHausnummer(5);
+        adresseStart5.setPostleitzahl(64732);
+        adresseStart5.setOrt("Bad König");
+        route5.setStartadresse(adresseStart5);
+
+        Adresse adresseZiel5 = new Adresse();
+        adresseZiel5.setStrasse("Bahnhofstraße");
+        adresseZiel5.setHausnummer(13);
+        adresseZiel5.setPostleitzahl(64732);
+        adresseZiel5.setOrt("Bad König");
+        route5.setZieladresse(adresseZiel5);
+
+
         List<Route> neueRoute = new ArrayList<Route>();
         neueRoute.add(route);
+        neueRoute.add(route1);
+        neueRoute.add(route5);
         tour1.setAlleRouten(neueRoute);
         tour1.setStartDatum(new Date(118, 4, 3));
         tour1.setFahrzeug(Fahrzeug.getFuhrpark().get(0));
@@ -88,21 +122,39 @@ public class Tour {
         Route route2 = new Route();
         route2.setDistanz(23);
         Adresse adresseStart2 = new Adresse();
-        adresseStart2.setStrasse("Margaretenstraße");
-        adresseStart2.setHausnummer(37);
-        adresseStart2.setPostleitzahl(12203);
-        adresseStart2.setOrt("Berlin");
+        adresseStart2.setStrasse("Markt");
+        adresseStart2.setHausnummer(1);
+        adresseStart2.setPostleitzahl(4668);
+        adresseStart2.setOrt("Grimma");
         route2.setStartadresse(adresseStart2);
         Adresse adresseZiel2 = new Adresse();
-        adresseZiel2.setStrasse("Schragestraße");
-        adresseZiel2.setHausnummer(4);
-        adresseZiel2.setPostleitzahl(28239);
-        adresseZiel2.setOrt("Bremen");
+        adresseZiel2.setStrasse("Tannenweg");
+        adresseZiel2.setHausnummer(8);
+        adresseZiel2.setPostleitzahl(14547);
+        adresseZiel2.setOrt("Beelitz");
         route2.setZieladresse(adresseZiel2);
+
+        Route route3 = new Route();
+        route3.setDistanz(23);
+        Adresse adresseStart3 = new Adresse();
+        adresseStart3.setStrasse("Margaretenstraße");
+        adresseStart3.setHausnummer(37);
+        adresseStart3.setPostleitzahl(12203);
+        adresseStart3.setOrt("Berlin");
+        route3.setStartadresse(adresseStart3);
+        Adresse adresseZiel3 = new Adresse();
+        adresseZiel3.setStrasse("Schragestraße");
+        adresseZiel3.setHausnummer(4);
+        adresseZiel3.setPostleitzahl(28239);
+        adresseZiel3.setOrt("Bremen");
+        route3.setZieladresse(adresseZiel3);
+
         tour2.setFahrzeug(Fahrzeug.getFuhrpark().get(1));
 
         List<Route> neueRoute2 = new ArrayList<Route>();
         neueRoute2.add(route2);
+        neueRoute2.add(route3);
+
         tour2.setAlleRouten(neueRoute2);
         tour2.setStartDatum(new Date(118, 4, 6));
         touren.add(tour2);

@@ -44,9 +44,15 @@ public class Kunde {
 
         Kunde kunde3 = new Kunde();
         kunde3.setFirmenbezeichnung("Zara SE");
-        kunde3.setAnsprechpartner("Thomas Doe");
+        kunde3.setAnsprechpartner("Thomas Liebler");
 
         kunden.add(kunde3);
+
+        Kunde kunde4 = new Kunde();
+        kunde4.setFirmenbezeichnung("PrimeTek GmbH");
+        kunde4.setAnsprechpartner("Manfred Meier");
+
+        kunden.add(kunde4);
         return kunden;
     }
 

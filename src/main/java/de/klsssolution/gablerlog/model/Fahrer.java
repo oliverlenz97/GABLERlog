@@ -17,28 +17,44 @@ public class Fahrer {
         List<Fahrer> fahrer = new ArrayList<Fahrer>();
 
         Fahrer fahrer1 = new Fahrer();
-        fahrer1.setVorname("John");
-        fahrer1.setNachname("Doe");
-        fahrer1.setFahrerId(123456);
-        fahrer1.setFuehrerscheinKlasse("B-Klasse");
+        fahrer1.setVorname("Martin");
+        fahrer1.setNachname("Müller");
+        fahrer1.setFahrerId(12456);
+        fahrer1.setFuehrerscheinKlasse("C");
 
         fahrer.add(fahrer1);
 
         Fahrer fahrer2 = new Fahrer();
-        fahrer2.setVorname("Adam");
-        fahrer2.setNachname("Scott");
+        fahrer2.setVorname("Hans");
+        fahrer2.setNachname("Schmidt");
         fahrer2.setFahrerId(98765);
-        fahrer2.setFuehrerscheinKlasse("E-Klasse");
+        fahrer2.setFuehrerscheinKlasse("C");
 
         fahrer.add(fahrer2);
 
         Fahrer fahrer3 = new Fahrer();
-        fahrer3.setVorname("Jane");
-        fahrer3.setNachname("Doe");
+        fahrer3.setVorname("Peter");
+        fahrer3.setNachname("Meier");
         fahrer3.setFahrerId(65432);
-        fahrer3.setFuehrerscheinKlasse("LKW");
+        fahrer3.setFuehrerscheinKlasse("C1");
 
         fahrer.add(fahrer3);
+
+        Fahrer fahrer4 = new Fahrer();
+        fahrer4.setVorname("Rudolf");
+        fahrer4.setNachname("Lehrmann");
+        fahrer4.setFahrerId(35232);
+        fahrer4.setFuehrerscheinKlasse("C1");
+
+        fahrer.add(fahrer4);
+
+        Fahrer fahrer5 = new Fahrer();
+        fahrer5.setVorname("Hannes");
+        fahrer5.setNachname("Lenz");
+        fahrer5.setFahrerId(82912);
+        fahrer5.setFuehrerscheinKlasse("C");
+
+        fahrer.add(fahrer5);
         return fahrer;
     }
 

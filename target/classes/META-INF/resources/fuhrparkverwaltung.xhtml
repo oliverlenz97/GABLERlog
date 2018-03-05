@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Fuhrparkverwaltung</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:growl id="messages"/>
+
+        <ui:include src="../templates/mainmenu.xhtml"/>
+
+    </h:form>
+
+    <h:form id="fuhrpark">
+        <p:dataTable var="entry" value="#{fuhrparkBean.fuhrpark}" emptyMessage="Keine Fahrzeuge vorhanden">
+
+            <f:facet name="header">
+                <h:outputText value="Fuhrparkverwaltung"/>
+                <div style="clear:both"/>
+            </f:facet>
+
+            <p:column headerText="Id">
+                <h:outputText value="#{entry.fahrzeugId}"/>
+            </p:column>
+
+            <p:column headerText="Marke">
+                <h:outputText value="#{entry.marke}"/>
+            </p:column>
+
+            <p:column headerText="Kennzeichen">
+                <h:outputText value="#{entry.kennzeichen}"/>
+            </p:column>
+
+            <p:column headerText="Höhe">
+                <h:outputText value="#{entry.hoehe}"/>
+            </p:column>
+
+            <p:column headerText="Länge">
+                <h:outputText value="#{entry.laenge}"/>
+            </p:column>
+
+            <p:column headerText="Breite">
+                <h:outputText value="#{entry.breite}"/>
+            </p:column>
+
+            <p:column headerText="Leergewicht">
+                <h:outputText value="#{entry.leergewicht}"/>
+            </p:column>
+
+            <p:column headerText="Maximales Gewicht">
+                <h:outputText value="#{entry.maximalGewicht}"/>
+            </p:column>
+
+            <f:facet name="footer">
+                <div style="clear:both"/>
+            </f:facet>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>

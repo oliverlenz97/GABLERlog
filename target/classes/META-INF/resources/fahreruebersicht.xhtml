@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Fahrerübersicht</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:growl id="messages"/>
+
+        <ui:include src="../templates/mainmenu.xhtml"/>
+
+    </h:form>
+    <h:form id="drivers">
+        <p:dataTable var="entry" value="#{fahrerBean.fahrer}" emptyMessage="Keine Kunden vorhanden">
+
+            <f:facet name="header">
+                <h:outputText value="Fahrerübersicht"/>
+                <div style="clear:both"/>
+            </f:facet>
+
+            <p:column headerText="Vorname">
+                <h:outputText value="#{entry.vorname}"/>
+            </p:column>
+
+            <p:column headerText="Nachname">
+                <h:outputText value="#{entry.nachname}"/>
+            </p:column>
+
+            <p:column headerText="Führerscheinklasse">
+                <h:outputText value="#{entry.fuehrerscheinKlasse}"/>
+            </p:column>
+
+            <p:column headerText="Id">
+                <h:outputText value="#{entry.fahrerId}"/>
+            </p:column>
+
+            <f:facet name="footer">
+                <div style="clear:both"/>
+            </f:facet>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>

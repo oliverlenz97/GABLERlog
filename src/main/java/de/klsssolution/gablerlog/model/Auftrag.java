@@ -45,10 +45,7 @@ public class Auftrag {
 
         Auftrag auftrag1 = new Auftrag();
         Route route = new Route();
-        Kunde kunde1 = new Kunde();
-        kunde1.setKundenId(1);
-        kunde1.setAnsprechpartner("Max Meier");
-        kunde1.setFirmenbezeichnung("TestFirma GmbH");
+        Kunde kunde1 = Kunde.getAlleKunden().get(2);
         auftrag1.setKunde(kunde1);
         Ladung ladung1 = new Ladung();
         ladung1.setBeschreibung("Gläser");
@@ -82,17 +79,13 @@ public class Auftrag {
 
         Auftrag auftrag2 = new Auftrag();
         Route route2 = new Route();
-        Kunde kunde2 = new Kunde();
-        kunde2.setFirmenbezeichnung("Meier und Sohn");
-        kunde2.setAnsprechpartner("Anna Schneider");
-        kunde2.setKundenId(98765);
-        auftrag2.setKunde(kunde2);
+        Kunde kunde = Kunde.getAlleKunden().get(0);
+        auftrag2.setKunde(kunde);
         Ladung ladung2 = new Ladung();
         ladung2.setBeschreibung("Stühle");
         ladung2.setBreite(2.04);
         ladung2.setGewicht(20);
         ladung2.setHoehe(1.5);
-        ladung2.setId(2);
         ladung2.setKategorie("Haushalt");
         ladung2.setLaenge(12);
         auftrag2.setLadung(ladung2);
@@ -104,7 +97,7 @@ public class Auftrag {
         startadresse2.setOrt("Hamburg");
         zieladresse2.setOrt("Köln");
         zieladresse2.setHausnummer(2);
-        startadresse2.setPostleitzahl(45);
+        startadresse2.setHausnummer(45);
         startadresse2.setPostleitzahl(20095);
         zieladresse2.setPostleitzahl(50667);
         startadresse2.setStrasse("Hauptstraße");
@@ -114,6 +107,38 @@ public class Auftrag {
         route2.setZieladresse(zieladresse2);
         auftrag2.setRoute(route2);
         alleAuftraege.add(auftrag2);
+
+
+        Auftrag auftrag3 = new Auftrag();
+        Route route3 = new Route();
+        Kunde kunde3 = Kunde.getAlleKunden().get(3);
+        auftrag3.setKunde(kunde3);
+        Ladung ladung3 = new Ladung();
+        ladung3.setBeschreibung("Esstisch");
+        ladung3.setBreite(1.5);
+        ladung3.setGewicht(100);
+        ladung3.setHoehe(0.5);
+        ladung3.setKategorie("Haushalt");
+        ladung3.setLaenge(1);
+        auftrag3.setLadung(ladung3);
+        auftrag3.setStatus("Erfasst");
+        auftrag3.setFaelligBis(new Date(118, 5, 23));
+
+        Adresse startadresse3 = new Adresse();
+        Adresse zieladresse3 = new Adresse();
+        startadresse3.setOrt("Reinheim");
+        zieladresse3.setOrt("Stuttgart");
+        zieladresse3.setHausnummer(60);
+        startadresse3.setHausnummer(62);
+        startadresse3.setPostleitzahl(64354);
+        zieladresse3.setPostleitzahl(70376);
+        startadresse3.setStrasse("Darmstädter Straße");
+        zieladresse3.setStrasse("Murgtalstraße");
+
+        route3.setStartadresse(startadresse3);
+        route3.setZieladresse(zieladresse3);
+        auftrag3.setRoute(route3);
+        alleAuftraege.add(auftrag3);
 
         return alleAuftraege;
     }

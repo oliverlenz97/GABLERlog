@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Gabler Log - Login</title>
+</h:head>
+<h:body>
+    <h:form id="login">
+        <p:messages id="message" showDetail="true" closable="true"/>
+        <p:panel header="Gabler Log - Login">
+            <h:panelGrid columns="2" cellpadding="4">
+                <h:outputText value="Username: "/>
+                <p:inputText id="username" value="#{loginBean.userName}" placeholder="Username"/>
+                <h:outputText value="Passwort: " feedback="false"/>
+                <p:password placeholder="Passwort" value="#{loginBean.passwort}" feedback="false"/>
+
+            </h:panelGrid>
+
+            <p:commandButton type="submit" id="loginButton" action="#{loginBean.login}"
+                             value="Anmelden" ajax="false" icon="fa fa-check" update="login:link login:message"/>
+
+        </p:panel>
+    </h:form>
+</h:body>
+</html>

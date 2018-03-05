@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+</h:head>
+
+<h:body>
+    <p:menubar>
+        <p:menuitem>
+            <h:link outcome="/startseite.xhmtl">
+                <h:graphicImage name="/images/Logo_GablerLog.png" height="50"/>
+            </h:link>
+        </p:menuitem>
+
+        <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
+
+        <p:menuitem value="Fahrerverwaltung" url="/fahreruebersicht.xhtml"/>
+
+        <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
+
+        <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
+
+        <p:submenu label="Aufträge">
+            <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
+            <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
+        </p:submenu>
+
+        <p:submenu label="Touren">
+            <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
+            <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
+            <p:menuitem value="Tourplan erstellen" url="/tourBerechnen.xhtml"/>
+        </p:submenu>
+
+        <p:menuitem value="Hilfe" icon="ui-icon-help" url="/hilfe.xhtml"/>
+
+        <f:facet name="options">
+            <p:inputText style="margin-right:10px" placeholder="Search"/>
+            <p:commandButton type="submit" value="Logout" action="#{loginBean.loginAufrufen}" icon="ui-icon-extlink"/>
+        </f:facet>
+
+    </p:menubar>
+</h:body>
+
+</html>
