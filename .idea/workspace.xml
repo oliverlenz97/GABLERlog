@@ -7,14 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1da9a69-f6f1-4033-9c65-39fbaf561e1c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/GABLERlog_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/GABLERlog_war_exploded.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xerial_sqlite_jdbc_3_7_2.xml" afterPath="" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/images/Logo_GablerLog.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/GABLERlog.iml" afterPath="$PROJECT_DIR$/GABLERlog.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/MapsBean.java" afterPath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/MapsBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/SampleBean.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragAnlegen.xhtml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragAnlegen.xhtml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/resources/images/GablerLogLogo.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,7 +57,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapsBean.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MapsBean.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/MapsBean.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -71,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuftragsallokationBean.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/AuftragsallokationBean.java">
+      <file leaf-file-name="mainmenu.xhtml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-540">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="105">
+              <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -101,26 +97,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tourAnlegen.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/tourAnlegen.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="81" column="53" lean-forward="false" selection-start-line="81" selection-start-column="53" selection-end-line="81" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auftragsuebersicht.xhtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragsuebersicht.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TourenberechnungBean.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourenberechnungBean.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -140,6 +116,13 @@
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Logo_GablerLog.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/images/Logo_GablerLog.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -238,7 +221,6 @@
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/AuftragsBean.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/error/error.xhtml" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/touruebersicht.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/TourBean.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/login.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/LoginBean.java" />
@@ -246,6 +228,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/resources/auftragAnlegen.xhtml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/MapsBean.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml" />
       </list>
     </option>
   </component>
@@ -857,11 +840,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520115695100</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Nicht benötigte Klassen entfernt.">
+      <created>1520253628515</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1520253628515</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184599000" />
+    <option name="totallyTimeSpent" value="185097000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -893,7 +883,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.8754535" sideWeight="0.48168498" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2382104" sideWeight="0.48168498" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20798065" sideWeight="0.49006623" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280507" sideWeight="0.4945055" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
@@ -1008,7 +998,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Auftragsallokation verbessert: es muss mind. ein Auftrag ausgewählt werden." />
     <MESSAGE value="Auftragsallokation verbessert: es muss mind. ein Auftrag ausgewählt werden vor dem Speichern." />
     <MESSAGE value="Refactoring. Methoden zur Kapazitätsprüfung bei Tour implementiert." />
     <MESSAGE value="Auftrag anlegen fertiggestellt." />
@@ -1033,7 +1022,8 @@
     <MESSAGE value="Nicht verwendete Klassen gelöscht." />
     <MESSAGE value="Login ins Deutsche übersetzt." />
     <MESSAGE value="Tourenplan berechen: Startadresse und Zieladresse in eigene Zeilen." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tourenplan berechen: Startadresse und Zieladresse in eigene Zeilen." />
+    <MESSAGE value="Nicht benötigte Klassen entfernt." />
+    <option name="LAST_COMMIT_MESSAGE" value="Nicht benötigte Klassen entfernt." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1046,13 +1036,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/presentation/FuhrparkBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/error.xhtml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/de/klsssolution/gablerlog/model/Ladung.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1178,11 +1161,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/images/GablerLogLogo.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/views/secured/customerss.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1270,14 +1248,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="40" column="22" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="40" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="62" lean-forward="false" selection-start-line="33" selection-start-column="62" selection-end-line="33" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -1450,6 +1420,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/images/Logo_GablerLog.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/resources/images/GablerLogLogo.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/templates/mainmenu.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
           <folding />
         </state>
       </provider>
