@@ -10,14 +10,6 @@ public class MapsBean {
     private String startAdresse;
     private String zielAdresse;
 
-    /*@PostConstruct
-    public void setup() throws Exception {
-        GeoApiContext context = new GeoApiContext.Builder()
-                .apiKey("AIzaSyCISoSZlMcK_DOofSeZF0-CxSyoOEwOypM")
-                .build();
-        DirectionsResult directions = DirectionsApi.getDirections(context, "Forsthausstrasse 41, 64739 Hoechst", "Hauptstrasse 33 A, 97282 Retzstadt").await();
-    }*/
-
     public String getStartAdresse() {
         return startAdresse;
     }
