@@ -1,57 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-    <title>Tour-Übersicht</title>
+    <title>Tourübersicht</title>
 </h:head>
 <h:body>
     <h:form>
         <p:growl id="messages"/>
 
-        <p:menubar>
+        <ui:include src="../templates/mainmenu.xhtml"/>
 
-            <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
-
-            <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
-
-            <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
-
-            <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
-
-            <p:submenu label="Aufträge">
-                <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
-                <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
-            </p:submenu>
-
-            <p:submenu label="Touren">
-                <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
-                <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
-            </p:submenu>
-
-
-            <p:submenu label="Help" icon="ui-icon-help">
-                <p:menuitem value="Contents" url="#"/>
-                <p:submenu label="Search" icon="ui-icon-search">
-                    <p:submenu label="Text">
-                        <p:menuitem value="Workspace" url="#"/>
-                    </p:submenu>
-                    <p:menuitem value="File" url="#"/>
-                </p:submenu>
-            </p:submenu>
-
-            <f:facet name="options">
-                <p:inputText style="margin-right:10px" placeholder="Search"/>
-                <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"/>
-            </f:facet>
-        </p:menubar>
     </h:form>
     <h:form id="tourForm">
-        <p:dataTable var="tourTable" value="#{tourBean.tours}" emptyMessage="Keine Tour vorhanden" stickyHeader="true">
+        <p:dataTable id="tourTable" var="tour" value="#{tourBean.tours}" emptyMessage="Keine Tour vorhanden"
+                     stickyHeader="true">
+
 
             <f:facet name="header">
                 <h:outputText value="Tour-Übersicht"/>
@@ -62,34 +29,34 @@
             </p:column>
 
             <p:column headerText="ID" style="text-align: center">
-                <h:outputText value="#{tourTable.tourId}"/>
+                <h:outputText value="#{tour.tourId}"/>
             </p:column>
 
             <p:column headerText="Bezeichnung" style="text-align: center">
-                <h:outputText value="#{tourTable.bezeichnung}"/>
+                <h:outputText value="#{tour.bezeichnung}"/>
             </p:column>
 
-            <p:column headerText="erstellt" style="text-align: center">
-                <h:outputText value="#{tourTable.erstellZeit}"/>
-            </p:column>
-
-            <p:column headerText="fällig" style="text-align: center">
-                <h:outputText value="#{tourTable.faelligkeitsZeit}"/>
+            <p:column headerText="Startdatum" style="text-align: center">
+                <h:outputText value="#{tour.datumAusgeben(tour.startDatum)}"/>
             </p:column>
 
             <p:column headerText="Status" style="text-align: center">
-                <h:outputText value="#{tourTable.status}"/>
+                <h:outputText value="#{tour.status}"/>
             </p:column>
 
+
             <p:rowExpansion>
-                <p:panelGrid columns="5" columnClasses="label,value" style="width:800px">
+                <p:panelGrid columns="8" columnClasses="label,value">
                     <f:facet name="header">
                         <h:outputText value="Detailinfo zur Tour: "/>
                     </f:facet>
-                    <h:outputText value="Tour-Id:"/>
-                    <h:outputText value="#{tourTable.tourId}"/>
-                    <h:outputText value="Bezeichnung:"/>
-                    <h:outputText value="#{tourTable.bezeichnung}"/>
+                    <h:outputText value="FahrzeugId:"/>
+                    <h:outputText value="#{tour.fahrzeug.fahrzeugId}"/>
+                    <h:outputText value="Fahrer:"/>
+                    <h:outputText value="Martin Müller"/>
+                    <h:outputText value="Erstellt am:"/>
+                    <h:outputText value="#{tour.datumAusgeben(tour.erstellZeit)}"/>
+
                 </p:panelGrid>
             </p:rowExpansion>
             <f:facet name="footer">
@@ -97,6 +64,7 @@
                 </p:link>
             </f:facet>
         </p:dataTable>
+
     </h:form>
 </h:body>
 </html>

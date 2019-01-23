@@ -1,83 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-    <title>Tour anlegen</title>
+    <title>Auftragsallokation</title>
 </h:head>
 <h:body>
-    <h:form>
-        <p:growl id="messages"/>
+    <h:form id="header">
+        <p:growl id="growl"/>
+        <ui:include src="../templates/mainmenu.xhtml"/>
 
-        <p:menubar>
-
-            <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
-
-            <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
-
-            <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
-
-            <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
-
-            <p:submenu label="Aufträge">
-                <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
-                <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
-            </p:submenu>
-
-            <p:submenu label="Touren">
-                <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
-                <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
-            </p:submenu>
-
-
-            <p:submenu label="Help" icon="ui-icon-help">
-                <p:menuitem value="Contents" url="#"/>
-                <p:submenu label="Search" icon="ui-icon-search">
-                    <p:submenu label="Text">
-                        <p:menuitem value="Workspace" url="#"/>
-                    </p:submenu>
-                    <p:menuitem value="File" url="#"/>
-                </p:submenu>
-            </p:submenu>
-
-            <f:facet name="options">
-                <p:inputText style="margin-right:10px" placeholder="Search"/>
-                <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"/>
-            </f:facet>
-        </p:menubar>
     </h:form>
+    <h:form id="auftragsallokation">
+        <p:messages id="message" showDetail="true" closable="true"/>
 
-    <h:form id="tourEingabe">
-        <h2>Tour anlegen: </h2>
-        <p>
-            Bitte die Daten zur Tour eingeben. TourId und Erstellzeit werden automatisch hinzugefügt. Zum Speichern der Tour den Button "Speichern" betätigen.
-        </p>
-        <h:panelGrid id = "tourEingabeGrid" columns="2" cellpadding="5">
-            <p:outputLabel for="bez" value="Bezeichnung: " />
-            <p:inputMask id="bez" value="#{tour.bezeichnung}" mask="" required="true"/>
 
-            <p:outputLabel for="faellig" value="fällig am:" />
-            <p:inputMask id="faellig" value="#{tour.faelligkeitsZeit}" mask="99.99.9999 99:99" required="true" placeholder="DD.MM.YYYY hh:mm"/>
+        <h3> Fahrzeug zuordnen </h3>
+        <p> Bitte Fahrzeugnummer eingeben und danach Aufträge zuordnen. Die Kapazität wird automatisch geprüft. </p>
+        <p:panelGrid id="fahrzeugGrid" columns="2" layout="grid" style="margin-bottom:20px">
+            <h:outputLabel value="Fahrzeugnummer: "/>
+            <h:panelGroup>
+                <p:inputNumber id="Fahrzeugnummer" value="#{auftragsallokationBean.fahrzeugnummer}" decimalPlaces="0"
+                               required="true" requiredMessage="Bitte Fahrzeug auswählen"/>
+            </h:panelGroup>
 
-            <p:commandButton value="Reset" type="reset" />
-            <p:commandButton value="Speichern" update="display"
-                             oncomplete="PF('dlg').show()"  ajax="true"/>
+            <h:outputLabel value="Tour Startdatum: " rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
+            <h:panelGroup>
+
+                <p:calendar id="date" value="#{auftragsallokationBean.startDatum}"
+                            mindate="#{auftragsallokationBean.heute}"
+                            locale="de" navigator="true" pattern="dd.MM.yyyy" immediate="true"
+                            rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
+
+            </h:panelGroup>
+            <h:outputLabel value="Beschreibung: " rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
+            <h:panelGroup>
+
+                <p:inputText id="Beschreibung" value="#{auftragsallokationBean.beschreibung}"
+                             rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
+            </h:panelGroup>
+        </p:panelGrid>
+
+        <p:separator/>
+
+
+        <h:panelGrid>
+            <h:panelGroup>
+                <p:dataTable id="nichtGewaehlteAuftraege"
+                             emptyMessage="Alle Aufträge sind bereits einer Tour zugeordnet"
+                             var="entry" value="#{auftragsallokationBean.nichtZugeordneteAuftraege}"
+                             rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
+                    <f:facet name="header">
+                        <h4>Aufträge wählen und der Tour zuordnen</h4>
+                    </f:facet>
+                    <p:column headerText="" style="width:70px;text-align:center">
+                        <p:commandLink actionListener="#{auftragsallokationBean.auftragAuswaehlen(entry)}" value="+"
+                                       update=":auftragsallokation:nichtGewaehlteAuftraege :auftragsallokation:gewaehlteAuftraege">
+                        </p:commandLink>
+                    </p:column>
+
+                    <p:column headerText="Kunde" filterBy="#{entry.kunde.firmenbezeichnung}"
+                              filterMatchMode="contains">
+                        <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
+                    </p:column>
+
+                    <p:column headerText="Auftragsnummer">
+                        <h:outputText value="#{entry.auftragsnummer}"/>
+                    </p:column>
+
+                    <p:column headerText="Fällig bis">
+                        <h:outputText value="#{entry.datumAusgeben(entry.faelligBis)}"/>
+                    </p:column>
+
+                    <p:column headerText="Kunde">
+                        <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
+                    </p:column>
+
+                    <p:column headerText="Startadresse">
+                        <h:outputText value="#{entry.route.startadresse.toString()}"/>
+                    </p:column>
+
+                    <p:column headerText="Zieladresse">
+                        <h:outputText value="#{entry.route.zieladresse.toString()}"/>
+                    </p:column>
+
+                    <p:column headerText="Ladung">
+                        <h:outputText value="#{entry.ladung.beschreibung}"/>
+                    </p:column>
+
+                    <p:column headerText="Ladung Gewicht (kg)">
+                        <h:outputText value="#{entry.ladung.gewicht}"/>
+                    </p:column>
+
+                </p:dataTable>
+            </h:panelGroup>
+
+            <p:separator/>
+
+            <h:panelGroup>
+                <p:dataTable id="gewaehlteAuftraege" emptyMessage="Kein Auftrag ausgewählt" var="entry"
+                             value="#{auftragsallokationBean.gewaehlteAuftraege}"
+                             rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}">
+                    <f:facet name="header">
+                        <h2>Merkliste</h2>
+                    </f:facet>
+
+                    <p:column headerText="" style="width:70px;text-align:center">
+                        <p:commandLink actionListener="#{auftragsallokationBean.auftragEntfernen(entry)}" value="-"
+                                       update=":auftragsallokation:nichtGewaehlteAuftraege :auftragsallokation:gewaehlteAuftraege">
+
+                        </p:commandLink>
+                    </p:column>
+
+                    <p:column headerText="Kunde" filterBy="#{entry.kunde.firmenbezeichnung}"
+                              filterMatchMode="contains">
+                        <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
+                    </p:column>
+
+                    <p:column headerText="Auftragsnummer">
+                        <h:outputText value="#{entry.auftragsnummer}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:panelGroup>
         </h:panelGrid>
 
-        <p:dialog widgetVar="dlg" modal="true" resizable="false" header="Gespeichert. Werte:" showEffect="fade">
-            <p:panelGrid id="display" columns="2" columnClasses="label,value">
-                <h:outputText value="Bezeichnung: " />
-                <h:outputText id="bezValue" value="#{tour.getBezeichnung()}" />
+        <p:commandButton value="Speichern" type="submit" id="speichernButton"
+                         actionListener="#{auftragsallokationBean.speichern()}"
+                         ajax="true" update="auftragsallokation:message"
+                         rendered="#{auftragsallokationBean.fahrzeugAusgewaehlt}"/>
 
-                <h:outputText value="fällig am: " />
-                <h:outputText id="faelligValue" value="#{tour.faelligkeitsZeit}" />
-            </p:panelGrid>
-        </p:dialog>
     </h:form>
-
 </h:body>
+
 </html>

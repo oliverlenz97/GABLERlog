@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+<html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -11,45 +11,11 @@
 </h:head>
 <h:body>
     <h:form>
-    <p:growl id="messages"/>
+        <p:growl id="messages"/>
 
-    <p:menubar>
+        <ui:include src="../templates/mainmenu.xhtml"/>
 
-        <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
-
-        <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
-
-        <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
-
-        <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
-
-        <p:submenu label="Aufträge">
-            <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
-            <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
-        </p:submenu>
-
-        <p:submenu label="Touren">
-            <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
-            <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
-        </p:submenu>
-
-
-        <p:submenu label="Help" icon="ui-icon-help">
-            <p:menuitem value="Contents" url="#"/>
-            <p:submenu label="Search" icon="ui-icon-search">
-                <p:submenu label="Text">
-                    <p:menuitem value="Workspace" url="#"/>
-                </p:submenu>
-                <p:menuitem value="File" url="#"/>
-            </p:submenu>
-        </p:submenu>
-
-        <f:facet name="options">
-            <p:inputText style="margin-right:10px" placeholder="Search"/>
-            <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"/>
-        </f:facet>
-    </p:menubar>
-</h:form>
+    </h:form>
     <h:form id="customers">
         <p:dataTable var="entry" value="#{kundenBean.kunden}" emptyMessage="Keine Kunden vorhanden">
 
@@ -71,9 +37,6 @@
             </p:column>
 
             <f:facet name="footer">
-                <h:outputLink url="http://localhost:8080/kundeHinzufuegen.xhtml">
-                    <h:outputText value="Kunde anlegen"/>
-                </h:outputLink>
                 <div style="clear:both"/>
             </f:facet>
         </p:dataTable>

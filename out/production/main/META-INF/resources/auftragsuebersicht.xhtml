@@ -3,6 +3,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -12,45 +13,12 @@
     <h:form>
         <p:growl id="messages"/>
 
-        <p:menubar>
+        <ui:include src="../templates/mainmenu.xhtml"/>
 
-            <p:menuitem value="Startseite" icon="ui-icon-home" url="/startseite.xhtml"/>
-
-            <p:menuitem value="Fuhrparkverwaltung" url="/fuhrparkverwaltung.xhtml"/>
-
-            <p:menuitem value="Fahrerübersicht" url="/fahreruebersicht.xhtml"/>
-
-            <p:menuitem value="Kunden" url="/kundenuebersicht.xhtml"/>
-
-            <p:submenu label="Aufträge">
-                <p:menuitem value="Übersicht" url="/auftragsuebersicht.xhtml"/>
-                <p:menuitem value="Auftrag anlegen" url="/auftragAnlegen.xhtml"/>
-            </p:submenu>
-
-            <p:submenu label="Touren">
-                <p:menuitem value="Übersicht" url="/touruebersicht.xhtml"/>
-                <p:menuitem value="Tour anlegen" url="/tourAnlegen.xhtml"/>
-            </p:submenu>
-
-
-            <p:submenu label="Help" icon="ui-icon-help">
-                <p:menuitem value="Contents" url="#"/>
-                <p:submenu label="Search" icon="ui-icon-search">
-                    <p:submenu label="Text">
-                        <p:menuitem value="Workspace" url="#"/>
-                    </p:submenu>
-                    <p:menuitem value="File" url="#"/>
-                </p:submenu>
-            </p:submenu>
-
-            <f:facet name="options">
-                <p:inputText style="margin-right:10px" placeholder="Search"/>
-                <p:commandButton type="button" value="Logout" icon="ui-icon-extlink"/>
-            </f:facet>
-        </p:menubar>
     </h:form>
-    <h:form id="drivers">
-        <p:dataTable var="entry" value="#{auftragsBean.auftraege}" emptyMessage="Keine Kunden vorhanden">
+    <h:form id="auftraege">
+        <p:dataTable var="entry" value="#{auftragsBean.auftraege}" emptyMessage="Keine Kunden vorhanden"
+                     id="auftragTable">
 
             <f:facet name="header">
                 <h:outputText value="Auftragsübersicht"/>
@@ -61,20 +29,39 @@
                 <h:outputText value="#{entry.auftragsnummer}"/>
             </p:column>
 
+            <p:column headerText="Fällig bis">
+                <h:outputText value="#{entry.datumAusgeben(entry.faelligBis)}"/>
+            </p:column>
+
             <p:column headerText="Kunde">
                 <h:outputText value="#{entry.kunde.firmenbezeichnung}"/>
             </p:column>
 
             <p:column headerText="Startadresse">
-                <h:outputText value="#{entry.route.startadresse.showAdresse()}"/>
+                <h:outputText value="#{entry.route.startadresse.toString()}"/>
             </p:column>
 
             <p:column headerText="Zieladresse">
-                <h:outputText value="#{entry.route.zieladresse.showAdresse()}"/>
+                <h:outputText value="#{entry.route.zieladresse.toString()}"/>
             </p:column>
 
             <p:column headerText="Ladung">
                 <h:outputText value="#{entry.ladung.beschreibung}"/>
+            </p:column>
+
+            <p:column headerText="Ladung Gewicht (kg)">
+                <h:outputText value="#{entry.ladung.gewicht}"/>
+            </p:column>
+
+
+            <p:column headerText="Status">
+                <h:outputText value="#{entry.status}"/>
+            </p:column>
+
+            <p:column headerText="">
+                <p:commandLink value="Loeschen" type="button"
+                               action="#{auftragsBean.actionButtonLoeschen(entry)}" update="auftraege:auftragTable">
+                </p:commandLink>
             </p:column>
 
             <!-- url="/auftragAnlegen.xhtml" -->
@@ -86,6 +73,21 @@
                 <div style="clear:both"/>
             </f:facet>
         </p:dataTable>
+
+        <p:dialog id="loeschenDialog" header="Auftrag wirklich löschen?" widgetVar="digi" minHeight="50"
+                  modal="true">
+            <p:ajax event="close"/> <!--  update=":loeschenDialog" -->
+            <p:panelGrid>
+                <h:panelGroup>
+
+                </h:panelGroup>
+                <h:panelGroup>
+                    <p:commandButton value="Löschen"
+                                     actionListener="#{(auftragsBean.auftragLoeschen())}"
+                                     update="auftraege:auftragTable" style="margin-left:55px"/>
+                </h:panelGroup>
+            </p:panelGrid>
+        </p:dialog>
     </h:form>
 </h:body>
 </html>
